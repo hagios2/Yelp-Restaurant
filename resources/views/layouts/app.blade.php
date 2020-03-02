@@ -7,7 +7,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    <meta http-equiv="Content-Security-Policy" content="block-all-mixed-content">
+
+    <title>Yelp Restaurant</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" ></script>

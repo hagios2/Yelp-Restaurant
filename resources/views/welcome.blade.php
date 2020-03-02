@@ -151,14 +151,10 @@
 
                 $.each(data.businesses, function(i ,restaurant){
                     
-                    $('#businessDiv').append('<div class="card col-md-4 col-lg-4" style="width: 18rem;"><img class="card-img-top" src="'+restaurant.image_url+'" alt="Card image cap"><div class="card-body"><h5 class="card-title">Card title</h5><p class="card-text">'+restaurant.name+'<br>Rating: '+ restaurant.rating+'</p><a href="/business/'+restaurant.id+'" class="btn btn-primary">Go somewhere</a></div></div></div></div><br>');
+                    $('#businessDiv').append('<div class="card col-md-4 col-lg-4" style="width: 18rem;"><img class="card-img-top" src="'+restaurant.image_url+'" alt="Card image cap"><div class="card-body"><h5 class="card-title">Card title</h5><p class="card-text">'+restaurant.name+'<br>Rating: '+ restaurant.rating +'</p><a href="/business/'+restaurant.id+'" class="btn btn-primary">Go somewhere</a></div></div></div></div><br>');
                 });
 
-
-
                 console.log(data);
-
-
 
             });         
 
