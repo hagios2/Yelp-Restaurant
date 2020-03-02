@@ -178,12 +178,16 @@
 
                   //paginationVars.dataToDisplay = 
 
+                  $('#main_businessDiv').show();
+
+                  $('#main_businessDiv').html('<br><div id="businessDiv"></div>');
+
 
                   $.each(paginationVars.paginationData, function(i, data){
 
-                        $('#cardDiv').append('<div class="card">');
+                        $('#businessDiv').append('<div id="main-card-'+i+'" class="card">');
 
-                        $('#cardDiv').html('<div class="card-title"><h3>'+ data.name +' </h3></div>');
+                        $('#main-card-' +i).html('<div class="card-title"><h3>'+ data.name +' </h3></div>');
 
                         let restaurant = {
                           
@@ -194,7 +198,7 @@
                           cords : data.coordinates.latitude +', '+ data.coordinates.longitude,
                         };
 
-                        $('#cardDiv').append('<div class="card-img">');//carousel
+                        $('#main-card-' +i').append('<div class="card-img">');//carousel
 
                         $('card-img').append('<div id="carouselExampleIndicators" class="carousel slide car'+ i +'" data-ride="carousel">' +
                         '<ol id="carol_ind" class="carousel-indicators"></ol>');
@@ -215,19 +219,19 @@
                           
                         });
                                 
-                        $('#cardDiv').append('<div id="card-body card-body'+ i +'" class="card-body">');
+                        $('#main-card-' +i').append('<div id="card-body card-body'+ i +'" class="card-body">');
 
                         $('#card-body'+ i).append('<div id="card-body-row'+i+'" class="row">');
 
-                          $('#card-body-row'+i).append('<div>'+'<i class="fas fa-phone"></i> '+data.phone+'<pReviews: '+data.review_count+'></p></div>');
+                          $('#card-body-row'+i).append('<div class="col-md-6 col-lg-6">'+'<i class="fas fa-phone"></i> '+data.phone+'<pReviews: '+data.review_count+'></p></div>');
 
-                          $('#card-body-row'+i).append('<div class="offset-5" style="width: 100%"><iframe width="100%" height="100" src="https://maps.google.com/maps?width=100%&amp;height=100&amp;hl=en&amp;coord='+restaurant.cords+'q=+('+restaurant.name+')&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">latitude longitude finder</a></iframe></div><br />');
+                          $('#card-body-row'+i).append('<div class="class="col-md-4 col-lg-4 offset-5"><iframe width="100%" height="100" src="https://maps.google.com/maps?width=100%&amp;height=100&amp;hl=en&amp;coord='+restaurant.cords+'q=+('+restaurant.name+')&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">latitude longitude finder</a></iframe></div><br />');
 
                           $('#card-body-row'+i).append('</div>');//end row
 
-                        $('#cardDiv').append('</div>');//end class card-body
+                        $('#main-card-' +i').append('</div>');//end class card-body
 
-                        $('#cardDiv').append('</div>');//end class card
+                        $('#main-card-' +i').append('</div> <br>');//end class card
                   
                   });
 

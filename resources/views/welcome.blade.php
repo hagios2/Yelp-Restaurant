@@ -225,10 +225,6 @@
 
             }).done(function(data){
 
-                $('#main_businessDiv').show();
-
-                $('#main_businessDiv').html('<br><div id="businessDiv"></div>');
-
            /*      $('#scalingDiv').hover(function(){
 
                     $(this).css({transform: 'scale(1.5)'});
