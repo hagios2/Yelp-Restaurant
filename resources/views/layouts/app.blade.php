@@ -18,6 +18,15 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('extra-css')
+
+   {{--  <style>
+        body {
+            background-image: url("/storage/images/_hab0660.jpg");
+            background-repeat: no-repeat;
+           /*  background-size: 70rem; */
+        }
+    </style> --}}
 </head>
 <body>
     <div id="app">

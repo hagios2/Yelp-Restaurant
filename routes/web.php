@@ -18,3 +18,16 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/business/{business_id}', function($business_id){
+
+    if($business_id)
+    {
+        return view('business', compact('business_id'));
+    }
+
+    return back();
+
+ 
+
+});
