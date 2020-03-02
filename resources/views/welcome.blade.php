@@ -8,7 +8,7 @@
 
 @section('content')
 
-    <div id="app" class="container">
+    <div id="app" class="container-fluid">
 
         <!-- Search form -->
         
@@ -19,22 +19,31 @@
 
             <span id="autocomp"></span>
 
-            @include('loaders.main_page_loader')
 
         </form> <br>
 
        <div style="font-size:1rem;" class="d-flex justify-content-center"> <span><i class="fas fa-utensils"></i> Restaurant &emsp;| &emsp; <i class="fas fa-coffee"></i> Breakfast and brunch</span>
-      &emsp; | &emsp; <a id="loc_delivery" href="/transactions/delivery"><i class="fas fa-shipping-fast"></i> Available delivery</a></div>
+      &emsp; | &emsp; <a id="loc_delivery" href="#"><i class="fas fa-shipping-fast"></i> Available delivery</a></div>
 
 
 
-    <div class="row">#171E2A
+    <div class="row">
 
-        div
+        <div id="main_businessDiv" style="display:none;" class="col-lg-7 col-md-7 col-sm-10 col-xs-10"></div>
+
+        <div>
+            <div style="width: 100%"><iframe id="googlemap" width="300%" height="250" src="https://maps.google.com/maps?width=300%&amp;height=250&amp;hl=en&amp;coord=37.7790262, -122.4199061&amp;q=San%20Francisco%2C%20city%2C%20United%20States%20of%20America+(Restaurant%20Delivery)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">gps coordinates finder</a></iframe></div><br />
+           
+        </div>
+
+
+        <div class="col-lg-3 col-md-3"></div>
+
+
 
     </div>
         
-    <div id="main_businessDiv" style="display:none;"></div>
+
     
 
     
@@ -46,8 +55,59 @@
 
 <script>
 
+
+
     $(document).ready(function(){
 
+        var businessId;
+
+        /* 
+            declaring var for page pagination
+         */
+        let paginationVars = {
+
+            totalNumberOfPage : 0,
+
+            paginationData : [],
+
+            startingPage : 1,
+
+            LengthOfdataPerpage : 3,
+
+            dataToDisplay : [],
+
+            paginationDataLength : 0
+
+        };
+
+       // var 
+
+     //   getLocation();
+
+        /* function getLocation() {
+            
+            if (navigator.geolocation) {
+           
+                navigator.geolocation.getCurrentPosition(loc);
+            }
+        }
+
+
+        var loc = function showPosition(position) {
+
+            console.log(position);
+        
+            var lat =  position.coords.latitude,
+                long = position.coords.longitude,
+                cords = lat + ',' + long;
+
+             $('googlemap').attr('src', 'https://maps.google.com/maps?width=300%&amp;height=250&amp;hl=en&amp;q='+cords+'&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed'); 
+        } */
+
+
+        /*
+
+        */
         let requests = {
             
             main_url : 'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/',
@@ -68,6 +128,7 @@
 
             if(searchItem != '')
             {
+
                 let data = {
 
                     text: searchItem,
@@ -136,6 +197,11 @@
 
                 });        
 
+            } else {
+
+                /* hide autocomplete box if already displayed*/
+
+                $('#autocomp').hide();
             }
 
         });
@@ -161,16 +227,21 @@
 
                 $('#main_businessDiv').show();
 
-                $('#main_businessDiv').html('<br><div class="row" id="businessDiv"></div>');
+                $('#main_businessDiv').html('<br><div id="businessDiv"></div>');
 
-                $('#scalingDiv').hover(function(){
+           /*      $('#scalingDiv').hover(function(){
 
                     $(this).css({transform: 'scale(1.5)'});
-                });
+                }); */
 
                 $.each(data.businesses, function(i ,restaurant){
+
+
+                    getBusiness(restaurant.id)
                     
-                    $('#businessDiv').append('<div class="card col-md-4 col-lg-4" style="width: 18rem;"><img class="card-img-top" src="'+restaurant.image_url+'" alt="Card image cap"><div class="card-body"><h5 class="card-title">Card title</h5><p class="card-text">'+restaurant.name+'<br>Rating: '+ restaurant.rating +'</p><a href="/business/'+restaurant.id+'" class="btn btn-primary">Go somewhere</a></div></div></div></div><br>');
+                  /*   $('#businessDiv').append('<div class="card"><img class="card-img-top" src="'+restaurant.image_url+'" alt="Card image cap"><div class="card-body"><h5 class="card-title">Card title</h5><p class="card-text">'+restaurant.name+'<br>Rating: '+ restaurant.rating +'</p><a href="/business/'+restaurant.id+'" class="btn btn-primary">Go somewhere</a></div></div></div></div><br>'); */
+
+
                 });
 
                 console.log(data);
@@ -178,6 +249,11 @@
             });         
 
         }
+
+
+        @include('business')
+
+
 
     });
 

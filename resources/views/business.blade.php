@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('extra-css')
 
@@ -88,8 +88,8 @@
     
 @endsection
 
-@section('content')
-    
+@section('content') --}}
+{{--     
     <div class="container">
 
       <div class="lds-spinner"><div></div><div></div><div></div>
@@ -105,19 +105,13 @@
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol id="carol_ind" class="carousel-indicators">
                   {{-- <li id="first-carol-ind" data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li> --}}
-                 {{--  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li> --}}
+          {{--    
                 </ol>
                 <div id="carol" class="carousel-inner">
                   <div class="carousel-item active">
                     <img id="first-car" style="max-height:30rem;" class="d-block w-100 card-image-top"   alt="First slide">
                   </div>
-                  {{-- <div class="carousel-item">
-                    <img class="d-block w-100" src="..." alt="Second slide">
-                  </div>
-                  <div class="carousel-item">
-                    <img class="d-block w-100" src="..." alt="Third slide">
-                  </div>--}}
+            
                 </div> 
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -136,16 +130,10 @@
 
         </div>
         
-    </div>
+    </div> --}}
 
-@endsection
 
-@section('extra-js')
-
-    <script>
-
-        $(document).ready(function(){
-
+{{-- 
             let requests = {
             
                 main_url : 'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/',
@@ -155,7 +143,12 @@
                     Authorization:'Bearer 0-EMxQYxzSV7h17Si28ZJ1x16_ss86MGSaP6gz3T44mfac2SW0Er4aWAKQt2v0htbS5TRlTN9_B07FMMyb8VeK7BjvJV0DNTjOHIgX-yy32ERf5ZK75oKN9kTghbXnYx'
                 },
 
-            };
+            }; --}}
+
+     {{--    <script> --}}
+
+          function getBusiness(businessId)
+          {
 
             let data = {
 
@@ -166,30 +159,98 @@
 
             $.ajax({
 
-             /*    url: requests.main_url + 'transactions/delivery/search', */
-                url: requests.main_url + 'businesses/{{$business_id}}',
+                url: requests.main_url + 'businesses/businessId',
                 headers: requests.headers,
                 dataType: 'json',
                 data: data
 
             }).done(function(data){
 
-              $('.lds-spinner').fadeOut('slow')
+              if(!jQuery.isEmptyObject(data))
+              {
 
-              $('#main_business_page').fadeIn(3000);
+                  paginationVars.paginationDataLength = data.length; 
 
-                $('#first-car').attr('src', data.image_url);
+                  paginationVars.paginationData = data;
 
-                $('#business_title').html('<p>'+data.name+'</p>')
+                  paginationVars.totalNumberOfPage = Math.ceil(paginationVars.paginationDataLength/paginationVars.LengthOfdataPerpage);
 
-                let carousel_id = 1;
+
+                  //paginationVars.dataToDisplay = 
+
+
+                  $.each(paginationVars.paginationData, function(i, data){
+
+                        $('#cardDiv').append('<div class="card">');
+
+                        $('#cardDiv').html('<div class="card-title"><h3>'+ data.name +' </h3></div>');
+
+                        let restaurant = {
+                          
+                          address : data.location.address1.replace(' ', '%'),
+
+                          name : data.name.replace(' ', '%20'),
+
+                          cords : data.coordinates.latitude +', '+ data.coordinates.longitude,
+                        };
+
+                        $('#cardDiv').append('<div class="card-img">');//carousel
+
+                        $('card-img').append('<div id="carouselExampleIndicators" class="carousel slide car'+ i +'" data-ride="carousel">' +
+                        '<ol id="carol_ind" class="carousel-indicators"></ol>');
+                        
+                        $('#carol_ind').append('<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>');
+
+                        $('.car'+i).append('<div class="carousel-inner"><div class="carousel-item active"><img class="d-block w-100" src="'+ data.image_ul+'" alt="First slide"></div><'); //set slider image to image_url
+                       
+                        let carousel_id = 1;
+                          
+                        $.each(data.photos, function(v ,pix){
+                      
+                          $('#carol_ind').append('<li data-target="#carouselExampleIndicators" data-slide-to="'+carousel_id+'"></li>');
+
+                          $('#carousel-inner').append('<div class="carousel-item"><img class="d-block w-100 card-image-top" style="max-height:30rem;" src="'+pix+'" alt="Second slide">');
+
+                          carousel_id ++;
+                          
+                        });
+                                
+                        $('#cardDiv').append('<div id="card-body card-body'+ i +'" class="card-body">');
+
+                        $('#card-body'+ i).append('<div id="card-body-row'+i+'" class="row">');
+
+                          $('#card-body-row'+i).append('<div>'+'<i class="fas fa-phone"></i> '+data.phone+'<pReviews: '+data.review_count+'></p></div>');
+
+                          $('#card-body-row'+i).append('<div class="offset-5" style="width: 100%"><iframe width="100%" height="100" src="https://maps.google.com/maps?width=100%&amp;height=100&amp;hl=en&amp;coord='+restaurant.cords+'q=+('+restaurant.name+')&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">latitude longitude finder</a></iframe></div><br />');
+
+                          $('#card-body-row'+i).append('</div>');//end row
+
+                        $('#cardDiv').append('</div>');//end class card-body
+
+                        $('#cardDiv').append('</div>');//end class card
+                  
+                  });
+
+
+              }
+
+/* 
+                  $('.lds-spinner').fadeOut('slow')
+
+                  $('#main_business_page').fadeIn(3000);
+
+                    $('#first-car').attr('src', data.image_url);
+
+                    $('#business_title').html('<p>'+data.name+'</p>')
+
+                    let carousel_id = 1;
                 
                 $.each(data.photos, function(i ,pix){
 
 
                     
                   //  $('#bizz').append('<div class="card col" style="height:16rem;"><img class="card-img-top" src="'+pix+'" alt="Card image cap"></div>');
-                    $('#carol_ind').append('<li data-target="#carouselExampleIndicators" data-slide-to="'+carousel_id+'"></li>');
+                    $('#carol_ind').append('<li data-target="#carouselExampleIndicators" data-slid        <script>e-to="'+carousel_id+'"></li>        <script>');
 
 
                     $('#carol').append('<div class="carousel-item"><img class="d-block w-100 card-image-top" style="max-height:30rem;" src="'+pix+'" alt="Second slide">');
@@ -199,7 +260,7 @@
 
                 $('.card-body').html('<div>'+'<i class="fas fa-phone"></i> '+data.phone+'<pReviews: '+data.review_count+'></p></div>');
 
-                console.log(data);
+                console.log(data); */
 
                 /* $('#autocomp').html('');
 
@@ -221,8 +282,7 @@
  */
             });         
 
-        });
+        }
 
-    </script>
-    
-@endsection
+    {{--     </script> --}}
+
