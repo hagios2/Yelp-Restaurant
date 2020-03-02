@@ -10,29 +10,55 @@
 
     <div id="app" class="container-fluid">
 
+        <div class="row justify-content-center">
+            <img src="https://s3-media0.fl.yelpcdn.com/assets/public/favicon.yelp_styleguide.yji-118ff475a341620f50dfbaddb83efb25.ico" alt="" srcset=""> <h4 class="title">Yelp Restaurant Services</h4> 
+        </div> <br>
+
+        <div class="col-md-8 col-lg-8 offset-3">
+            <span style="font-size:1rem; margin-right:2rem;">
+                <i style="color:#f2552c;" class="fas fa-search" aria-hidden="true"></i>  Find Restaurant
+            </span> 
+            <span style="font-size:1rem; margin-right:2rem;">
+                <i style="color:#f2552c;" class="fas fa-utensils"></i> Order Wish Meal
+            </span>
+            <span style="font-size:1rem; margin-right:2rem;">
+                <i style="color:#00ccff; font-size:1rem;" class="fas fa-shipping-fast" aria-hidden="true"></i>  Select Delivery
+            </span>
+            <span style="font-size:1rem; margin-right:2rem;">
+                <i style="color:#EFC050; font-size:1rem;" class="fas fa-gifts" aria-hidden="true"></i>  Enjoy your Day
+            </span>
+
+        </div> <br><br>
+
         <!-- Search form -->
+
+        <div>
+
+            <form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
+                <span>
+                    <input style="height:2rem; " class="form-control form-control-sm ml-3 w-75" type="text" id="search" placeholder="Search"
+                    aria-label="Search"> <i class="fas fa-search" aria-hidden="true"></i>
+                </span>
+               
+                <br>
+    
+                <div style="width:auto;" id="autocomp"></div>
+    
+    
+            </form> <br>
+    
+           <div style="font-size:1rem;" class="d-flex justify-content-center"> <span><i class="fas fa-utensils"></i> Restaurant &emsp;| &emsp; <i class="fas fa-coffee"> <a href="#"></i> Breakfast and brunch</a> &emsp; | &emsp; <a id="loc_delivery" href="#"><i class="fas fa-shipping-fast"></i> Available delivery</a></span></div>
+
+        </div>
         
-        <form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
-            <i class="fas fa-search" aria-hidden="true"></i>
-            <input class="form-control form-control-sm ml-3 w-75" type="text" id="search" placeholder="Search"
-            aria-label="Search"> <br>
-
-            <span id="autocomp"></span>
-
-
-        </form> <br>
-
-       <div style="font-size:1rem;" class="d-flex justify-content-center"> <span><i class="fas fa-utensils"></i> Restaurant &emsp;| &emsp; <i class="fas fa-coffee"></i> Breakfast and brunch</span>
-      &emsp; | &emsp; <a id="loc_delivery" href="#"><i class="fas fa-shipping-fast"></i> Available delivery</a></div>
-
-
 
     <div class="row">
 
         <div id="main_businessDiv" style="display:none;" class="col-lg-7 col-md-7 col-sm-10 col-xs-10"></div>
 
-        <div>
-            <div style="width: 100%"><iframe id="googlemap" width="300%" height="250" src="https://maps.google.com/maps?width=300%&amp;height=250&amp;hl=en&amp;coord=37.7790262, -122.4199061&amp;q=San%20Francisco%2C%20city%2C%20United%20States%20of%20America+(Restaurant%20Delivery)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">gps coordinates finder</a></iframe></div><br />
+        <div class="col-md-4 col-ld-4">
+
+            <div style="width: 100%"><iframe id="googlemap" width="100" height="250" src="https://maps.google.com/maps?width=300%&amp;height=250&amp;hl=en&amp;coord=37.7790262, -122.4199061&amp;q=San%20Francisco%2C%20city%2C%20United%20States%20of%20America+(Restaurant%20Delivery)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">gps coordinates finder</a></iframe></div><br />
            
         </div>
 
@@ -42,6 +68,9 @@
 
 
     </div>
+
+
+    {{--  --}}
         
 
     

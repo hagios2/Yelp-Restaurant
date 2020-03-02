@@ -198,7 +198,7 @@
                           cords : data.coordinates.latitude +', '+ data.coordinates.longitude,
                         };
 
-                        $('#main-card-' +i').append('<div class="card-img">');//carousel
+                        $('#main-card-' +i).append('<div class="card-img">');//carousel
 
                         $('card-img').append('<div id="carouselExampleIndicators" class="carousel slide car'+ i +'" data-ride="carousel">' +
                         '<ol id="carol_ind" class="carousel-indicators"></ol>');
@@ -219,7 +219,7 @@
                           
                         });
                                 
-                        $('#main-card-' +i').append('<div id="card-body card-body'+ i +'" class="card-body">');
+                        $('#main-card-' +i).append('<div id="card-body card-body'+ i +'" class="card-body">');
 
                         $('#card-body'+ i).append('<div id="card-body-row'+i+'" class="row">');
 
@@ -229,9 +229,9 @@
 
                           $('#card-body-row'+i).append('</div>');//end row
 
-                        $('#main-card-' +i').append('</div>');//end class card-body
+                        $('#main-card-' +i).append('</div>');//end class card-body
 
-                        $('#main-card-' +i').append('</div> <br>');//end class card
+                        $('#main-card-' +i).append('</div> <br>');//end class card
                   
                   });
 
