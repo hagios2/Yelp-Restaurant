@@ -6,13 +6,14 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+{{-- 
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
-    <meta http-equiv="Content-Security-Policy" content="block-all-mixed-content">
+    <meta http-equiv="Content-Security-Policy" content="block-all-mixed-content"> --}}
 
-    <title>Yelp Restaurant</title>
+    <title>Restaurant</title>
 
+    <link rel="shortcut icon" href="https://s3-media0.fl.yelpcdn.com/assets/public/favicon.yelp_styleguide.yji-118ff475a341620f50dfbaddb83efb25.ico" />
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" ></script>
 

@@ -1,12 +1,14 @@
 @extends('layouts.app')
 
 @section('extra-css')
+
+@yield('loader')
     
 @endsection
 
 @section('content')
 
-    <div id="app" class="container" style="bg">
+    <div id="app" class="container">
 
         <!-- Search form -->
         
@@ -16,13 +18,23 @@
             aria-label="Search"> <br>
 
             <span id="autocomp"></span>
+
+            @include('main_page_loader')
+            
         </form> <br>
 
-        <span><i class="fas fa-utensils"></i> Restaurant &emsp;| &emsp; <i class="fas fa-coffee"></i> Breakfast and brunch</span>
-        <a id="loc_delivery" href="/transactions/delivery">Available delivery</a>
+       <div style="font-size:1rem;" class="d-flex justify-content-center"> <span><i class="fas fa-utensils"></i> Restaurant &emsp;| &emsp; <i class="fas fa-coffee"></i> Breakfast and brunch</span>
+      &emsp; | &emsp; <a id="loc_delivery" href="/transactions/delivery"><i class="fas fa-shipping-fast"></i> Available delivery</a></div>
 
 
-        <div id="main_businessDiv" style="display:none;"></div>
+
+    <div class="row">#171E2A
+
+        div
+
+    </div>
+        
+    <div id="main_businessDiv" style="display:none;"></div>
     
 
     
@@ -52,6 +64,8 @@
 
             let searchItem = e.currentTarget.value; 
 
+            $('div.lds-ellipsis').fadeIn('fast');
+
             if(searchItem != '')
             {
                 let data = {
@@ -77,6 +91,11 @@
                         $('#autocomp').fadeIn(3000);
 
                     }else {
+
+
+                        $('div.lds-ellipsis').fadeOut('slow');
+
+                        $('#autocomp').fadeIn(3000);
 
                         $('#autocomp').attr('class', 'justify-content-center');
 
@@ -105,6 +124,10 @@
                         $('#autocompleteLink').click(function(){
 
                             $('#search').val('');
+
+                            $('#autocomp').html('');
+
+                            $('#autocomp').hide();
 
                             getSearchItem($(this).text());
 
@@ -135,10 +158,6 @@
                 data: data
 
             }).done(function(data){
-
-                $('#autocomp').html('');
-
-                $('#autocomp').hide();
 
                 $('#main_businessDiv').show();
 
