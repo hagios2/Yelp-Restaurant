@@ -159,7 +159,7 @@
 
             $.ajax({
 
-                url: requests.main_url + 'businesses/businessId',
+                url: requests.main_url + 'businesses/' + businessId,
                 headers: requests.headers,
                 dataType: 'json',
                 data: data
