@@ -2,7 +2,128 @@
 
 @section('extra-css')
 
-@yield('loader')
+    <style>
+         .lds-ellipsis {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    }
+    .lds-ellipsis div {
+    position: absolute;
+    top: 33px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #fff;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+    }
+    .lds-ellipsis div:nth-child(1) {
+    left: 8px;
+    animation: lds-ellipsis1 0.6s infinite;
+    }
+    .lds-ellipsis div:nth-child(2) {
+    left: 8px;
+    animation: lds-ellipsis2 0.6s infinite;
+    }
+    .lds-ellipsis div:nth-child(3) {
+    left: 32px;
+    animation: lds-ellipsis2 0.6s infinite;
+    }
+    .lds-ellipsis div:nth-child(4) {
+    left: 56px;
+    animation: lds-ellipsis3 0.6s infinite;
+    }
+    @keyframes lds-ellipsis1 {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+    }
+    @keyframes lds-ellipsis3 {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+    }
+    @keyframes lds-ellipsis2 {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(24px, 0);
+    }
+    }
+
+    .form-control:focus {
+        box-shadow: none;
+    }
+
+    .form-control-underlined {
+
+        border-width: 0;
+        border-bottom-width: 1px;
+        border-radius: 0;
+        padding-left: 0;
+    }
+
+    /* css for autocomplete */
+
+    { box-sizing: border-box; }
+        body {
+        font: 16px Arial;
+        }
+        .autocomplete {
+        /*the container must be positioned relative:*/
+        position: relative;
+        display: inline-block;
+        }
+        input {
+        border: 1px solid transparent;
+        background-color: #f1f1f1;
+        padding: 10px;
+        font-size: 16px;
+        }
+        input[type=text] {
+        background-color: #f1f1f1;
+        width: 100%;
+        }
+        input[type=submit] {
+        background-color: DodgerBlue;
+        color: #fff;
+        }
+        .autocomplete-items {
+        position: absolute;
+        border: 1px solid #d4d4d4;
+        border-bottom: none;
+        border-top: none;
+        z-index: 99;
+        /*position the autocomplete items to be the same width as the container:*/
+        top: 100%;
+        left: 0;
+        right: 0;
+        }
+        .autocomplete-items div {
+        padding: 10px;
+        cursor: pointer;
+        background-color: #fff;
+        border-bottom: 1px solid #d4d4d4;
+        }
+        .autocomplete-items div:hover {
+        /*when hovering an item:*/
+        background-color: #e9e9e9;
+        }
+        .autocomplete-active {
+        /*when navigating through the items using the arrow keys:*/
+        background-color: DodgerBlue !important;
+        color: #ffffff;
+        }
+
+    </style>
     
 @endsection
 
@@ -14,7 +135,7 @@
             <img src="https://s3-media0.fl.yelpcdn.com/assets/public/favicon.yelp_styleguide.yji-118ff475a341620f50dfbaddb83efb25.ico" alt="" srcset=""> <h4 class="title">Yelp Restaurant Services</h4> 
         </div> <br>
 
-        <div class="col-md-8 col-lg-8 offset-3">
+        <div class="col-md-10 col-lg-10 offset-3">
             <span style="font-size:1rem; margin-right:2rem;">
                 <i style="color:#f2552c;" class="fas fa-search" aria-hidden="true"></i>  Find Restaurant
             </span> 
@@ -34,18 +155,29 @@
 
         <div>
 
-            <form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
-                <span>
-                    <input style="height:2rem; " class="form-control form-control-sm ml-3 w-75" type="text" id="search" placeholder="Search"
-                    aria-label="Search"> <i class="fas fa-search" aria-hidden="true"></i>
-                </span>
-               
-                <br>
-    
-                <div style="width:auto;" id="autocomp"></div>
-    
-    
-            </form> <br>
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto">
+                  <h5 class="font-weight-light mb-4 font-italic text-white">Custom rounded search bars with input group</h5>
+                  <div class="bg-white p-5 rounded shadow">
+
+                    <form autocomplete="off" action="">
+
+                        <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+                            <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button id="button-addon2" type="submit" class="btn btn-link text-warning"><i class="fas fa-search"></i></button>
+                            </div>
+                            <input type="search" id="search" placeholder="Restaurant, meals, pizza" aria-describedby="button-addon2" class="ui-widget form-control border-0 bg-light">
+                            </div>
+                        </div>
+
+                     </form>
+                <!-- End -->
+        
+            </div>
+            </div>
+        </div>
+        
     
            <div style="font-size:1rem;" class="d-flex justify-content-center"> <span><i class="fas fa-utensils"></i> Restaurant &emsp;| &emsp; <i class="fas fa-coffee"> <a href="#"></i> Breakfast and brunch</a> &emsp; | &emsp; <a id="loc_delivery" href="#"><i class="fas fa-shipping-fast"></i> Available delivery</a></span></div>
 
@@ -58,7 +190,7 @@
 
         <div class="col-md-4 col-ld-4">
 
-            <div style="width: 100%"><iframe id="googlemap" width="100" height="250" src="https://maps.google.com/maps?width=300%&amp;height=250&amp;hl=en&amp;coord=37.7790262, -122.4199061&amp;q=San%20Francisco%2C%20city%2C%20United%20States%20of%20America+(Restaurant%20Delivery)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">gps coordinates finder</a></iframe></div><br />
+         {{--    <div style="width: 100%"><iframe id="googlemap" width="100" height="250" src="https://maps.google.com/maps?width=300%&amp;height=250&amp;hl=en&amp;coord=37.7790262, -122.4199061&amp;q=San%20Francisco%2C%20city%2C%20United%20States%20of%20America+(Restaurant%20Delivery)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">gps coordinates finder</a></iframe></div><br /> --}}
            
         </div>
 
@@ -153,7 +285,7 @@
 
             let searchItem = e.currentTarget.value; 
 
-            $('div.lds-ellipsis').fadeIn('fast');
+            $('#autocomp').fadeIn('fast');
 
             if(searchItem != '')
             {
@@ -178,29 +310,35 @@
                     {
                         $('#autocomp').attr('class', 'alert alert-info');
                         $('#autocomp').html('No record found');
-                        $('#autocomp').fadeIn(3000);
+                        $('#autocomp').fadeIn('fast');
 
                     }else {
 
 
-                        $('div.lds-ellipsis').fadeOut('slow');
+                       // $('div.lds-ellipsis').fadeOut('slow');
 
-                        $('#autocomp').fadeIn(3000);
+                       // $('#autocomp').fadeIn(2000);
 
-                        $('#autocomp').attr('class', 'justify-content-center');
+                        //$('#autocomp').attr('class', 'justify-content-center');
 
-                        $('#autocomp').css({display:'block', width:'auto'});
+                      //  $('#autocomp').attr('class', 'justify-content-center');
 
-                        $('#autocomp').html('<div class="list-group" id="autocompleteList"> </div>');
+                        //$('#autocomp').css({display:'block', width:'auto'});
+
+                      //  $('#autocomp').html('<div class="list-group" id="autocompleteList"> </div>');
+
+                      $( "#search" ).autocomplete({
+                            source: data.terms
+                        });
 
                         console.log(data);
                         /*  */
-                        $.each(data.terms, function(i ,listItem){
+                       /*  $.each(data.terms, function(i ,listItem){
 
-                            $('#autocompleteList').append('<a href="#" id="autocompleteLink" class="list-group-item list-group-item-action">'+listItem.text+'</a>');
+                            $('#autocomplete-list').append('<a href="#" id="autocompleteLink" class="list-group-item list-group-item-action">'+listItem.text+'</a>');
                         }); 
-
-
+ */
+/* 
                         $.each(data.categories, function(i ,listItem){
     
                             $('#autocompleteList').append('<a href="#" id="autocompleteLink" class="list-group-item list-group-item-action">'+listItem.title+'</a>');
@@ -210,7 +348,7 @@
     
                             $('#autocompleteList').append('<a href="#" id="autocompleteLink" class="list-group-item list-group-item-action">'+listItem.name+'</a>');
                         }); 
-
+ */
                         $('#autocompleteLink').click(function(){
 
                             $('#search').val('');
