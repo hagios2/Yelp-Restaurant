@@ -19,8 +19,8 @@
 
             <span id="autocomp"></span>
 
-            @include('main_page_loader')
-            
+            @include('loaders.main_page_loader')
+
         </form> <br>
 
        <div style="font-size:1rem;" class="d-flex justify-content-center"> <span><i class="fas fa-utensils"></i> Restaurant &emsp;| &emsp; <i class="fas fa-coffee"></i> Breakfast and brunch</span>
