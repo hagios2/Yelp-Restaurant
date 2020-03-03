@@ -457,7 +457,7 @@ paginationVars.totalNumberOfPage = Math.ceil(paginationVars.paginationDataLength
                 {
                     console.log(data);
 
-                    $('#main_businessDiv').append('<div id="businessDiv'+ i+'"></div>'); 
+                    $('#main_businessDiv').append('<div class="offset-lg-1 offset-md-1" id="businessDiv'+ i+'"></div>'); 
 
                    /*  $.each(data, function(i, data){ */
 
@@ -472,16 +472,36 @@ paginationVars.totalNumberOfPage = Math.ceil(paginationVars.paginationDataLength
                           name : data.name.replace(' ', '%20'),
 
                           cords : data.coordinates.latitude +', '+ data.coordinates.longitude,
-                        };
 
-                        $('#main-card' +i).append('<div class="card-img-'+i+'"></div>');//carousel
+                        };
+                                  let carousel_div =      `<div id="carouselExampleIndicators${i}" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="${i}"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="${data.image_url}" class="d-block w-100" alt="...">
+    </div>
+    </div>`
+    let dyn_img = ''
+    $.each(data.photos, (i,pix) => {
+        dyn_img += `<div class="carousel-item">
+                        <img src="${pix}" class="d-block w-100" alt="...">
+                    </div>`        
+
+    })
+    $("div#carouselExampleIndicators").append(dyn_img)
+    $(".card-img"+i).append(carousel_id)
+
+                     /*    $('#main-card' +i).append('<div class="card-img-'+i+'"></div>');//carousel
 
                         $('.card-img-'+i).append('<div id="carouselExampleIndicators car'+i+'" class="carousel slide" data-ride="carousel">' +
                         '<ol id="carol_ind'+i+'" class="carousel-indicators"></ol>');
                         
                         $('#carol_ind'+i).append('<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>');
 
-                        $('#car'+i).append('<div id="carouselInner'+i+'" class="carousel-inner"><div class="carousel-item active"><img class="d-block w-100" src="'+ data.image_ul+'" alt="First slide"></div><'); //set slider image to image_url
+                        $('#car'+i).append('<div id="carouselInner'+i+'" class="carousel-inner"><div class="carousel-item active"><img class="d-block w-100" src="'+ data.image_url+'" alt="First slide"></div><'); //set slider image to image_url
                        
                         let carousel_id = 1;
                           
@@ -494,7 +514,7 @@ paginationVars.totalNumberOfPage = Math.ceil(paginationVars.paginationDataLength
                           carousel_id ++;
                           
                         });
-                                
+                           */      
                         $('#main-card'+i).append('<div id="card-body'+i+'" class="card-body"></div>');
 
                         $('#card-body'+i).append('<div id="card-body-row'+i+'" class="row"></div>');
