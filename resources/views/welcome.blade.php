@@ -474,25 +474,26 @@ paginationVars.totalNumberOfPage = Math.ceil(paginationVars.paginationDataLength
                           cords : data.coordinates.latitude +', '+ data.coordinates.longitude,
 
                         };
-                                  let carousel_div =      `<div id="carouselExampleIndicators${i}" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="${i}"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="${data.image_url}" class="d-block w-100" alt="...">
-    </div>
-    </div>`
-    let dyn_img = ''
-    $.each(data.photos, (i,pix) => {
-        dyn_img += `<div class="carousel-item">
-                        <img src="${pix}" class="d-block w-100" alt="...">
-                    </div>`        
+                                  let carousel_div = `<div id="carouselExampleIndicators${i}" class="carousel slide" data-ride="carousel">
 
-    })
-    $("div#carouselExampleIndicators").append(dyn_img)
-    $(".card-img"+i).append(carousel_id)
+                                        <ol class="carousel-indicators">
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="${i}"></li>
+                                        </ol>
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <img src="${data.image_url}" class="d-block w-100" alt="...">
+                                            </div>
+                                        </div>`
+                                    let dyn_img = '';
+                                    $.each(data.photos, (i,pix) => {
+                                        dyn_img += `<div class="carousel-item">
+                                                        <img src="${pix}" class="d-block w-100" alt="...">
+                                                    </div>`;
+
+                                    });
+                                    $('div#carouselExampleIndicators'+i).append(dyn_img)
+                                    $(".card-img"+i).append(carousel_div)
 
                      /*    $('#main-card' +i).append('<div class="card-img-'+i+'"></div>');//carousel
 
