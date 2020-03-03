@@ -132,6 +132,8 @@
 
     <div id="app" class="container-fluid">
 
+      {{--   <section style="background-image: url('https://s3-media1.fl.yelpcdn.com/bphoto/4ydj9Jo-3tBfPESPz-J5bg/o.jpg')"> --}}
+
         <div class="row justify-content-center">
             <img src="https://s3-media0.fl.yelpcdn.com/assets/public/favicon.yelp_styleguide.yji-118ff475a341620f50dfbaddb83efb25.ico" alt="" srcset=""> <h4 class="title">Yelp Restaurant Services</h4> 
         </div> <br>
@@ -158,7 +160,6 @@
 
             <div class="row mb-5">
                 <div class="col-lg-8 mx-auto">
-                  <h5 class="font-weight-light mb-4 font-italic text-white">Custom rounded search bars with input group</h5>
                   <div class="bg-white p-5 rounded shadow">
 
                     <form autocomplete="off" action="">
@@ -184,6 +185,8 @@
 
         </div><br>
         
+{{-- 
+    </section> --}}
 
     <div class="row">
 
@@ -194,11 +197,6 @@
          {{--    <div style="width: 100%"><iframe id="googlemap" width="100" height="250" src="https://maps.google.com/maps?width=300%&amp;height=250&amp;hl=en&amp;coord=37.7790262, -122.4199061&amp;q=San%20Francisco%2C%20city%2C%20United%20States%20of%20America+(Restaurant%20Delivery)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">gps coordinates finder</a></iframe></div><br /> --}}
            
         </div>
-
-
-        <div class="col-lg-3 col-md-3"></div>
-
-
 
     </div>
 
@@ -417,19 +415,12 @@ paginationVars.totalNumberOfPage = Math.ceil(paginationVars.paginationDataLength
 
                 $.each(data.businesses, function(i ,restaurant){
 
-
                     getBusiness(restaurant.id, i) 
                     
-                  /*   $('#businessDiv').append('<div class="card"><img class="card-img-top" src="'+restaurant.image_url+'" alt="Card image cap"><div class="card-body"><h5 class="card-title">Card title</h5><p class="card-text">'+restaurant.name+'<br>Rating: '+ restaurant.rating +'</p><a href="/business/'+restaurant.id+'" class="btn btn-primary">Go somewhere</a></div></div></div></div><br>'); */
-
                 });
 
-          /*       console.log(data); */
-
             });         
-
         }
-
 
         function getBusiness(businessId, i)
         {
@@ -453,8 +444,8 @@ paginationVars.totalNumberOfPage = Math.ceil(paginationVars.paginationDataLength
                 if(!jQuery.isEmptyObject(data))
                 {
                     let carousel_num = 1;
-                    let dyn_img_li = '';
-                    let dyn_img = '';
+                    let dyn_img_li = ``;
+                    let dyn_img = ``;
 
                     let restaurant = {
                           
@@ -465,33 +456,75 @@ paginationVars.totalNumberOfPage = Math.ceil(paginationVars.paginationDataLength
                         cords : data.coordinates.latitude +', '+ data.coordinates.longitude, 
 
                     };
+                    let category = ``;
+
+                    $.each(data.categories, (i, cat) => {
+
+                            category += cat.title
+
+                    });
                     
                     $.each(data.photos, (i, pix) => {
                         
                         dyn_img += `<div class="carousel-item">
-                                        <img src="`+pix+`" class="d-block w-100" alt="...">
+                                        <img style="max-height:20rem;" src="`+pix+`" class="d-block w-100" alt="...">
+                                        <div class="carousel-caption d-none d-md-block">
+                                                    <h5>`+data.categories[i].title+`</h5>
+                                                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                                </div>
                                     </div>`;
 
-                        dyn_img_li += '<li data-target="#carouselExampleIndicators" data-slide-to="'+carousel_num+'"></li>';
+                        dyn_img_li += `<li data-target="#carouselExampleIndicators" data-slide-to="'+carousel_num+'"></li>`;
 
                                 carousel_num ++;
+                    });
+
+                    let transaction = ``;
+
+                    $.each(data.transactions, (i, transact) => {
+
+                        if(transact == 'delivery')
+                        {
+                            transaction += `<i style="color:#00ccff; font-size:1rem;" class="fas fa-shipping-fast" aria-hidden="true"></i>  Delivery` ;
+                        } else{
+
+                            transaction += `<i style="color:#F783AC; font-size:1rem;" class="fas fa-building" aria-hidden="true"></i>  Pickup` ;
+                        }
 
                     });
 
+                    let rating = ``;
+
+                    for(var i = 1; i >= 5; i++)
+                    {
+                        if(i <= data.rating)
+                        {
+                            rating += `<i style="#FD7E14" class="fas fa-star"></i>`;
+                        
+                        }else{
+
+                            rating += `<i style="#ADB5BD" class="fas fa-star"></i>`;
+                        }
+                    }
+
                     let map = `<div class="class="col-md-4 col-lg-4 offset-5"><iframe width="100%" height="100" src="https://maps.google.com/maps?width=100%&amp;height=100&amp;hl=en&amp;coord=`+restaurant.cords+`q=+(`+restaurant.name+`)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">latitude longitude finder</a></iframe></div><br>`;
 
-                    let dom = `<div class="card offset-md-1 offset-lg-1 col-md-7 col-lg-7" style="width: 18rem;">
+                    let dom = `<div class="card" style="width100%">
                                 
                                     <div class="card-header">`+data.name+`</div>
 
-                                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                    <div style="margin:1rem; border-radius:15px; width:85%;" id="carouselExampleIndicators" class="carousel slide justify-content-center" data-ride="carousel">
                                         <ol class="carousel-indicators">
                                             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                                             `+dyn_img_li+`
                                         </ol>
                                         <div class="carousel-inner">
                                             <div class="carousel-item active">
-                                                <img src="`+data.image_url+`" class="d-block w-100" alt="...">
+                                                <img style="max-height:20rem;" src="`+data.image_url+`" class="d-block w-100" alt="...">
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5>`+data.categories[0].title+`</h5>
+                                                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                                </div>
                                             </div>
                                             `+dyn_img+`
                                         </div>
@@ -503,13 +536,32 @@ paginationVars.totalNumberOfPage = Math.ceil(paginationVars.paginationDataLength
                                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                             <span class="sr-only">Next</span>
                                         </a>
-                                    </div>
+                                    </div> <br>
+
+                                    <hr style="width:60%; margin-left:10%; margin-right:10%;"> <br>
 
                                     <div class="card-body">
-                                        <div class="row">
-                                            <h5 class="card-title">`+data.name+`</h5>
+                                        <h5 class="card-title"><em>`+data.name+`</em></h5><br>
                                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                            `+map+`
+                                         
+                                        <div class="row"> 
+
+                                            <div class="col">
+
+                                                <div><i class="fas fa-phone">
+                                                <p>
+                                                    </i> `+data.phone+`<p>Reviews: `+data.review_count+`    
+                                                </p>
+
+                                                <div class="col-md-3 offset-1">
+                                                `+map+`
+                                            </div>
+
+                                                <p>We offer `+ transaction +` </p>
+                                                    <a href="#" class="card-link">Card link</a>
+                                                
+                                            </div>
+                                            
                                         </div>
                                         
                                     </div>
@@ -519,8 +571,7 @@ paginationVars.totalNumberOfPage = Math.ceil(paginationVars.paginationDataLength
                                         <li class="list-group-item">Vestibulum at eros</li>
                                     </ul>
                                     <div class="card-body">
-                                        <div class="col-md-6 col-lg-6">'+'<i class="fas fa-phone"></i> `+data.phone+`<p>Reviews: `+data.review_count+`></p></div>
-                                        <a href="#" class="card-link">Card link</a>
+                                      
                                         <a href="#" class="card-link">Another link</a>
                                     </div>
                                 </div> <br><br>`;
@@ -532,38 +583,10 @@ paginationVars.totalNumberOfPage = Math.ceil(paginationVars.paginationDataLength
             });
         }
 
-    });
-
-                   /*  $.each(data, function(i, data){ */
-
-                      /*   
-
-                        $('#main-card' +i).append('<div class="card-title"><h3>'+ data.name +' </h3></div>');
-
-                        
-                               /*    let carousel_div = `<div id="carouselExampleIndicators"`+i+` class="carousel slide" data-ride="carousel">
-
-                                        <ol class="carousel-indicators">
-                                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                                            <li data-target="#carouselExampleIndicators" data-slide-to="`+i+`"></li>
-                                        </ol>
-                                        <div class="carousel-inner">
-                                            <div class="carousel-item active">
-                                                <img src="${data.image_url}" class="d-block w-100" alt="...">
-                                            </div>
-                                        </div>`
-                                    let dyn_img = '';
-                                    $.each(data.photos, (i,pix) => {
-                                        dyn_img += `<div class="carousel-item">
-                                                        <img src="`+pix+`}" class="d-block w-100" alt="...">
-                                                    </div>`;
-
-                                    });
-                                    $('div#carouselExampleIndicators'+i).append(dyn_img);
-                                    $(".card-img"+i).append(carousel_div); */
-          
-                  
+    });                   
                   
 </script>
     
 @endsection
+
+{{--  background imge"" --}}
