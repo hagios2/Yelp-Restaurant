@@ -476,12 +476,12 @@ paginationVars.totalNumberOfPage = Math.ceil(paginationVars.paginationDataLength
 
                         $('#main-card' +i).append('<div class="card-img-'+i+'"></div>');//carousel
 
-                        $('.card-img-'+i).append('<div id="carouselExampleIndicators" class="carousel slide car'+i+'" data-ride="carousel">' +
+                        $('.card-img-'+i).append('<div id="carouselExampleIndicators car'+i+'" class="carousel slide" data-ride="carousel">' +
                         '<ol id="carol_ind'+i+'" class="carousel-indicators"></ol>');
                         
                         $('#carol_ind'+i).append('<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>');
 
-                        $('.car'+i).append('<div id="carouselInner'+i+'" class="carousel-inner"><div class="carousel-item active"><img class="d-block w-100" src="'+ data.image_ul+'" alt="First slide"></div><'); //set slider image to image_url
+                        $('#car'+i).append('<div id="carouselInner'+i+'" class="carousel-inner"><div class="carousel-item active"><img class="d-block w-100" src="'+ data.image_ul+'" alt="First slide"></div><'); //set slider image to image_url
                        
                         let carousel_id = 1;
                           
