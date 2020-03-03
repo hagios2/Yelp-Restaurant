@@ -407,6 +407,8 @@
 
             }).done(function(data){
 
+                $('#main_businessDiv').show();
+
     /*             paginationVars.paginationDataLength = Object.keys(data).length; 
 
 paginationVars.paginationData = data;
@@ -419,7 +421,7 @@ paginationVars.totalNumberOfPage = Math.ceil(paginationVars.paginationDataLength
                 $.each(data.businesses, function(i ,restaurant){
 
 
-                    getBusiness(restaurant.id)
+                    getBusiness(restaurant.id, i)
                     
                   /*   $('#businessDiv').append('<div class="card"><img class="card-img-top" src="'+restaurant.image_url+'" alt="Card image cap"><div class="card-body"><h5 class="card-title">Card title</h5><p class="card-text">'+restaurant.name+'<br>Rating: '+ restaurant.rating +'</p><a href="/business/'+restaurant.id+'" class="btn btn-primary">Go somewhere</a></div></div></div></div><br>'); */
 
@@ -432,7 +434,7 @@ paginationVars.totalNumberOfPage = Math.ceil(paginationVars.paginationDataLength
         }
 
 
-        function getBusiness(businessId)
+        function getBusiness(businessId, i)
         {
 
             let data = {
@@ -455,15 +457,13 @@ paginationVars.totalNumberOfPage = Math.ceil(paginationVars.paginationDataLength
                 {
                     console.log(data);
 
-                    $('#main_businessDiv').show();
-
-                    $('#main_businessDiv').append('<br><div id="businessDiv"></div>'); 
+                    $('#main_businessDiv').append('<br><div id="businessDiv '+ i+'"></div>'); 
 
                    /*  $.each(data, function(i, data){ */
 
-                        $('#businessDiv').append('<div id="main-card" class="card">');
+                        $('#businessDiv'+i).append('<div id="main-card '+i+'" class="card">');
 
-                        $('#main-card').append('<div class="card-title"><h3>'+ data.name +' </h3></div>');
+                        $('#main-card' +i).append('<div class="card-title"><h3>'+ data.name +' </h3></div>');
 
                         let restaurant = {
                           
@@ -474,20 +474,20 @@ paginationVars.totalNumberOfPage = Math.ceil(paginationVars.paginationDataLength
                           cords : data.coordinates.latitude +', '+ data.coordinates.longitude,
                         };
 
-                        $('#main-card').append('<div class="card-img">');//carousel
+                        $('#main-card' +i).append('<div class="card-img-'+i+'">');//carousel
 
-                        $('card-img').append('<div id="carouselExampleIndicators" class="carousel slide car" data-ride="carousel">' +
-                        '<ol id="carol_ind" class="carousel-indicators"></ol>');
+                        $('.card-img'+i).append('<div id="carouselExampleIndicators" class="carousel slide car'+i+'" data-ride="carousel">' +
+                        '<ol id="carol_ind'+i+'" class="carousel-indicators"></ol>');
                         
-                        $('#carol_ind').append('<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>');
+                        $('#carol_ind'+i).append('<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>');
 
-                        $('.car').append('<div class="carousel-inner"><div class="carousel-item active"><img class="d-block w-100" src="'+ data.image_ul+'" alt="First slide"></div><'); //set slider image to image_url
+                        $('.car'+i).append('<div class="carousel-inner"><div class="carousel-item active"><img class="d-block w-100" src="'+ data.image_ul+'" alt="First slide"></div><'); //set slider image to image_url
                        
                         let carousel_id = 1;
                           
                         $.each(data.photos, function(v ,pix){
                       
-                          $('#carol_ind').append('<li data-target="#carouselExampleIndicators" data-slide-to="'+carousel_id+'"></li>');
+                          $('#carol_ind'+i).append('<li data-target="#carouselExampleIndicators" data-slide-to="'+carousel_id+'"></li>');
 
                           $('#carousel-inner').append('<div class="carousel-item"><img class="d-block w-100 card-image-top" style="max-height:30rem;" src="'+pix+'" alt="Second slide">');
 
@@ -495,19 +495,19 @@ paginationVars.totalNumberOfPage = Math.ceil(paginationVars.paginationDataLength
                           
                         });
                                 
-                        $('#main-card').append('<div id="card-body card-body" class="card-body">');
+                        $('#main-card'+i).append('<div id="card-body'+i+'" class="card-body">');
 
-                        $('#card-body').append('<div id="card-body-row" class="row">');
+                        $('#card-body'+i).append('<div id="card-body-row'+i+'" class="row">');
 
-                        $('#card-body-row').append('<div class="col-md-6 col-lg-6">'+'<i class="fas fa-phone"></i> '+data.phone+'<pReviews: '+data.review_count+'></p></div>');
+                        $('#card-body-row'+i).append('<div class="col-md-6 col-lg-6">'+'<i class="fas fa-phone"></i> '+data.phone+'<pReviews: '+data.review_count+'></p></div>');
 
-                        $('#card-body-row').append('<div class="class="col-md-4 col-lg-4 offset-5"><iframe width="100%" height="100" src="https://maps.google.com/maps?width=100%&amp;height=100&amp;hl=en&amp;coord='+restaurant.cords+'q=+('+restaurant.name+')&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">latitude longitude finder</a></iframe></div><br />');
+                        $('#card-body-row'+i).append('<div class="class="col-md-4 col-lg-4 offset-5"><iframe width="100%" height="100" src="https://maps.google.com/maps?width=100%&amp;height=100&amp;hl=en&amp;coord='+restaurant.cords+'q=+('+restaurant.name+')&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">latitude longitude finder</a></iframe></div><br />');
 
-                        $('#card-body-row').append('</div>');//end row
+                        $('#card-body-row'+i).append('</div>');//end row
 
-                        $('#main-card').append('</div>');//end class card-body
+                        $('#main-card'+i).append('</div>');//end class card-body
 
-                        $('#main-card').append('</div> <br>');//end class card
+                        $('#main-card'+i).append('</div> <br>');//end class card
                   
                     //});
 
