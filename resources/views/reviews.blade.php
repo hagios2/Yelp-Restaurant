@@ -55,3 +55,98 @@ span.swiper-pagination-bullet {
     </div>
 
 </div>
+
+<script>
+
+		function getBusinessReviews(businessId)
+        {
+
+            let data = {
+
+                latitude: '37.786882',
+                longitude: '-122.399972'
+                
+            };
+
+            $.ajax({
+
+                url: requests.main_url + 'businesses/' + businessId +'/reviews',
+                headers: requests.headers,
+                dataType: 'json',
+              /*   data: data */
+
+            }).done(function(data){
+
+                if(!jQuery.isEmptyObject(data))
+                {
+					console.lgo(data);
+
+				}
+			});
+
+		}
+
+
+/* 
+		function getTransactionSearch(transactionType)
+        {
+
+            let data = {
+
+                latitude: '37.786882',
+                longitude: '-122.399972', */
+				//location : not required when lat and long are provided
+                
+       /*      };
+
+            $.ajax({
+
+                url: requests.main_url + 'transactions/' + transactionType +'/search',
+                headers: requests.headers,
+                dataType: 'json', */
+              /*   data: data */
+/* 
+            }).done(function(data){
+
+                if(!jQuery.isEmptyObject(data))
+                {
+					console.log(data);
+
+				}
+			});
+
+		} */
+
+
+
+		function getYourLocationDeliverySearch()
+        {
+
+            let data = {
+
+                latitude: '37.786882',
+                longitude: '-122.399972',
+				//location : not required when lat and long are provided
+                
+            };
+
+            $.ajax({
+
+                url: requests.main_url + 'transactions/delivery/search',
+                headers: requests.headers,
+                dataType: 'json',
+               	data: data 
+
+            }).done(function(data){
+
+                if(!jQuery.isEmptyObject(data))
+                {
+					console.lgo(data);
+
+				}
+			});
+
+		}
+
+
+</script>
