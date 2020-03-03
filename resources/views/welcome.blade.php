@@ -72,57 +72,58 @@
     }
 
     /* css for autocomplete */
+    .ui-autocomplete {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  list-style: none;
+  font-size: 14px;
+  text-align: left;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  background-clip: padding-box;
+}
 
-    { box-sizing: border-box; }
-        body {
-        font: 16px Arial;
-        }
-        .autocomplete {
-        /*the container must be positioned relative:*/
-        position: relative;
-        display: inline-block;
-        }
-        input {
-        border: 1px solid transparent;
-        background-color: #f1f1f1;
-        padding: 10px;
-        font-size: 16px;
-        }
-        input[type=text] {
-        background-color: #f1f1f1;
-        width: 100%;
-        }
-        input[type=submit] {
-        background-color: DodgerBlue;
-        color: #fff;
-        }
-        .autocomplete-items {
-        position: absolute;
-        border: 1px solid #d4d4d4;
-        border-bottom: none;
-        border-top: none;
-        z-index: 99;
-        /*position the autocomplete items to be the same width as the container:*/
-        top: 100%;
-        left: 0;
-        right: 0;
-        }
-        .autocomplete-items div {
-        padding: 10px;
-        cursor: pointer;
-        background-color: #fff;
-        border-bottom: 1px solid #d4d4d4;
-        }
-        .autocomplete-items div:hover {
-        /*when hovering an item:*/
-        background-color: #e9e9e9;
-        }
-        .autocomplete-active {
-        /*when navigating through the items using the arrow keys:*/
-        background-color: DodgerBlue !important;
-        color: #ffffff;
-        }
+.ui-autocomplete > li > div {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.42857143;
+  color: #333333;
+  white-space: nowrap;
+}
 
+.ui-state-hover,
+.ui-state-active,
+.ui-state-focus {
+  text-decoration: none;
+  color: #262626;
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.ui-helper-hidden-accessible {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+   
     </style>
     
 @endsection
@@ -167,10 +168,10 @@
                             <div class="input-group-prepend">
                                 <button id="button-addon2" type="submit" class="btn btn-link text-warning"><i class="fas fa-search"></i></button>
                             </div>
-                            <input type="search" id="search" placeholder="Restaurant, meals, pizza" aria-describedby="button-addon2" class="ui-widget form-control border-0 bg-light">
+                            <input type="search" id="search" placeholder="Restaurant, meals, pizza" aria-describedby="button-addon2" class=" form-control border-0 bg-light">
                             </div>
                         </div>
-
+                    
                      </form>
                 <!-- End -->
         
@@ -213,6 +214,8 @@
 @endsection
 
 @section('extra-js')
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <script>
 
@@ -281,13 +284,93 @@
         };
 
 
-        $('#search').keyup(function(e){
+      /*   $('#search').keyup(function(e){ */
 
-            let searchItem = e.currentTarget.value; 
+   
 
-            $('#autocomp').fadeIn('fast');
+    $('#search').autocomplete({
+                    
+        source: function(request, response){
 
-            if(searchItem != '')
+            var searchItem = jQuery('#search').val();
+
+
+        let data = {
+
+                text: searchItem, 
+                latitude: '37.786882',
+                longitude: '-122.399972'
+            }
+
+            $.ajax({
+
+                url: requests.main_url + 'autocomplete',
+                headers: requests.headers,
+                dataType: 'json',
+                data: data,
+
+                success: function(data){
+/* 
+                    console.log(data); */
+
+                    $('#search').removeClass('ui-autocomplete-loading');
+
+                    //var obj = JSON.parse(data);
+                
+                    response( $.map(data, function(item, i) {
+                    // your operation on data
+
+                        return   $.map(item, function(res){
+
+                            if(res.title)
+                            {
+                                return {
+
+                                    label : res.title,
+                                    value : res.title,
+                                }
+                            
+                            } else if(res.name){
+
+                                return {
+
+                                    label : res.name,
+                                    value : res.name,
+                                }
+
+                            } else if (res.text){
+
+                                return {
+
+                                    label : res.text,
+                                    value : res.text,
+                                }
+
+                            }
+                        });
+
+                    }));
+                   
+                },
+                
+                error: function(data) {
+                    $('#search').removeClass('ui-autocomplete-loading');  
+                
+                }
+
+
+            
+            });
+
+        }
+
+    });
+
+           /*  let searchItem = e.currentTarget.value;  */
+
+        /*     $('#autocomp').fadeIn('fast');
+ */
+            /* if(searchItem != '')
             {
 
                 let data = {
@@ -296,8 +379,10 @@
                     latitude: '37.786882',
                     longitude: '-122.399972'
                 }
+ */
+              
 
-                $.ajax({
+               /*  $.ajax({
             
                     url: requests.main_url + 'autocomplete',
                     headers: requests.headers,
@@ -313,7 +398,7 @@
                         $('#autocomp').fadeIn('fast');
 
                     }else {
-
+ */
 
                        // $('div.lds-ellipsis').fadeOut('slow');
 
@@ -327,11 +412,9 @@
 
                       //  $('#autocomp').html('<div class="list-group" id="autocompleteList"> </div>');
 
-                      $( "#search" ).autocomplete({
-                            source: data.terms
-                        });
+                     
 
-                        console.log(data);
+                        //console.log(data);
                         /*  */
                        /*  $.each(data.terms, function(i ,listItem){
 
@@ -348,7 +431,7 @@
     
                             $('#autocompleteList').append('<a href="#" id="autocompleteLink" class="list-group-item list-group-item-action">'+listItem.name+'</a>');
                         }); 
- */
+ *//* 
                         $('#autocompleteLink').click(function(){
 
                             $('#search').val('');
@@ -359,19 +442,19 @@
 
                             getSearchItem($(this).text());
 
-                        });
-                    }
+                        }); */
+             /*        }
 
-                });        
+                });  */       
 
-            } else {
+        /*     } else { */
 
                 /* hide autocomplete box if already displayed*/
 
-                $('#autocomp').hide();
-            }
+            /*     $('#autocomp').hide();
+            } */
 
-        });
+
 
         function getSearchItem(userInput)
         {
