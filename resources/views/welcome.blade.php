@@ -136,7 +136,7 @@
             <img src="https://s3-media0.fl.yelpcdn.com/assets/public/favicon.yelp_styleguide.yji-118ff475a341620f50dfbaddb83efb25.ico" alt="" srcset=""> <h4 class="title">Yelp Restaurant Services</h4> 
         </div> <br>
 
-        <div class="col-md-10 col-lg-10 offset-3">
+        <div class="col-md-10 col-lg-10 col-xs-10 col-sm-10 offset-3">
             <span style="font-size:1rem; margin-right:2rem;">
                 <i style="color:#f2552c;" class="fas fa-search" aria-hidden="true"></i>  Find Restaurant
             </span> 
@@ -180,7 +180,7 @@
         </div>
         
     
-           <div style="font-size:1rem;" class="d-flex justify-content-center"> <span><i class="fas fa-utensils"></i> Restaurant &emsp;| &emsp; <i class="fas fa-coffee"> <a href="#"></i> Breakfast and brunch</a> &emsp; | &emsp; <a id="loc_delivery" href="#"><i class="fas fa-shipping-fast"></i> Available delivery</a></span></div>
+           <div style="font-size:1rem;" class="d-flex justify-content-center"> <span><a href="#"><i class="fas fa-utensils"></i> Restaurant<a> &emsp;| &emsp;<a href="#"><i class="fas fa-coffee"></i> Breakfast and brunch</a> &emsp; | &emsp; <a id="loc_delivery" href="#"><i class="fas fa-shipping-fast"></i> Available delivery</a></span></div>
 
         </div>
         
@@ -244,9 +244,9 @@
 
         };
 
-       // var 
+      
 
-     //   getLocation();
+        //   getLocation();
 
         /* function getLocation() {
             
@@ -282,184 +282,116 @@
             },
 
         };
-
-
-      /*   $('#search').keyup(function(e){ */
-
    
 
-    $('#search').autocomplete({
-                    
-        source: function(request, response){
+        $('#search').autocomplete({
+                        
+            source: function(request, response){
 
-            var searchItem = jQuery('#search').val();
-
-
-        let data = {
-
-                text: searchItem, 
-                latitude: '37.786882',
-                longitude: '-122.399972'
-            }
-
-            $.ajax({
-
-                url: requests.main_url + 'autocomplete',
-                headers: requests.headers,
-                dataType: 'json',
-                data: data,
-
-                success: function(data){
-/* 
-                    console.log(data); */
-
-                    $('#search').removeClass('ui-autocomplete-loading');
-
-                    //var obj = JSON.parse(data);
-                
-                    response( $.map(data, function(item, i) {
-                    // your operation on data
-
-                        return   $.map(item, function(res){
-
-                            if(res.title)
-                            {
-                                return {
-
-                                    label : res.title,
-                                    value : res.title,
-                                }
-                            
-                            } else if(res.name){
-
-                                return {
-
-                                    label : res.name,
-                                    value : res.name,
-                                }
-
-                            } else if (res.text){
-
-                                return {
-
-                                    label : res.text,
-                                    value : res.text,
-                                }
-
-                            }
-                        });
-
-                    }));
-                   
-                },
-                
-                error: function(data) {
-                    $('#search').removeClass('ui-autocomplete-loading');  
-                
-                }
-
-
-            
-            });
-
-        }
-
-    });
-
-           /*  let searchItem = e.currentTarget.value;  */
-
-        /*     $('#autocomp').fadeIn('fast');
- */
-            /* if(searchItem != '')
-            {
+                var searchItem = jQuery('#search').val();
 
                 let data = {
 
-                    text: searchItem,
+                    text: searchItem, 
                     latitude: '37.786882',
                     longitude: '-122.399972'
                 }
- */
-              
 
-               /*  $.ajax({
-            
+                $.ajax({
+
                     url: requests.main_url + 'autocomplete',
                     headers: requests.headers,
                     dataType: 'json',
-                    data: data
+                    data: data,
+
+                    success: function(data){
+    /* 
+                        console.log(data); */
+
+                        $('#search').removeClass('ui-autocomplete-loading');
+
+                        //var obj = JSON.parse(data);
                     
-                }).done(function(data){
+                        response( $.map(data, function(item, i) {
+                        // your operation on data
 
-                    if(jQuery.isEmptyObject(data))
-                    {
-                        $('#autocomp').attr('class', 'alert alert-info');
-                        $('#autocomp').html('No record found');
-                        $('#autocomp').fadeIn('fast');
+                            return   $.map(item, function(res){
 
-                    }else {
- */
+                                if(res.title)
+                                {
+                                    return {
 
-                       // $('div.lds-ellipsis').fadeOut('slow');
+                                        label : res.title,
+                                        value : res.title,
+                                    }
+                                
+                                } else if(res.name){
 
-                       // $('#autocomp').fadeIn(2000);
+                                    return {
 
-                        //$('#autocomp').attr('class', 'justify-content-center');
+                                        label : res.name,
+                                        value : res.name,
+                                    }
 
-                      //  $('#autocomp').attr('class', 'justify-content-center');
+                                } else if (res.text){
 
-                        //$('#autocomp').css({display:'block', width:'auto'});
+                                    return {
 
-                      //  $('#autocomp').html('<div class="list-group" id="autocompleteList"> </div>');
+                                        label : res.text,
+                                        value : res.text,
+                                    }
 
-                     
+                                }
+                            });
 
-                        //console.log(data);
-                        /*  */
-                       /*  $.each(data.terms, function(i ,listItem){
-
-                            $('#autocomplete-list').append('<a href="#" id="autocompleteLink" class="list-group-item list-group-item-action">'+listItem.text+'</a>');
-                        }); 
- */
+                        }));
+                    
+                    },
 /* 
-                        $.each(data.categories, function(i ,listItem){
-    
-                            $('#autocompleteList').append('<a href="#" id="autocompleteLink" class="list-group-item list-group-item-action">'+listItem.title+'</a>');
-                        }); 
+                    select: function( event, ui ) {
 
-                        $.each(data.businesses, function(i ,listItem){
-    
-                            $('#autocompleteList').append('<a href="#" id="autocompleteLink" class="list-group-item list-group-item-action">'+listItem.name+'</a>');
-                        }); 
- *//* 
-                        $('#autocompleteLink').click(function(){
+                        alert('you selected '+ ui.item.label);
+                    }, */
+                    
+                    error: function(data) {
+                        $('#search').removeClass('ui-autocomplete-loading');  
+                    
+                    }
+                
+                });
 
-                            $('#search').val('');
+            }
 
-                            $('#autocomp').html('');
+        });
 
-                            $('#autocomp').hide();
+        $('#button-addon2').click(function(e){
 
-                            getSearchItem($(this).text());
+            e.preventDefault();
 
-                        }); */
-             /*        }
+            let userInput = $('#search').val();
 
-                });  */       
+            if(userInput != '')
+            {
+                getSearchItem(userInput);
+            }
 
-        /*     } else { */
+        });
 
-                /* hide autocomplete box if already displayed*/
 
-            /*     $('#autocomp').hide();
-            } */
+        $( "#search" ).on( "autocompleteselect", function( event, ui ) {
 
+            /* both label and value are the same  */
+
+            /* call search */
+
+            getSearchItem(ui.item.label)
+
+        } );
 
 
         function getSearchItem(userInput)
         {
-
-        let data = {
+            let data = {
 
                 term: userInput,
                 latitude: '37.786882',
@@ -475,10 +407,14 @@
 
             }).done(function(data){
 
-           /*      $('#scalingDiv').hover(function(){
+    /*             paginationVars.paginationDataLength = Object.keys(data).length; 
 
-                    $(this).css({transform: 'scale(1.5)'});
-                }); */
+paginationVars.paginationData = data;
+
+paginationVars.totalNumberOfPage = Math.ceil(paginationVars.paginationDataLength/paginationVars.LengthOfdataPerpage);
+
+   //paginationVars.dataToDisplay = 
+ */
 
                 $.each(data.businesses, function(i ,restaurant){
 
@@ -487,19 +423,101 @@
                     
                   /*   $('#businessDiv').append('<div class="card"><img class="card-img-top" src="'+restaurant.image_url+'" alt="Card image cap"><div class="card-body"><h5 class="card-title">Card title</h5><p class="card-text">'+restaurant.name+'<br>Rating: '+ restaurant.rating +'</p><a href="/business/'+restaurant.id+'" class="btn btn-primary">Go somewhere</a></div></div></div></div><br>'); */
 
-
                 });
 
-                console.log(data);
+          /*       console.log(data); */
 
             });         
 
         }
 
 
-        @include('business')
+        function getBusiness(businessId)
+        {
+
+            let data = {
+
+                latitude: '37.786882',
+                longitude: '-122.399972'
+                
+            };
+
+            $.ajax({
+
+                url: requests.main_url + 'businesses/' + businessId,
+                headers: requests.headers,
+                dataType: 'json',
+                data: data
+
+            }).done(function(data){
+
+                if(!jQuery.isEmptyObject(data))
+                {
+                    console.log(data);
+
+                    $('#main_businessDiv').show();
+
+                    $('#main_businessDiv').append('<br><div id="businessDiv"></div>'); 
+
+                   /*  $.each(data, function(i, data){ */
+
+                        $('#businessDiv').append('<div id="main-card" class="card">');
+
+                        $('#main-card').append('<div class="card-title"><h3>'+ data.name +' </h3></div>');
+
+                        let restaurant = {
+                          
+                          address : data.location.address1.replace(' ', '%'),
+
+                          name : data.name.replace(' ', '%20'),
+
+                          cords : data.coordinates.latitude +', '+ data.coordinates.longitude,
+                        };
+
+                        $('#main-card').append('<div class="card-img">');//carousel
+
+                        $('card-img').append('<div id="carouselExampleIndicators" class="carousel slide car" data-ride="carousel">' +
+                        '<ol id="carol_ind" class="carousel-indicators"></ol>');
+                        
+                        $('#carol_ind').append('<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>');
+
+                        $('.car').append('<div class="carousel-inner"><div class="carousel-item active"><img class="d-block w-100" src="'+ data.image_ul+'" alt="First slide"></div><'); //set slider image to image_url
+                       
+                        let carousel_id = 1;
+                          
+                        $.each(data.photos, function(v ,pix){
+                      
+                          $('#carol_ind').append('<li data-target="#carouselExampleIndicators" data-slide-to="'+carousel_id+'"></li>');
+
+                          $('#carousel-inner').append('<div class="carousel-item"><img class="d-block w-100 card-image-top" style="max-height:30rem;" src="'+pix+'" alt="Second slide">');
+
+                          carousel_id ++;
+                          
+                        });
+                                
+                        $('#main-card').append('<div id="card-body card-body" class="card-body">');
+
+                        $('#card-body').append('<div id="card-body-row" class="row">');
+
+                        $('#card-body-row').append('<div class="col-md-6 col-lg-6">'+'<i class="fas fa-phone"></i> '+data.phone+'<pReviews: '+data.review_count+'></p></div>');
+
+                        $('#card-body-row').append('<div class="class="col-md-4 col-lg-4 offset-5"><iframe width="100%" height="100" src="https://maps.google.com/maps?width=100%&amp;height=100&amp;hl=en&amp;coord='+restaurant.cords+'q=+('+restaurant.name+')&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">latitude longitude finder</a></iframe></div><br />');
+
+                        $('#card-body-row').append('</div>');//end row
+
+                        $('#main-card').append('</div>');//end class card-body
+
+                        $('#main-card').append('</div> <br>');//end class card
+                  
+                    //});
 
 
+              }
+ 
+
+            });
+
+        }
 
     });
 

@@ -145,99 +145,9 @@
 
             }; --}}
 
-     {{--    <script> --}}
+        <script>
 
-          function getBusiness(businessId)
-          {
-
-            let data = {
-
-                latitude: '37.786882',
-                longitude: '-122.399972'
-                
-            };
-
-            $.ajax({
-
-                url: requests.main_url + 'businesses/' + businessId,
-                headers: requests.headers,
-                dataType: 'json',
-                data: data
-
-            }).done(function(data){
-
-              if(!jQuery.isEmptyObject(data))
-              {
-
-                  paginationVars.paginationDataLength = data.length; 
-
-                  paginationVars.paginationData = data;
-
-                  paginationVars.totalNumberOfPage = Math.ceil(paginationVars.paginationDataLength/paginationVars.LengthOfdataPerpage);
-
-
-                  //paginationVars.dataToDisplay = 
-
-                  $('#main_businessDiv').show();
-
-                  $('#main_businessDiv').html('<br><div id="businessDiv"></div>');
-
-
-                  $.each(paginationVars.paginationData, function(i, data){
-
-                        $('#businessDiv').append('<div id="main-card-'+i+'" class="card">');
-
-                        $('#main-card-' +i).html('<div class="card-title"><h3>'+ data.name +' </h3></div>');
-
-                        let restaurant = {
-                          
-                          address : data.location.address1.replace(' ', '%'),
-
-                          name : data.name.replace(' ', '%20'),
-
-                          cords : data.coordinates.latitude +', '+ data.coordinates.longitude,
-                        };
-
-                        $('#main-card-' +i).append('<div class="card-img">');//carousel
-
-                        $('card-img').append('<div id="carouselExampleIndicators" class="carousel slide car'+ i +'" data-ride="carousel">' +
-                        '<ol id="carol_ind" class="carousel-indicators"></ol>');
-                        
-                        $('#carol_ind').append('<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>');
-
-                        $('.car'+i).append('<div class="carousel-inner"><div class="carousel-item active"><img class="d-block w-100" src="'+ data.image_ul+'" alt="First slide"></div><'); //set slider image to image_url
-                       
-                        let carousel_id = 1;
-                          
-                        $.each(data.photos, function(v ,pix){
-                      
-                          $('#carol_ind').append('<li data-target="#carouselExampleIndicators" data-slide-to="'+carousel_id+'"></li>');
-
-                          $('#carousel-inner').append('<div class="carousel-item"><img class="d-block w-100 card-image-top" style="max-height:30rem;" src="'+pix+'" alt="Second slide">');
-
-                          carousel_id ++;
-                          
-                        });
-                                
-                        $('#main-card-' +i).append('<div id="card-body card-body'+ i +'" class="card-body">');
-
-                        $('#card-body'+ i).append('<div id="card-body-row'+i+'" class="row">');
-
-                          $('#card-body-row'+i).append('<div class="col-md-6 col-lg-6">'+'<i class="fas fa-phone"></i> '+data.phone+'<pReviews: '+data.review_count+'></p></div>');
-
-                          $('#card-body-row'+i).append('<div class="class="col-md-4 col-lg-4 offset-5"><iframe width="100%" height="100" src="https://maps.google.com/maps?width=100%&amp;height=100&amp;hl=en&amp;coord='+restaurant.cords+'q=+('+restaurant.name+')&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">latitude longitude finder</a></iframe></div><br />');
-
-                          $('#card-body-row'+i).append('</div>');//end row
-
-                        $('#main-card-' +i).append('</div>');//end class card-body
-
-                        $('#main-card-' +i).append('</div> <br>');//end class card
-                  
-                  });
-
-
-              }
-
+      
 /* 
                   $('.lds-spinner').fadeOut('slow')
 
@@ -288,5 +198,5 @@
 
         }
 
-    {{--     </script> --}}
+</script>
 
