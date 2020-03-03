@@ -182,7 +182,7 @@
     
            <div style="font-size:1rem;" class="d-flex justify-content-center"> <span><a href="#"><i class="fas fa-utensils"></i> Restaurant<a> &emsp;| &emsp;<a href="#"><i class="fas fa-coffee"></i> Breakfast and brunch</a> &emsp; | &emsp; <a id="loc_delivery" href="#"><i class="fas fa-shipping-fast"></i> Available delivery</a></span></div>
 
-        </div>
+        </div><br>
         
 
     <div class="row">
@@ -219,12 +219,10 @@
 
 <script>
 
-
-
     $(document).ready(function(){
 
         var businessId;
-
+ 
         /* 
             declaring var for page pagination
          */
@@ -242,7 +240,7 @@
 
             paginationDataLength : 0
 
-        };
+        }; 
 
       
 
@@ -272,7 +270,7 @@
         /*
 
         */
-        let requests = {
+       let requests = {
             
             main_url : 'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/',
 
@@ -282,8 +280,8 @@
             },
 
         };
-   
-
+    
+ 
         $('#search').autocomplete({
                         
             source: function(request, response){
@@ -304,15 +302,16 @@
                     dataType: 'json',
                     data: data,
 
-                    success: function(data){
-    /* 
-                        console.log(data); */
+                    success: function(data){ 
+    
+                        console.log(data);
 
                         $('#search').removeClass('ui-autocomplete-loading');
-
+ 
                         //var obj = JSON.parse(data);
                     
-                        response( $.map(data, function(item, i) {
+                        response( $.map(data, function(item, i) { 
+                       
                         // your operation on data
 
                             return   $.map(item, function(res){
@@ -347,13 +346,9 @@
                         }));
                     
                     },
-/* 
-                    select: function( event, ui ) {
-
-                        alert('you selected '+ ui.item.label);
-                    }, */
                     
                     error: function(data) {
+
                         $('#search').removeClass('ui-autocomplete-loading');  
                     
                     }
@@ -378,7 +373,7 @@
         });
 
 
-        $( "#search" ).on( "autocompleteselect", function( event, ui ) {
+        $( "#search" ).on( "autocompleteselect", function( event, ui ) { 
 
             /* both label and value are the same  */
 
@@ -409,6 +404,8 @@
 
                 $('#main_businessDiv').show();
 
+                $('#main_businessDiv').html('<div class="offset-lg-1 offset-md-1" id="businessDiv"></div>'); 
+ 
     /*             paginationVars.paginationDataLength = Object.keys(data).length; 
 
 paginationVars.paginationData = data;
@@ -421,7 +418,7 @@ paginationVars.totalNumberOfPage = Math.ceil(paginationVars.paginationDataLength
                 $.each(data.businesses, function(i ,restaurant){
 
 
-                    getBusiness(restaurant.id, i)
+                    getBusiness(restaurant.id, i) 
                     
                   /*   $('#businessDiv').append('<div class="card"><img class="card-img-top" src="'+restaurant.image_url+'" alt="Card image cap"><div class="card-body"><h5 class="card-title">Card title</h5><p class="card-text">'+restaurant.name+'<br>Rating: '+ restaurant.rating +'</p><a href="/business/'+restaurant.id+'" class="btn btn-primary">Go somewhere</a></div></div></div></div><br>'); */
 
@@ -455,30 +452,100 @@ paginationVars.totalNumberOfPage = Math.ceil(paginationVars.paginationDataLength
 
                 if(!jQuery.isEmptyObject(data))
                 {
-                    console.log(data);
+                    let carousel_num = 1;
+                    let dyn_img_li = '';
+                    let dyn_img = '';
 
-                    $('#main_businessDiv').append('<div class="offset-lg-1 offset-md-1" id="businessDiv'+ i+'"></div>'); 
+                    let restaurant = {
+                          
+                        address : data.location.address1.replace(' ', '%'),
+
+                        name : data.name.replace(' ', '%20'),
+
+                        cords : data.coordinates.latitude +', '+ data.coordinates.longitude, 
+
+                    };
+                    
+                    $.each(data.photos, (i, pix) => {
+                        
+                        dyn_img += `<div class="carousel-item">
+                                        <img src="`+pix+`" class="d-block w-100" alt="...">
+                                    </div>`;
+
+                        dyn_img_li += '<li data-target="#carouselExampleIndicators" data-slide-to="'+carousel_num+'"></li>';
+
+                                carousel_num ++;
+
+                    });
+
+                    let map = `<div class="class="col-md-4 col-lg-4 offset-5"><iframe width="100%" height="100" src="https://maps.google.com/maps?width=100%&amp;height=100&amp;hl=en&amp;coord=`+restaurant.cords+`q=+(`+restaurant.name+`)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">latitude longitude finder</a></iframe></div><br>`;
+
+                    let dom = `<div class="card offset-md-1 offset-lg-1 col-md-7 col-lg-7" style="width: 18rem;">
+                                
+                                    <div class="card-header">`+data.name+`</div>
+
+                                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                        <ol class="carousel-indicators">
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                            `+dyn_img_li+`
+                                        </ol>
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <img src="`+data.image_url+`" class="d-block w-100" alt="...">
+                                            </div>
+                                            `+dyn_img+`
+                                        </div>
+                                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <h5 class="card-title">`+data.name+`</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            `+map+`
+                                        </div>
+                                        
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">Cras justo odio</li>
+                                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                                        <li class="list-group-item">Vestibulum at eros</li>
+                                    </ul>
+                                    <div class="card-body">
+                                        <div class="col-md-6 col-lg-6">'+'<i class="fas fa-phone"></i> `+data.phone+`<p>Reviews: `+data.review_count+`></p></div>
+                                        <a href="#" class="card-link">Card link</a>
+                                        <a href="#" class="card-link">Another link</a>
+                                    </div>
+                                </div> <br><br>`;
+
+                    $('#businessDiv').append(dom);
+
+                    console.log(data);
+                }
+            });
+        }
+
+    });
 
                    /*  $.each(data, function(i, data){ */
 
-                        $('#businessDiv'+i).append('<div id="main-card'+i+'" class="card"></div>');
+                      /*   
 
                         $('#main-card' +i).append('<div class="card-title"><h3>'+ data.name +' </h3></div>');
 
-                        let restaurant = {
-                          
-                          address : data.location.address1.replace(' ', '%'),
-
-                          name : data.name.replace(' ', '%20'),
-
-                          cords : data.coordinates.latitude +', '+ data.coordinates.longitude,
-
-                        };
-                                  let carousel_div = `<div id="carouselExampleIndicators${i}" class="carousel slide" data-ride="carousel">
+                        
+                               /*    let carousel_div = `<div id="carouselExampleIndicators"`+i+` class="carousel slide" data-ride="carousel">
 
                                         <ol class="carousel-indicators">
                                             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                                            <li data-target="#carouselExampleIndicators" data-slide-to="${i}"></li>
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="`+i+`"></li>
                                         </ol>
                                         <div class="carousel-inner">
                                             <div class="carousel-item active">
@@ -488,59 +555,15 @@ paginationVars.totalNumberOfPage = Math.ceil(paginationVars.paginationDataLength
                                     let dyn_img = '';
                                     $.each(data.photos, (i,pix) => {
                                         dyn_img += `<div class="carousel-item">
-                                                        <img src="${pix}" class="d-block w-100" alt="...">
+                                                        <img src="`+pix+`}" class="d-block w-100" alt="...">
                                                     </div>`;
 
                                     });
-                                    $('div#carouselExampleIndicators'+i).append(dyn_img)
-                                    $(".card-img"+i).append(carousel_div)
-
-                     /*    $('#main-card' +i).append('<div class="card-img-'+i+'"></div>');//carousel
-
-                        $('.card-img-'+i).append('<div id="carouselExampleIndicators car'+i+'" class="carousel slide" data-ride="carousel">' +
-                        '<ol id="carol_ind'+i+'" class="carousel-indicators"></ol>');
-                        
-                        $('#carol_ind'+i).append('<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>');
-
-                        $('#car'+i).append('<div id="carouselInner'+i+'" class="carousel-inner"><div class="carousel-item active"><img class="d-block w-100" src="'+ data.image_url+'" alt="First slide"></div><'); //set slider image to image_url
-                       
-                        let carousel_id = 1;
-                          
-                        $.each(data.photos, function(v ,pix){
-                      
-                          $('#carol_ind'+i).append('<li data-target="#carouselExampleIndicators" data-slide-to="'+carousel_id+'"></li>');
-
-                          $('#carouselInner'+i).append('<div class="carousel-item"><img class="d-block w-100 card-image-top" style="max-height:30rem;" src="'+pix+'" alt="Second slide">');
-
-                          carousel_id ++;
-                          
-                        });
-                           */      
-                        $('#main-card'+i).append('<div id="card-body'+i+'" class="card-body"></div>');
-
-                        $('#card-body'+i).append('<div id="card-body-row'+i+'" class="row"></div>');
-
-                        $('#card-body-row'+i).append('<div class="col-md-6 col-lg-6">'+'<i class="fas fa-phone"></i> '+data.phone+'<pReviews: '+data.review_count+'></p></div>');
-
-                        $('#card-body-row'+i).append('<div class="class="col-md-4 col-lg-4 offset-5"><iframe width="100%" height="100" src="https://maps.google.com/maps?width=100%&amp;height=100&amp;hl=en&amp;coord='+restaurant.cords+'q=+('+restaurant.name+')&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">latitude longitude finder</a></iframe></div><br />');
-
-                        /* $('#card-body-row'+i).append('</div>');//end row */
-/* 
-                        $('#main-card'+i).append('</div>'); *///end class card-body
-/* 
-                        $('#main-card'+i).append('</div> <br></br>'); *///end class card
+                                    $('div#carouselExampleIndicators'+i).append(dyn_img);
+                                    $(".card-img"+i).append(carousel_div); */
+          
                   
-                    //});
-
-              }
- 
-
-            });
-
-        }
-
-    });
-
+                  
 </script>
     
 @endsection
