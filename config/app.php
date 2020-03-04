@@ -174,6 +174,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        BotMan\Studio\Providers\DriverServiceProvider::class,
+        BotMan\BotMan\BotManServiceProvider::class,
+        BotMan\Studio\Providers\StudioServiceProvider::class,
 
     ],
 

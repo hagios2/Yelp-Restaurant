@@ -31,3 +31,6 @@ Route::get('/business/{business_id}', function($business_id){
  
 
 });
+
+
+Route::match(['get', 'post'], '/botman', 'BotmanController@handle');
