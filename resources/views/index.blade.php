@@ -786,6 +786,7 @@ function getSearchItem(userInput)
                           </div>
                         </div>
                       </div>
+              
 
                       <div col-md-8 col-lg-8>
                       <span class="heading">User Rating</span>
@@ -853,8 +854,8 @@ function getSearchItem(userInput)
                       <!-- Button trigger modal -->
                     <button id="revBut" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
                       View Details
-                    </button id="hideBut">  
-                     <button type="button" class="btn btn-info">
+                    </button> 
+                    <button id="hideBut" type="button" class="btn btn-info" style="display:none;">
                       See reviews
                     </button> 
 
@@ -926,7 +927,7 @@ function getSearchItem(userInput)
       </div>
     </div>
   </div>`;
-
+ 
                     $('#speakers').append(dom);
 
 
@@ -999,6 +1000,6 @@ function getSearchItem(userInput)
 </script>
 
 
-</html>
+{{-- </html> --}}
 {{-- 
 https://s3-media1.fl.yelpcdn.com/bphoto/mjMHObH17E2NykWJufuVSg/o.jpg --}}
