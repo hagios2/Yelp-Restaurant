@@ -132,7 +132,7 @@
 
     <div id="app" class="container-fluid">
 
-      {{--   <section style="background-image: url('https://s3-media1.fl.yelpcdn.com/bphoto/4ydj9Jo-3tBfPESPz-J5bg/o.jpg')"> --}}
+        {{-- <section style="background-image: url('https://s3-media1.fl.yelpcdn.com/bphoto/4ydj9Jo-3tBfPESPz-J5bg/o.jpg')"> --}}
 
         <div class="row justify-content-center">
             <img src="https://s3-media0.fl.yelpcdn.com/assets/public/favicon.yelp_styleguide.yji-118ff475a341620f50dfbaddb83efb25.ico" alt="" srcset=""> <h4 class="title">Yelp Restaurant Services</h4> 
@@ -192,6 +192,8 @@
 
         <div id="main_businessDiv" style="display:none;" class="col-lg-7 col-md-7 col-sm-10 col-xs-10"></div>
 
+        <nav><ul class="pagination"></ul></nav>
+
         <div class="col-md-4 col-ld-4">
 
          {{--    <div style="width: 100%"><iframe id="googlemap" width="100" height="250" src="https://maps.google.com/maps?width=300%&amp;height=250&amp;hl=en&amp;coord=37.7790262, -122.4199061&amp;q=San%20Francisco%2C%20city%2C%20United%20States%20of%20America+(Restaurant%20Delivery)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">gps coordinates finder</a></iframe></div><br /> --}}
@@ -200,11 +202,29 @@
 
     </div>
 
+    <ul id="pagexample" class="pagination"></ul>
+
 
     {{--  --}}
         
 
-    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/assets/css/chat.min.css">
+
+        <script>
+
+            var botmanWidget = {
+
+            aboutText: 'ssdsd',
+
+            introMessage: "✋ Hi! I'm form ItSolutionStuff.com"
+
+        };
+
+</script>
+
+
+
+<script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
 
     
     </div>
@@ -224,22 +244,6 @@
         /* 
             declaring var for page pagination
          */
-        let paginationVars = {
-
-            totalNumberOfPage : 0,
-
-            paginationData : [],
-
-            startingPage : 1,
-
-            LengthOfdataPerpage : 3,
-
-            dataToDisplay : [],
-
-            paginationDataLength : 0
-
-        }; 
-
       
 
         //   getLocation();
@@ -404,16 +408,19 @@
 
                 $('#main_businessDiv').html('<div class="offset-lg-1 offset-md-1" id="businessDiv"></div>'); 
  
-    /*             paginationVars.paginationDataLength = Object.keys(data).length; 
+                paginationVars.paginationDataLength = Object.keys(data).length; 
 
-paginationVars.paginationData = data;
+                paginationVars.paginationData = data;
 
-paginationVars.totalNumberOfPage = Math.ceil(paginationVars.paginationDataLength/paginationVars.LengthOfdataPerpage);
+                paginationVars.totalNumberOfPage = Math.ceil(paginationVars.paginationDataLength/paginationVars.LengthOfdataPerpage);
 
-   //paginationVars.dataToDisplay = 
- */
+
+                //paginationVars.dataToDisplay = 
+
 
                 $.each(data.businesses, function(i ,restaurant){
+
+
 
                     getBusiness(restaurant.id, i) 
                     
@@ -493,19 +500,7 @@ paginationVars.totalNumberOfPage = Math.ceil(paginationVars.paginationDataLength
 
                     });
 
-                    let rating = ``;
-
-                    for(var i = 1; i >= 5; i++)
-                    {
-                        if(i <= data.rating)
-                        {
-                            rating += `<i style="#FD7E14" class="fas fa-star"></i>`;
-                        
-                        }else{
-
-                            rating += `<i style="#ADB5BD" class="fas fa-star"></i>`;
-                        }
-                    }
+                    let rating = getRating(data.rating);
 
                     let map = `<div class="class="col-md-4 col-lg-4 offset-5"><iframe width="100%" height="100" src="https://maps.google.com/maps?width=100%&amp;height=100&amp;hl=en&amp;coord=`+restaurant.cords+`q=+(`+restaurant.name+`)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">latitude longitude finder</a></iframe></div><br>`;
 
@@ -582,6 +577,67 @@ paginationVars.totalNumberOfPage = Math.ceil(paginationVars.paginationDataLength
                 }
             });
         }
+
+
+
+        function paginatePage(){
+
+            let totalNumberOfPage = $('#businessDiv').length;
+
+            let displaydataperpage = 1;
+
+            let businesdivno = 0;
+
+            
+            $.each(data, (i, setdisplay) => {
+
+                businesdivno ++;
+
+                if(businesdivno > displaydataperpage)
+                {
+                    $('#button').hide();
+
+                } else {
+
+                    $('#button').show();
+                }
+
+
+
+            });
+
+
+
+
+
+
+ 
+        } 
+
+        $('#example').pagination({
+
+            ajax: function(options, refresh, $target){
+            $.ajax({
+                url: 'data.json',
+                data:{
+                current: options.current,
+                length: options.length
+                },
+                dataType: 'json'
+            }).done(function(res){
+                console.log(res.data);
+                refresh({
+                total: res.total, // optional
+                length: res.length // optional
+                });
+            }).fail(function(error){
+
+            });
+            }
+
+            });
+
+
 
     });                   
                   

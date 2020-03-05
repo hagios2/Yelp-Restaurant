@@ -12,7 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+
+Route::get('/restaurants/{restaurant_id}', function ($restaurant_id) {
+    return view('index');
+});
+
+Route::get('/chatBotman', function () {
+    return view('chatbot');
 });
 
 Auth::routes();
@@ -28,7 +36,6 @@ Route::get('/business/{business_id}', function($business_id){
 
     return back();
 
- 
 
 });
 
