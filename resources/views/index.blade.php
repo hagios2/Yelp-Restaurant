@@ -24,20 +24,20 @@
 {{--   <link rel="stylesheet" href="/app/aquamarine.css"> --}}
   <link href="{{ asset('css/aquamarine.css') }}" rel="stylesheet">
   <link href="{{ asset('css/rating.css') }}" rel="stylesheet">
-  {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
-{{--   <link rel="stylesheet" href="rating.css"> --}}
+  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <!-- Script: Make my navbar transparent when the document is scrolled to top -->
-{{--   <script src="js/navbar-ontop.js"></script> --}}
+
   <script src="{{ asset('js/navbar-ontop.js') }}"></script>
- {{--  <script src="{{ asset('js/rating.js') }}"></script>
+  <script src="{{ asset('js/rating.js') }}"></script>
   <script src="{{ asset('js/smooth-scroll.js') }}"></script>
-  <script src="{{ asset('js/animate.js') }}"></script> --}}
+  <script src="{{ asset('js/animate.js') }}"></script>
   <script src="{{ asset('js/search.js') }}"></script>
 
- {{--  <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script> --}}
+  <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
 
-  <script src="{{ asset('js/app.js') }}" ></script>
+{{--   <script src="{{ asset('js/app.js') }}" ></script> --}}
 
   <style>
     /* css for autocomplete */
@@ -97,7 +97,7 @@
   <!-- Script: Animated entrance -->
 
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
- {{--  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> --}}
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -686,9 +686,11 @@ function getSearchItem(userInput)
                     let map = `  <div class="col-md-6"><iframe width="100%" height="400" src="https://maps.google.com/maps?q=`+restaurant.name+`&amp;z=14&amp;output=embed" scrolling="no" frameborder="0"></iframe></div>`;
                     
         
-                    let claimed = (data.is_claimed) ? `<i class="fas fa-check-square"></i> claimed`:``
+                    let claimed = (data.is_claimed) ? `<i class="fas fa-check-square"></i> claimed`:``;
 
-                    let dom = `<div class="container-fluid">
+                    let dom = 
+                    
+                    `<div class="container-fluid">
                         <div class="row">
                         </div>
                         <h3 style="display:inline;" class="mb-0"><b>`+data.name+`</b></h3> &emsp; <small style="color:blue">`+ claimed+`</small>
@@ -696,7 +698,6 @@ function getSearchItem(userInput)
                         <p class="text-muted">Quality is our riority</p>
                         <div class="row">
                           <div class="col-md-6">
-
                             <div class="carousel slide" data-ride="carousel" id="carousel">
                               <div class="carousel-inner">
                                `+dyn_img+`

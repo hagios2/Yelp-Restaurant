@@ -21,19 +21,4 @@ Route::get('/chatBotman', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/business/{business_id}', function($business_id){
-
-    if($business_id)
-    {
-        return view('business', compact('business_id'));
-    }
-
-    return back();
-
-
-});
-
-
 Route::match(['get', 'post'], '/botman', 'BotmanController@handle');
