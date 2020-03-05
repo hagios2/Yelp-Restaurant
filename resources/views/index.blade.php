@@ -35,7 +35,7 @@
   <script src="{{ asset('js/animate.js') }}"></script> --}}
   <script src="{{ asset('js/search.js') }}"></script>
 
-  <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
+ {{--  <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script> --}}
 
   <script src="{{ asset('js/app.js') }}" ></script>
 
@@ -142,7 +142,7 @@
 
       <div class="justify-content-center">
 
-        <div class="col-md-10 col-lg-10 col-xs-10 col-sm-10 offset-3">
+        <div class="col-md-10 col-lg-10 col-xs-10 col-sm-10">
           <span style="font-size:1rem; margin-right:2rem;">
               <i style="color:#f2552c;" class="fas fa-search" aria-hidden="true"></i>  Find Restaurant
           </span> 
