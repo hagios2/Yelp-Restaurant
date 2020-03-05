@@ -22,7 +22,7 @@
   <meta name="description" content="Free Bootstrap 4 Pingendo Aquamarine template for unique events.">
   <meta name="keywords" content="Pingendo conference event aquamarine free template bootstrap 4">
   <!-- CSS dependencies -->
-{{--   <link rel="stylesheet" href="/app/aquamarine.css"> --}}
+
   <link href="{{ asset('css/aquamarine.css') }}" rel="stylesheet">
   <link href="{{ asset('css/rating.css') }}" rel="stylesheet">
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -31,10 +31,9 @@
   <!-- Script: Make my navbar transparent when the document is scrolled to top -->
 
   <script src="{{ asset('js/navbar-ontop.js') }}"></script>
-
-  <script src="{{ asset('js/smooth-scroll.js') }}"></script>
+{{--   <script src="{{ asset('js/smooth-scroll.js') }}"></script> --}}
   <script src="{{ asset('js/animate.js') }}"></script>
-  <script src="{{ asset('js/search.js') }}"></script>
+
 
   <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
 
