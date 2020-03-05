@@ -4,6 +4,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+  <meta http-equiv="Content-Security-Policy" content="block-all-mixed-content">
+
+  <title>Restaurant</title>
+
+  <link rel="shortcut icon" href="https://s3-media0.fl.yelpcdn.com/assets/public/favicon.yelp_styleguide.yji-118ff475a341620f50dfbaddb83efb25.ico" />
   <!-- PAGE settings -->
   <link rel="icon" href="https://templates.pingendo.com/assets/Pingendo_favicon.ico">
   <title>shintaul Restaurant</title>
@@ -456,6 +465,8 @@
       </div>
     </div>
   </div>
+
+{{--   @include('chatbot') --}}
   <!-- Footer -->
   <footer class="text-md-left text-center p-4 bg-dark text-light" style="transition: all 0.25s;">
     <div class="container">
@@ -741,28 +752,25 @@ function getSearchItem(userInput)
 
                         if(transact == 'delivery')
                         {
-                            transaction += `<i style="color:#00ccff; font-size:1rem;" class="fas fa-shipping-fast" aria-hidden="true"></i>  Delivery` ;
+                            transaction += `<i style="color:#00ccff; font-size:1rem;" class="fas fa-shipping-fast" aria-hidden="true"></i>  Delivery &emsp;` ;
                         } else{
 
-                            transaction += `<i style="color:#F783AC; font-size:1rem;" class="fas fa-building" aria-hidden="true"></i>  Pickup` ;
+                            transaction += `<i style="color:#F783AC; font-size:1rem;" class="fas fa-building" aria-hidden="true"></i>  Pickup &emsp;` ;
                         }
 
                     });
                     
-
-                    let rating = getRating;
+                    let rating = getRating(data.rating);
 
                     let map = `  <div class="col-md-6"><iframe width="100%" height="400" src="https://maps.google.com/maps?q=`+restaurant.name+`&amp;z=14&amp;output=embed" scrolling="no" frameborder="0"></iframe></div>`;
                     
-                 /*    
-                    `<div class="class="col-md-4 col-lg-4 offset-5"><iframe width="100%" height="100" src="https://maps.google.com/maps?width=100%&amp;height=100&amp;hl=en&amp;coord=`+restaurant.cords+`q=+(`+restaurant.name+`)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">latitude longitude finder</a></iframe></div><br>`; */
-
+        
                     let claimed = (data.is_claimed) ? `<i class="fas fa-check-square"></i> claimed`:``
 
                     let dom = `<div class="container-fluid">
                         <div class="row">
                         </div>
-                        <h3 style="display:inline;" class="mb-0"><b>`+data.name+`</b></h3><small>`+ claimed+`</small>
+                        <h3 style="display:inline;" class="mb-0"><b>`+data.name+`</b></h3> &emsp; <small style="color:blue">`+ claimed+`</small>
 
                         <p class="text-muted">quality is </p>
                         <div class="row">
@@ -796,7 +804,43 @@ function getSearchItem(userInput)
                               <div class="col-md-2">
                                  `+ transaction +`  
                               </div>
-                              <div class="col-md-2" style=""><a class="btn btn-outline-primary" href="#">Place Order <i class="fa fa-shopping-cart fa-fw"></i> </a>
+                              <div class="col-md-2" style="">
+                              <!-- Button trigger modal -->
+                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">Place Order <i class="fa fa-shopping-cart fa-fw"></i></button>
+
+                              <!-- Modal -->
+                              <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalScrollableTitle">Order | Reservation</h5>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <div id="graph-wrapper">
+                                        <div class="graph-info">
+                                          <a href="javascript:void(0)" class="visitors">Visitors</a>
+                                          <a href="javascript:void(0)" class="returning">Returning Visitors</a>
+                                          <a href="#" id="bars"><span></span></a>
+                                          <a href="#" id="lines" class="active"><span></span></a>
+                                        </div>
+                                        <div class="graph-container">
+                                          <div id="graph-lines"></div>
+                                          <div id="graph-bars"></div>
+                                        </div>
+                                      </div>
+                                      <!-- end Graph HTML -->
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                      <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
                                 <span class="font12 block spacing1 font400 text-center">Min: `+data.price+`</span></div>
                             </div>
                             <div class="row">
@@ -812,9 +856,9 @@ function getSearchItem(userInput)
                                 <div class="col-md-10 col-6 p-4" style=""> <i class="d-block fa fa-circle-o fa-3x mb-2 text-muted"></i>
                                   <h4> <b>Contact</b> </h4>
                                   <p>
-                                    <i class="fa fa-map-marker text-dark ">Ap #867-859 Sit Rd. Azusa New York 39531 (793) 151-6230</i>
-                                    <i class="fa fa-envelope">www.shintaul@bog_gov.co.uk</i>
-                                    <i class="fa fa-phone">Tel: +2334534,+2334535653</i>
+                                    <i class="fa fa-map-marker text-dark "></i>&nbsp;`+data.location.address1+`, data
+                                    <i class="fa fa-envelope">www.shintaul@bog_gov.co.uk</i> <br>
+                                    <i class="fa fa-phone"></i>Tel: `+data.phone+` , `+data.display_phone+`
                                     <br>
                                   </p>
                                 </div>
@@ -825,8 +869,6 @@ function getSearchItem(userInput)
                                   <p>
                                     <i class="fa fa-map-marker text-dark ">Ap #867-859 Sit Rd. Azusa New York 39531 (793) 151-6230</i>
                                     <i class="fa fa-envelope">www.shintaul@bog_gov.co.uk</i>
-                                    <i class="fa fa-phone"></i>Tel: `+data.phone+` , `+data.display_phone+`
-                                    <br>
                                   </p>
                                 </div>
                               </div>
@@ -897,7 +939,7 @@ function getSearchItem(userInput)
               </div>
             </div>
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable"> Detailed Statistics </button> <button id="revBut" class="btn btn-info">See reviews</button> <br><br>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable"> Detailed Statistics </button> <button id="revBut" class="btn btn-info">See reviews</button> <button id="hideBut" class="btn btn-info" style="display:none;">Hide reviews</button> <br><br>
 
             
             <!-- Modal -->
@@ -936,8 +978,8 @@ function getSearchItem(userInput)
         </div>
       </div>
     </div> 
-            <div class="py-5 section-parallax" style="background-image: url('https://s3-media2.fl.yelpcdn.com/bphoto/usNRsp7QJryycWl3n5GZgQ/o.jpg'); transition: all 0.25s;" id="schedule">
-   
+            <div class="py-5 section-parallax" style="background-image: url(''); transition: all 0.25s;" id="schedule">
+                
               <div class="container section-aquamarine">
             <div class="row">
         <div class="col-md-12" style="">
@@ -952,6 +994,7 @@ function getSearchItem(userInput)
               <p class="lead">`+hours.regular+`</p>
               <p class="lead">`+hours.open_now+`</p>
             </div>
+      
             <ul class="list-group list-group-flush">
               <li class="list-group-item"><br>Monday&nbsp;<br><i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;09:30-10:00</li>
               <li class="list-group-item"><br>Tuesday&nbsp;<br><i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;10:00-12:00</li>
@@ -996,9 +1039,30 @@ function getSearchItem(userInput)
 
                       e.preventDefault();
 
+                      $(this).hide()
+
+                      $('#hideBut').show();
+                      
+
                       getBusinessReviews(data.id)
 
                     });
+
+
+                    $('#hideBut').click(function(e){
+
+                          e.preventDefault();
+
+                          $(this).hide()
+
+                          $('#revBut').show();
+
+                          $('#innerRevDiv').fadeOut(3000);
+
+                          $('#innerRevDiv').val('');
+                          
+
+                          });
                 }
             });
         }

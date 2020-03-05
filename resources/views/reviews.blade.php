@@ -21,16 +21,18 @@ function getBusinessReviews(businessId)
         {
             console.log(data);
             
-            $.each(data, (i, review) => {
+            $.each(data.reviews, (i, userreview) => {
 
-                var rating = getRating(data.rating);
+              $.each(userreview, (i, review) => {
+
+                var rating = getRating(review.rating);
 
                 let revdiv = `<div class="col-lg-4 col-md-6 p-4">
                     <div class="row">
-                      <div  class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="`+review.user.image_url+`" width="300"> </div>
+                      <div  class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="`+review.user['image_url']+`" width="300"> </div>
                       <div class="col-9">
-                        <p class="lead mb-1"> <b>#`+ i+1 +`</b> </p>
-                        <p class="mb-0">`+data.text+`</p>
+                        <p class="lead mb-1"> <b>#`+review.user['name'] +`</b> </p>
+                        <p class="mb-0">`+review.text+`</p>
                       </div>
                       <div class="col-md-12" style="">
                         <span class="heading">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; User Rating</span>`+rating+`
@@ -40,10 +42,12 @@ function getBusinessReviews(businessId)
                     </div>
                   </div>`;
 
-                  $('#divreview').append(revdiv);
+                  $('#divreview').append(`<div id="innerRevDiv">`+revdiv+`</div>`);
 
 
             });
+
+          });
 		}
             
     });
