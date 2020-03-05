@@ -13,6 +13,8 @@
   <title>Restaurant</title>
 
   <link rel="shortcut icon" href="https://s3-media0.fl.yelpcdn.com/assets/public/favicon.yelp_styleguide.yji-118ff475a341620f50dfbaddb83efb25.ico" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/assets/css/chat.min.css">
+
   <!-- PAGE settings -->
   <link rel="icon" href="https://templates.pingendo.com/assets/Pingendo_favicon.ico">
   <title>shintaul Restaurant</title>
@@ -31,6 +33,8 @@
   <script src="{{ asset('js/smooth-scroll.js') }}"></script>
   <script src="{{ asset('js/animate.js') }}"></script> --}}
   <script src="{{ asset('js/search.js') }}"></script>
+
+  <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
 
   <style>
     /* css for autocomplete */
@@ -146,7 +150,7 @@
               <i style="color:#00ccff; font-size:1rem;" class="fas fa-shipping-fast" aria-hidden="true"></i>  Select Delivery
           </span>
           <span style="font-size:1rem; margin-right:2rem;">
-              <i style="color:#EFC050; font-size:1rem;" class="fas fa-gifts" aria-hidden="true"></i>  Enjoy your Day
+              <i style="color:#fab005; font-size:1rem;" class="fas fa-gifts"></i>  Enjoy your Day
           </span>
 
       </div>
@@ -171,9 +175,8 @@
         <!-- End -->
 
     </div>
-          <h1 class="display-2 d-none d-md-block">Shintaul Restaurant</h1>
           <h1 class="display-4 d-block d-md-none">Conference Pingendo</h1>
-          <p class="">December 12-14, NYC </p>
+          <p class="">{{ now() }} </p>
           <a href="#register" class="btn btn-lg mt-4 btn-outline-light">Register now</a><i class="d-block fa fa-angle-down pt-5 fa-3x"></i>
         </div>
       </div>
@@ -466,7 +469,7 @@
     </div>
   </div>
 
-{{--   @include('chatbot') --}}
+  @include('chatbot')
   <!-- Footer -->
   <footer class="text-md-left text-center p-4 bg-dark text-light" style="transition: all 0.25s;">
     <div class="container">
@@ -772,7 +775,7 @@ function getSearchItem(userInput)
                         </div>
                         <h3 style="display:inline;" class="mb-0"><b>`+data.name+`</b></h3> &emsp; <small style="color:blue">`+ claimed+`</small>
 
-                        <p class="text-muted">quality is </p>
+                        <p class="text-muted">quality is our priority</p>
                         <div class="row">
                           <div class="col-md-6">
 
@@ -806,40 +809,7 @@ function getSearchItem(userInput)
                               </div>
                               <div class="col-md-2" style="">
                               <!-- Button trigger modal -->
-                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">Place Order <i class="fa fa-shopping-cart fa-fw"></i></button>
-
-                              <!-- Modal -->
-                              <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-scrollable" role="document">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h5 class="modal-title" id="exampleModalScrollableTitle">Order | Reservation</h5>
-                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">×</span>
-                                      </button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <div id="graph-wrapper">
-                                        <div class="graph-info">
-                                          <a href="javascript:void(0)" class="visitors">Visitors</a>
-                                          <a href="javascript:void(0)" class="returning">Returning Visitors</a>
-                                          <a href="#" id="bars"><span></span></a>
-                                          <a href="#" id="lines" class="active"><span></span></a>
-                                        </div>
-                                        <div class="graph-container">
-                                          <div id="graph-lines"></div>
-                                          <div id="graph-bars"></div>
-                                        </div>
-                                      </div>
-                                      <!-- end Graph HTML -->
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                      <button type="button" class="btn btn-primary">Save changes</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
+                              <a class="btn btn-primary"> Place Order <i class="fa fa-shopping-cart fa-fw"></i></a>
 
                                 <span class="font12 block spacing1 font400 text-center">Min: `+data.price+`</span></div>
                             </div>
@@ -856,9 +826,9 @@ function getSearchItem(userInput)
                                 <div class="col-md-10 col-6 p-4" style=""> <i class="d-block fa fa-circle-o fa-3x mb-2 text-muted"></i>
                                   <h4> <b>Contact</b> </h4>
                                   <p>
-                                    <i class="fa fa-map-marker text-dark "></i>&nbsp;`+data.location.address1+`, data
-                                    <i class="fa fa-envelope">www.shintaul@bog_gov.co.uk</i> <br>
-                                    <i class="fa fa-phone"></i>Tel: `+data.phone+` , `+data.display_phone+`
+                                    <i class="fa fa-map-marker text-dark "></i>&nbsp;&nbsp;`+data.location.address1+`<br>
+                                    <i class="fa fa-envelope">&nbsp;&nbsp;www.shintaul@bog_gov.co.uk</i> <br>
+                                    <i class="fa fa-phone"></i>&nbsp;&nbsp;Tel: `+data.phone+` , `+data.display_phone+`
                                     <br>
                                   </p>
                                 </div>
@@ -877,107 +847,110 @@ function getSearchItem(userInput)
                         </div>
                       </div>
 
+                      <div col-md-8 col-lg-8>
                       <span class="heading">User Rating</span>
-                 `+rating+`
-            <p>`+data.rating+` average based on `+data.review_count+` reviews.</p>
-            <hr style="border:3px solid #f1f1f1">
-            <div class="row">
-              <div class="side">
-                <div>5 star</div>
-              </div>
-              <div class="middle">
-                <div class="bar-container">
-                  <div class="bar-5"></div>
-                </div>
-              </div>
-              <div class="side right">
-                <div>150</div>
-              </div>
-              <div class="side">
-                <div>4 star</div>
-              </div>
-              <div class="middle">
-                <div class="bar-container">
-                  <div class="bar-4"></div>
-                </div>
-              </div>
-              <div class="side right">
-                <div>63</div>
-              </div>
-              <div class="side">
-                <div>3 star</div>
-              </div>
-              <div class="middle">
-                <div class="bar-container">
-                  <div class="bar-3"></div>
-                </div>
-              </div>
-              <div class="side right">
-                <div>15</div>
-              </div>
-              <div class="side">
-                <div>2 star</div>
-              </div>
-              <div class="middle">
-                <div class="bar-container">
-                  <div class="bar-2"></div>
-                </div>
-              </div>
-              <div class="side right">
-                <div>6</div>
-              </div>
-              <div class="side">
-                <div>1 star</div>
-              </div>
-              <div class="middle">
-                <div class="bar-container">
-                  <div class="bar-1"></div>
-                </div>
-              </div>
-              <div class="side right">
-                <div>20</div>
-              </div>
-            </div>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable"> Detailed Statistics </button> <button id="revBut" class="btn btn-info">See reviews</button> <button id="hideBut" class="btn btn-info" style="display:none;">Hide reviews</button> <br><br>
-
-            
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-scrollable" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">×</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <div id="graph-wrapper">
-                      <div class="graph-info">
-                        <a href="javascript:void(0)" class="visitors">Visitors</a>
-                        <a href="javascript:void(0)" class="returning">Returning Visitors</a>
-                        <a href="#" id="bars"><span></span></a>
-                        <a href="#" id="lines" class="active"><span></span></a>
+                          `+rating+`
+                      <p>`+data.rating+` average based on `+data.review_count+` reviews.</p>
+                      <hr style="border:3px solid #f1f1f1">
+                      <div class="row">
+                        <div class="side">
+                          <div>5 star</div>
+                        </div>
+                        <div class="middle">
+                          <div class="bar-container">
+                            <div class="bar-5"></div>
+                          </div>
+                        </div>
+                        <div class="side right">
+                          <div>150</div>
+                        </div>
+                        <div class="side">
+                          <div>4 star</div>
+                        </div>
+                        <div class="middle">
+                          <div class="bar-container">
+                            <div class="bar-4"></div>
+                          </div>
+                        </div>
+                        <div class="side right">
+                          <div>63</div>
+                        </div>
+                        <div class="side">
+                          <div>3 star</div>
+                        </div>
+                        <div class="middle">
+                          <div class="bar-container">
+                            <div class="bar-3"></div>
+                          </div>
+                        </div>
+                        <div class="side right">
+                          <div>15</div>
+                        </div>
+                        <div class="side">
+                          <div>2 star</div>
+                        </div>
+                        <div class="middle">
+                          <div class="bar-container">
+                            <div class="bar-2"></div>
+                          </div>
+                        </div>
+                        <div class="side right">
+                          <div>6</div>
+                        </div>
+                        <div class="side">
+                          <div>1 star</div>
+                        </div>
+                        <div class="middle">
+                          <div class="bar-container">
+                            <div class="bar-1"></div>
+                          </div>
+                        </div>
+                        <div class="side right">
+                          <div>20</div>
+                        </div>
                       </div>
-                      <div class="graph-container">
-                        <div id="graph-lines"></div>
-                        <div id="graph-bars"></div>
+                      </div>
+                      <!-- Button trigger modal -->
+                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable"> Detailed Statistics </button> <button id="revBut" class="btn btn-info">See reviews</button> <button id="hideBut" class="btn btn-info" style="display:none;">Hide reviews</button> <br><br>
+
+                      
+                      <!-- Modal -->
+                      <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <div id="graph-wrapper">
+                                <div class="graph-info">
+                                  <a href="javascript:void(0)" class="visitors">Visitors</a>
+                                  <a href="javascript:void(0)" class="returning">Returning Visitors</a>
+                                  <a href="#" id="bars"><span></span></a>
+                                  <a href="#" id="lines" class="active"><span></span></a>
+                                </div>
+                                <div class="graph-container">
+                                  <div id="graph-lines"></div>
+                                  <div id="graph-bars"></div>
+                                </div>
+                              </div>
+                              <!-- end Graph HTML -->
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    <!-- end Graph HTML -->
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> 
+              </div> 
+
             <div class="py-5 section-parallax" style="background-image: url(''); transition: all 0.25s;" id="schedule">
                 
               <div class="container section-aquamarine">
@@ -1012,7 +985,6 @@ function getSearchItem(userInput)
     </div>
   </div>   
 
-
   <div id="main-revDiv" class="py-5" style="display:none">
     <div class="container">
       <div class="row">
@@ -1023,9 +995,7 @@ function getSearchItem(userInput)
       <div id="divreview" class="row justify-content-center">
       </div>
     </div>
-  </div>
-  
-                      `;
+  </div>`;
 
                     $('#speakers').append(dom);
 
@@ -1057,12 +1027,11 @@ function getSearchItem(userInput)
 
                           $('#revBut').show();
 
-                          $('#innerRevDiv').fadeOut(3000);
+                          $('#main-revDiv').fadeOut(3000);
 
-                          $('#innerRevDiv').val('');
+                          $('#divreview').val('');
                           
-
-                          });
+                    });
                 }
             });
         }

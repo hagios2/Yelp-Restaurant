@@ -1,59 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/assets/css/chat.min.css">
-</head>
-<body>
-    
-</body>
-</html>
-<style>
-/* 
-html, body {
 
-    background-color: #fff;
+    <style>
+        section {
 
-    color: #636b6f;
+            background-color: #fff, !important;
 
-    font-family: 'Nunito', sans-serif;
+            color: #636b6f, !important; 
 
-    font-weight: 200;
+            font-family: 'Nunito', sans-serif, !important;
 
-    height: 100vh;
+            font-weight: 200, !important;
 
-    margin: 0;
+            height: 100vh, !important;
 
-}
- */
-</style>
+            margin: 0, !important;
 
-</head>
+            }
 
-<body>
-    <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
+    </style>
 
-</body>
+       
+    <script>
 
-{{-- 
-<iframe src="https://webchat.botframework.com/embed/RestAppbot885?s={{env('CHATBOTKEY')}}"  style='min-width: 400px; width: 100%; min-height: 500px;'></iframe>
- --}}
-
-
-
-<script>
-
-var botmanWidget = {
-
-aboutText: 'ssdsd',
-
-introMessage: "✋ Hi! I'm form ItSolutionStuff.com"
-
-};
-
-</script>
+        var botmanWidget = {
+        
+        aboutText: 'ssdsd',
+        
+        introMessage: "✋ Hi! I'm form ItSolutionStuff.com"
+        
+        };
+        
+        </script>
+        
 
 
