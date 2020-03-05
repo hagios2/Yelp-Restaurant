@@ -124,9 +124,14 @@ function getBusinessReviews(businessId)
 
                 if(!jQuery.isEmptyObject(data))
                 {
-					console.lgo(data);
+                  console.log(data);
+                  
+                  $.each(data, (i, delivery) => {
+                    
 
-				}
-			});
+                  });
+
+				        }
+		    	});
 
 		}

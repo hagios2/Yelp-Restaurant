@@ -24,6 +24,7 @@
 {{--   <link rel="stylesheet" href="/app/aquamarine.css"> --}}
   <link href="{{ asset('css/aquamarine.css') }}" rel="stylesheet">
   <link href="{{ asset('css/rating.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 {{--   <link rel="stylesheet" href="rating.css"> --}}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <!-- Script: Make my navbar transparent when the document is scrolled to top -->
@@ -35,6 +36,8 @@
   <script src="{{ asset('js/search.js') }}"></script>
 
   <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
+
+  <script src="{{ asset('js/app.js') }}" ></script>
 
   <style>
     /* css for autocomplete */
@@ -174,6 +177,10 @@
              </form>
         <!-- End -->
 
+
+        <div style="font-size:1rem;" class="d-flex justify-content-center"> <span><a href="#"><i id="rest-link" class="fas fa-utensils"></i> Restaurant<a> &emsp;| &emsp;<a id="breakfast" href="#"><i class="fas fa-coffee"></i> Breakfast and brunch</a> &emsp; | &emsp; <a id="loc_delivery" href="#"><i class="fas fa-shipping-fast"></i> Available delivery</a></span></div>
+
+
     </div>
           <h1 class="display-4 d-block d-md-none">Conference Pingendo</h1>
           <p class="">{{ now() }} </p>
@@ -202,119 +209,6 @@
     {{-- insert pages here dynamically  --}}
 
 
-   {{--  <div class="row">
-      <div class="col-md-12" style="transition: all 0.25s;">
-      </div>
-    </div>
-  </div>
-  <div class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="w3-content" style="padding: 30px; border: 3px solid rgb(241, 241, 241);">
-            <span class="heading">User Rating</span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-            <p>4.0 average based on 254 reviews.</p>
-            <hr style="border:3px solid #f1f1f1">
-            <div class="row">
-              <div class="side">
-                <div>5 star</div>
-              </div>
-              <div class="middle">
-                <div class="bar-container">
-                  <div class="bar-5"></div>
-                </div>
-              </div>
-              <div class="side right">
-                <div>150</div>
-              </div>
-              <div class="side">
-                <div>4 star</div>
-              </div>
-              <div class="middle">
-                <div class="bar-container">
-                  <div class="bar-4"></div>
-                </div>
-              </div>
-              <div class="side right">
-                <div>63</div>
-              </div>
-              <div class="side">
-                <div>3 star</div>
-              </div>
-              <div class="middle">
-                <div class="bar-container">
-                  <div class="bar-3"></div>
-                </div>
-              </div>
-              <div class="side right">
-                <div>15</div>
-              </div>
-              <div class="side">
-                <div>2 star</div>
-              </div>
-              <div class="middle">
-                <div class="bar-container">
-                  <div class="bar-2"></div>
-                </div>
-              </div>
-              <div class="side right">
-                <div>6</div>
-              </div>
-              <div class="side">
-                <div>1 star</div>
-              </div>
-              <div class="middle">
-                <div class="bar-container">
-                  <div class="bar-1"></div>
-                </div>
-              </div>
-              <div class="side right">
-                <div>20</div>
-              </div>
-            </div>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable"> Detailed Statistics </button>
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-scrollable" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">×</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <div id="graph-wrapper">
-                      <div class="graph-info">
-                        <a href="javascript:void(0)" class="visitors">Visitors</a>
-                        <a href="javascript:void(0)" class="returning">Returning Visitors</a>
-                        <a href="#" id="bars"><span></span></a>
-                        <a href="#" id="lines" class="active"><span></span></a>
-                      </div>
-                      <div class="graph-container">
-                        <div id="graph-lines"></div>
-                        <div id="graph-bars"></div>
-                      </div>
-                    </div>
-                    <!-- end Graph HTML -->
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> --}}
   </div>
   <!-- Schedule -->
   <div class="py-5" style="">
@@ -345,7 +239,7 @@
         </div>
         <div class="col-lg-4 col-md-6 p-4">
           <div class="row">
-            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="assets/conference/people_6.jpg" width="300"> </div>
+            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="https://s3-media0.fl.yelpcdn.com/photo/dHdLAxZzQWb8zZ4svfm_7g/60s.jpg" width="300"> </div>
             <div class="col-9">
               <p class="lead mb-1"> <b>#2</b> </p>
               <p class="mb-0">I am alone, and feel the charm of existence in this spot.</p>
@@ -363,7 +257,7 @@
         </div>
         <div class="col-lg-4 col-md-6 p-4">
           <div class="row">
-            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="assets/conference/people_6.jpg" width="300"> </div>
+            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="" width="300"> </div>
             <div class="col-9">
               <p class="lead mb-1"> <b>#3</b> </p>
               <p class="mb-0">I should be incapable of drawing a single stroke.</p>
@@ -381,7 +275,7 @@
         </div>
         <div class="col-lg-4 col-md-6 p-4">
           <div class="row">
-            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="assets/conference/people_6.jpg" width="300"> </div>
+            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="https://s3-media0.fl.yelpcdn.com/photo/eh8sf-HdpcjE8r-xCMOlsQ/ls.jpg" width="300"> </div>
             <div class="col-9">
               <p class="lead mb-1"> <b>#1</b> </p>
               <p class="mb-0">A wonderful serenity has taken possession of my entire soul.</p>
@@ -614,6 +508,35 @@ $('#search').autocomplete({
 
 });
 
+
+$('#rest-link').click(function(e){
+
+    e.preventDefault();
+
+    getSearchItem('restaurant');
+   
+
+});
+
+$('#breakfast').click(function(e){
+
+    e.preventDefault();
+
+    getSearchItem('breakfast and brunch');
+
+});
+
+
+
+$('#loc_delivery').click(function(e){
+
+    e.preventDefault();
+
+    getYourLocationDeliverySearch()
+
+});
+
+
 $('#button-addon2').click(function(e){
 
     e.preventDefault();
@@ -656,11 +579,6 @@ function getSearchItem(userInput)
         data: data
 
     }).done(function(data){
-/* 
-        $('#main_businessDiv').show();
-
-        $('#main_businessDiv').html('<div class="offset-lg-1 offset-md-1" id="businessDiv"></div>');  */
-
 
         $.each(data, function(i ,businesses){
 
@@ -721,15 +639,15 @@ function getSearchItem(userInput)
                     
                     $.each(data.photos, (i, pix) => {
                         
-                        dyn_img += `<div class="carousel-item"><img class="d-block img-fluid w-100" src="`+pix+`">
+                        dyn_img += `<div class="carousel-item"><img style="max-height:400px;" class="d-block img-fluid w-100" src="`+pix+`">
                                   <div class="carousel-caption">
                                     <h5 class="m-0">Carousel</h5>
                                     <p>with controls</p>
                                   </div>
                                 </div>`;
                 
-
-                        dyn_img_li += `<li data-target="#carouselExampleIndicators" data-slide-to="'+carousel_num+'"></li>`;
+/* 
+                        dyn_img_li += `<li data-target="#carouselExampleIndicators" data-slide-to="'+carousel_num+'"></li>`; */
 
                                 carousel_num ++;
                     });
@@ -775,14 +693,14 @@ function getSearchItem(userInput)
                         </div>
                         <h3 style="display:inline;" class="mb-0"><b>`+data.name+`</b></h3> &emsp; <small style="color:blue">`+ claimed+`</small>
 
-                        <p class="text-muted">quality is our priority</p>
+                        <p class="text-muted">quality is our priority</p>carousel
                         <div class="row">
                           <div class="col-md-6">
 
                             <div class="carousel slide" data-ride="carousel" id="carousel">
                               <div class="carousel-inner">
                                `+dyn_img+`
-                                <div class="carousel-item active"> <img style="max-height:400" class="d-block img-fluid w-100" src="`+data.image_url+`">
+                                <div class="carousel-item active"> <img style="max-height:400px;" class="d-block img-fluid w-100" src="`+data.image_url+`">
                                   <div class="carousel-caption">
                                     <h5 class="m-0">Carousel</h5>
                                     <p>with controls</p>
@@ -808,8 +726,30 @@ function getSearchItem(userInput)
                                  `+ transaction +`  
                               </div>
                               <div class="col-md-2" style="">
-                              <!-- Button trigger modal -->
-                              <a class="btn btn-primary"> Place Order <i class="fa fa-shopping-cart fa-fw"></i></a>
+                                <button id="placeOrder" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                                  Place Order <i class="fa fa-shopping-cart fa-fw">
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                  <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body">
+                                        ...
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
 
                                 <span class="font12 block spacing1 font400 text-center">Min: `+data.price+`</span></div>
                             </div>
@@ -911,47 +851,37 @@ function getSearchItem(userInput)
                       </div>
                       </div>
                       <!-- Button trigger modal -->
-                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable"> Detailed Statistics </button> <button id="revBut" class="btn btn-info">See reviews</button> <button id="hideBut" class="btn btn-info" style="display:none;">Hide reviews</button> <br><br>
+                    <button id="revBut" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                      View Details
+                    </button id="hideBut">  
+                     <button type="button" class="btn btn-info">
+                      See reviews
+                    </button> 
 
-                      
-                      <!-- Modal -->
-                      <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-scrollable" role="document">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                              </button>
-                            </div>
-                            <div class="modal-body">
-                              <div id="graph-wrapper">
-                                <div class="graph-info">
-                                  <a href="javascript:void(0)" class="visitors">Visitors</a>
-                                  <a href="javascript:void(0)" class="returning">Returning Visitors</a>
-                                  <a href="#" id="bars"><span></span></a>
-                                  <a href="#" id="lines" class="active"><span></span></a>
-                                </div>
-                                <div class="graph-container">
-                                  <div id="graph-lines"></div>
-                                  <div id="graph-bars"></div>
-                                </div>
-                              </div>
-                              <!-- end Graph HTML -->
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            ...
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-              </div> 
+                     
 
-            <div class="py-5 section-parallax" style="background-image: url(''); transition: all 0.25s;" id="schedule">
+            <div class="py-5 section-parallax" style="background-image: url('https://media.kempinski.com/1043/_hab0660.jpg'); transition: all 0.25s;" id="schedule">
                 
               <div class="container section-aquamarine">
             <div class="row">
