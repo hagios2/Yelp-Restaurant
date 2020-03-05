@@ -24,7 +24,7 @@
 {{--   <link rel="stylesheet" href="/app/aquamarine.css"> --}}
   <link href="{{ asset('css/aquamarine.css') }}" rel="stylesheet">
   <link href="{{ asset('css/rating.css') }}" rel="stylesheet">
-  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
 {{--   <link rel="stylesheet" href="rating.css"> --}}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <!-- Script: Make my navbar transparent when the document is scrolled to top -->
@@ -693,7 +693,7 @@ function getSearchItem(userInput)
                         </div>
                         <h3 style="display:inline;" class="mb-0"><b>`+data.name+`</b></h3> &emsp; <small style="color:blue">`+ claimed+`</small>
 
-                        <p class="text-muted">quality is our priority</p>
+                        <p class="text-muted">Quality is our riority</p>
                         <div class="row">
                           <div class="col-md-6">
 
@@ -726,7 +726,7 @@ function getSearchItem(userInput)
                                  `+ transaction +`  
                               </div>
                               <div class="col-md-2" style="">
-                                <button id="placeOrder" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                                <button id="placeOrder" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModalLong">
                                   Place Order <i class="fa fa-shopping-cart fa-fw">
                                 </button>
 
