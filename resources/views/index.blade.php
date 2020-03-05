@@ -693,7 +693,7 @@ function getSearchItem(userInput)
                         </div>
                         <h3 style="display:inline;" class="mb-0"><b>`+data.name+`</b></h3> &emsp; <small style="color:blue">`+ claimed+`</small>
 
-                        <p class="text-muted">quality is our priority</p>carousel
+                        <p class="text-muted">quality is our priority</p>
                         <div class="row">
                           <div class="col-md-6">
 
@@ -881,7 +881,7 @@ function getSearchItem(userInput)
                     </div>
                      
 
-            <div class="py-5 section-parallax" style="background-image: url('https://media.kempinski.com/1043/_hab0660.jpg'); transition: all 0.25s;" id="schedule">
+            <div class="py-5 section-parallax" style="background-image: url(''); transition: all 0.25s;" id="schedule">
                 
               <div class="container section-aquamarine">
             <div class="row">
