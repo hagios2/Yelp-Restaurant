@@ -13,6 +13,7 @@
   <title>Restaurant</title>
 
   <link rel="shortcut icon" href="https://s3-media0.fl.yelpcdn.com/assets/public/favicon.yelp_styleguide.yji-118ff475a341620f50dfbaddb83efb25.ico" />
+
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/assets/css/chat.min.css">
 
   <!-- PAGE settings -->
@@ -30,14 +31,14 @@
   <!-- Script: Make my navbar transparent when the document is scrolled to top -->
 
   <script src="{{ asset('js/navbar-ontop.js') }}"></script>
-  <script src="{{ asset('js/rating.js') }}"></script>
+
   <script src="{{ asset('js/smooth-scroll.js') }}"></script>
   <script src="{{ asset('js/animate.js') }}"></script>
   <script src="{{ asset('js/search.js') }}"></script>
 
   <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
 
-{{--   <script src="{{ asset('js/app.js') }}" ></script> --}}
+  <script src="{{ asset('js/app.js') }}" ></script>
 
   <style>
     /* css for autocomplete */
@@ -180,8 +181,7 @@
 
         <div style="font-size:1rem;" class="d-flex justify-content-center"> <span><a href="#"><i id="rest-link" class="fas fa-utensils"></i> Restaurant<a> &emsp;| &emsp;<a id="breakfast" href="#"><i class="fas fa-coffee"></i> Breakfast and brunch</a> &emsp; | &emsp; <a id="loc_delivery" href="#"><i class="fas fa-shipping-fast"></i> Available delivery</a></span></div>
 
-
-    </div>
+    </div> <br>
           <h1 class="display-4 d-block d-md-none">Conference Pingendo</h1>
           <p class="">{{ now() }} </p>
           <a href="#register" class="btn btn-lg mt-4 btn-outline-light">Register now</a><i class="d-block fa fa-angle-down pt-5 fa-3x"></i>
@@ -221,7 +221,7 @@
       <div class="row justify-content-center">
         <div class="col-lg-4 col-md-6 p-4">
           <div class="row">
-            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="assets/conference/people_6.jpg" width="300"> </div>
+            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="" width="300"> </div>
             <div class="col-9">
               <p class="lead mb-1"> <b>#1</b> </p>
               <p class="mb-0">A wonderful serenity has taken possession of my entire soul.</p>
@@ -257,7 +257,7 @@
         </div>
         <div class="col-lg-4 col-md-6 p-4">
           <div class="row">
-            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="" width="300"> </div>
+            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="https://s3-media0.fl.yelpcdn.com/photo/dHdLAxZzQWb8zZ4svfm_7g/60s.jpg" width="300"> </div>
             <div class="col-9">
               <p class="lead mb-1"> <b>#3</b> </p>
               <p class="mb-0">I should be incapable of drawing a single stroke.</p>
@@ -293,7 +293,7 @@
         </div>
         <div class="col-lg-4 col-md-6 p-4">
           <div class="row">
-            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="assets/conference/people_6.jpg" width="300"> </div>
+            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="https://s3-media0.fl.yelpcdn.com/photo/dHdLAxZzQWb8zZ4svfm_7g/60s.jpg" width="300"> </div>
             <div class="col-9">
               <p class="lead mb-1"> <b>#5</b> </p>
               <p class="mb-0">I lie close to the earth, a thousand unknown plants.</p>
@@ -311,7 +311,7 @@
         </div>
         <div class="col-lg-4 col-md-6 p-4">
           <div class="row">
-            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="assets/conference/people_6.jpg" width="300"> </div>
+            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="https://s3-media0.fl.yelpcdn.com/photo/dHdLAxZzQWb8zZ4svfm_7g/60s.jpg" width="300"> </div>
             <div class="col-9">
               <p class="lead mb-1"> <b>#6</b> </p>
               <p class="mb-0">When I hear the buzz of the little world among the stalks.</p>
@@ -409,8 +409,6 @@
 {{--   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous" style="transition: all 0.25s;"></script> --}}
   <!-- Script: Smooth scrolling between anchors in the same page -->
   <script src="js/smooth-scroll.js" style="transition: all 0.25s;"></script>
- {{--  <pingendo onclick="window.open('https://pingendo.com/', '_blank')" style="cursor:pointer;position: fixed;bottom: 20px;right:20px;padding:4px;background-color: #00b0eb;border-radius: 8px; width:220px;display:flex;flex-direction:row;align-items:center;justify-content:center;font-size:14px;color:white">Made with Pingendo Free&nbsp;&nbsp;<img src="https://pingendo.com/site-assets/Pingendo_logo_big.png" class="d-block" alt="Pingendo logo" height="16"></pingendo>
-</body> --}}
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <script>
