@@ -235,12 +235,24 @@
 
 
   <div class="py-5 bg-light col-md-12" id="revDiv" style="transition: all 0.25s; display:none;" >
-
-    <button id="close_review" type="button" class="close" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
+    <button id="close_review" type="button" class="btn btn-primary">
+     << Back
     </button>
 
-    {{-- insert pages here dynamically  --}}
+    <div class="py-5" style="">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h1>what are people saying?</h1>
+          </div>
+        </div>
+        <div id="main-rev" class="row justify-content-center">
+          
+    {{-- insert reviews here dynamically  --}}
+      
+        </div>
+      </div>
+    </div>
 
   </div>
   <!-- Schedule -->
@@ -646,6 +658,25 @@ $('#close_speakers').click(function(){
 });
 
 
+$('#close_review').click(function(){
+
+    $('#revDiv').hide();
+
+    if($('#speakers .mycontainer').length)
+    {
+
+      $('#speakers').show();
+
+    }else if($('delivery .container-fluid').length){
+
+      $('#delivery').show();
+
+    }
+
+       
+
+});
+
 $( "#search" ).on( "autocompleteselect", function( event, ui ) { 
 
     /* both label and value are the same  */
@@ -1012,7 +1043,9 @@ function getSearchItem(userInput)
 
                       e.preventDefault();
 
-                      $('#revBut').hide()
+                      $('#revBut').hide();
+
+                      $('#speakers').hide();
 
                       $('#hideBut').show();
 
@@ -1031,7 +1064,7 @@ function getSearchItem(userInput)
 
                           $('#revDiv').fadeOut(3000);
 
-                          $('#revDiv').hmtl('');
+                          $('#speakers').hide();
                           
                     });
 
