@@ -227,6 +227,13 @@
     {{-- insert pages here dynamically  --}}
 
   </div>
+
+
+  <div class="py-5 bg-light col-md-12" id="revDiv" style="transition: all 0.25s; display:none;" >
+
+    {{-- insert pages here dynamically  --}}
+
+  </div>
   <!-- Schedule -->
   <div class="py-5" style="">
     <div class="container">
@@ -964,9 +971,6 @@ function getSearchItem(userInput)
                               </div>
                             </div>
                           </div>
-
-                          <div id="main-revDiv" class="row justify-content-center"></div>
-
                       </div>`;
 
                     $('#speakers').append(dom);

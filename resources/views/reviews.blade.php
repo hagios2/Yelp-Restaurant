@@ -294,7 +294,7 @@ function getBusinessReviews(businessId)
                             </div>
                           </div>
                           <!-- Button trigger modal -->
-                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable"> Detailed Statistics </button>  <a id="revBut" class="btn btn-info" >See reviews</a> <a style="display:none" id="hideBut" class="btn btn-info" >Hide reviews</a>
+                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable"> Detailed Statistics </button>  <a id="revBut" href="javascript:void(0);" class="btn btn-info" >See reviews</a> <a href="javascript:void(0);" style="display:none" id="hideBut" class="btn btn-info" >Hide reviews</a>
                           <!-- Modal -->
                           <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -335,7 +335,42 @@ function getBusinessReviews(businessId)
 
                     
 
-                        $('delivery').append(delivery_dom);
+                        $('d#elivery').append(delivery_dom);
+
+                        $('#delivery').show();
+
+                        //hide speakers div already shown
+
+                        $('#speakers').hide();
+
+                        $('#revBut').click(function(e){
+
+                          e.preventDefault();
+    
+                          $('#revBut').hide()
+    
+                          $('#hideBut').show();
+    
+                          getBusinessReviews(data.id)
+    
+                        });
+    
+    
+                        $('#hideBut').click(function(e){
+    
+                              e.preventDefault();
+    
+                              $(this).hide()
+    
+                              $('#revBut').show();
+    
+                              $('#revDiv').fadeOut(3000);
+    
+                              $('#main-revDiv').hmtl('');
+                              
+                        });
+    
+                      }
 
                   });
 
