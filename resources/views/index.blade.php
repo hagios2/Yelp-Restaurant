@@ -178,7 +178,7 @@
         <!-- End -->
 
 
-        <div style="font-size:1rem;" class="d-flex justify-content-center"> <span><a href="javascript:void(0)"><i id="rest-link" class="fas fa-utensils"></i> Restaurant<a> &emsp;| &emsp;<a id="breakfast" href="javascript:void(0)"><i class="fas fa-coffee"></i> Breakfast and brunch</a> &emsp; | &emsp; <a id="loc_delivery" href="javascript:void(0)><i class="fas fa-shipping-fast"></i> Available delivery</a></span></div>
+        <div style="font-size:1rem;" class="d-flex justify-content-center"> <span><a href="javascript:void(0)"><i id="rest-link" class="fas fa-utensils"></i> Restaurant<a> &emsp;| &emsp;<a id="breakfast" href="javascript:void(0)"><i class="fas fa-coffee"></i> Breakfast and brunch</a> &emsp; | &emsp; <a id="loc_delivery" href="javascript:void(0)>  <i class="fas fa-shipping-fast" aria-hidden="true"></i> Available delivery</a></span></div>
 
     </div> <br>
           <h1 class="display-4 d-block d-md-none">Conference Pingendo</h1>
@@ -224,12 +224,19 @@
 
   <div class="py-5 bg-light col-md-12" id="delivery" style="transition: all 0.25s; display:none;" >
 
+    <button id="close_delivery" type="button" class="close" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
     {{-- insert pages here dynamically  --}}
 
   </div>
 
 
   <div class="py-5 bg-light col-md-12" id="revDiv" style="transition: all 0.25s; display:none;" >
+
+    <button id="close_review" type="button" class="close" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
 
     {{-- insert pages here dynamically  --}}
 
@@ -615,6 +622,20 @@ $('#button-addon2').click(function(e){
 
 });
 
+$('#close_delivery').click(function(){
+
+    $('#delivery').hide();
+
+    if($('#speakers  mycontainer').length)
+    {
+        $('speakers').show();
+    }else{
+      $('speakers').hide();
+
+    }
+
+});
+
 
 $( "#search" ).on( "autocompleteselect", function( event, ui ) { 
 
@@ -761,7 +782,7 @@ function getSearchItem(userInput)
                                   <div class="row">
                                   </div>
                                   <h3 style="display:inline;" class="mb-0"><b>`+data.name+`</b></h3> &emsp; <small style="color:blue">`+ claimed+`</small>
-                                  <p class="text-muted">Quality is our             paginate(); Priority</p>
+                                  <p class="text-muted">Quality is our Priority</p>
                                   <div class="row">
                                     <div class="col-md-6">
                                       <div class="carousel slide" data-ride="carousel" id="carousel">
@@ -805,6 +826,7 @@ function getSearchItem(userInput)
                                           <ul class="list-group">
                                             `+ category +`
                                           </ul>
+                                          <a href="javascript:void(0);" class="btn btn-primary" id="show_delivery">Available Delivery</a>
                                         </div>
                                       </div>
                                       <div class="col-md-4" style="">
@@ -998,10 +1020,22 @@ function getSearchItem(userInput)
 
                           $('#revBut').show();
 
-                          $('#main-revDiv').fadeOut(3000);
+                          $('#revDiv').fadeOut(3000);
 
-                          $('#main-revDiv').hmtl('');
+                          $('#revDiv').hmtl('');
                           
+                    });
+
+
+
+                    $('#show_delivery').click(function(e){
+
+                      e.preventDefault();
+
+                      $('#speakers').hide();
+
+                      getYourLocationDeliverySearch();
+
                     });
 
                   }

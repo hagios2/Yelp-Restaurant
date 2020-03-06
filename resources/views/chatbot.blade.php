@@ -1,6 +1,5 @@
-
-    <style>
-        section {
+ <style>
+        body{
 
             background-color: #fff, !important;
 
@@ -25,11 +24,11 @@
         
         aboutText: 'ssdsd',
         
-        introMessage: "✋ Hi! I'm form ItSolutionStuff.com"
+        introMessage: "✋ Hi I'm from Yelp, how may I help you?"
         
         };
         
-        </script>
+    </script>
         
 
 
