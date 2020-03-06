@@ -57,9 +57,9 @@ function getBusinessReviews(businessId)
                     </div>
                   </div>`;
 
-                  $('#main-revDiv').append(revdiv);
+                  $('#revDiv').append(revdiv);
 
-                  $('#main-revDiv').show();
+                  $('#revDiv').show();
 
               });
 		}

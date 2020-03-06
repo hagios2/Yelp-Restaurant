@@ -205,7 +205,7 @@
 
   </div>
 
-  <nav aria-label="Page navigation example">
+  <nav aria-label="Page navigation example" id="pagination_nav" style="display:none;">
     <ul class="pagination">
       <li class="page-item">
         <a id="previous-page" class="page-link" href="javascript:void(0)" aria-label="Previous">
@@ -217,7 +217,9 @@
   </nav>
 
   <div class="py-5 bg-light col-md-12" id="speakers" style="transition: all 0.25s; display:none;" >
-
+    <button id="close_speakers" type="button" class="close" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
     {{-- insert pages here dynamically  --}}
 
   </div>
@@ -626,13 +628,20 @@ $('#close_delivery').click(function(){
 
     $('#delivery').hide();
 
-    if($('#speakers  mycontainer').length)
+    if($('#speakers .mycontainer').length) 
     {
         $('speakers').show();
     }else{
       $('speakers').hide();
 
     }
+
+});
+
+
+$('#close_speakers').click(function(){
+
+    $('#speakers').hide();
 
 });
 
@@ -730,7 +739,7 @@ function getSearchItem(userInput)
                         
                         dyn_img += `<div class="carousel-item"><img style="max-height:400px;" class="d-block img-fluid w-100" src="`+pix+`">
                                   <div class="carousel-caption">
-                                    <h5 class="m-0">Carousel</h5>             paginate();
+                                    <h5 class="m-0">Carousel</h5>             
                                     <p>with controls</p>
                                   </div>
                                 </div>`;
@@ -1027,7 +1036,6 @@ function getSearchItem(userInput)
                     });
 
 
-
                     $('#show_delivery').click(function(e){
 
                       e.preventDefault();
@@ -1073,6 +1081,8 @@ function getSearchItem(userInput)
 
         function paginate()
         {
+
+          $('#pagination_nav').show();
 
             var numberOfItems = $('#speakers .mycontainer').length; // Get total number of the items that should be paginated
             var limitPerPage = 5; // Limit of items per each page
