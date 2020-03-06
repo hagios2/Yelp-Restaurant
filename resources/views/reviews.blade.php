@@ -19,6 +19,8 @@
             if(!jQuery.isEmptyObject(data))
             {
                 console.log(data);
+
+                $('#main-rev').empty();
                 
                 $.each(data.reviews, (i, userreview) => {
 
@@ -57,13 +59,11 @@
                         </div>
                       </div>`;
 
-                      $('#main-rev').empty();
-
                       $('#main-rev').append(revdiv);
 
-                      $('#revDiv').show();
-
                   });
+
+                  $('#revDiv').show();
              }
                 
         });
