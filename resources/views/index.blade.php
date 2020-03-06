@@ -706,6 +706,8 @@ function getSearchItem(userInput)
 
     }).done(function(data){
 
+      $('#speakers .mycontainer').remove(); //remove mycontainer for new search data to be appended into it
+
         $.each(data, function(i ,businesses){
 
           $.each(businesses, function(i ,restaurant){                    
