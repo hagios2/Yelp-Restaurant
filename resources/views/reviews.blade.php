@@ -1,6 +1,8 @@
     function getBusinessReviews(businessId)
     {
 
+      $('#main-rev').empty();
+
         let data = {
 
             latitude: '37.786882',
@@ -20,7 +22,7 @@
             {
                 console.log(data);
 
-                $('#main-rev').empty();
+                let revdiv = ``;
                 
                 $.each(data.reviews, (i, userreview) => {
 
@@ -44,7 +46,7 @@
 
                   });
 
-                  let revdiv = `<div class="col-lg-4 col-md-6 p-4">
+                  revdiv += `<div class="col-lg-4 col-md-6 p-4">
                         <div class="row">
                           <div  class="col-3 p-0 d-flex align-items-center"><img class="img-fluid d-block" src="`+ user.img+`" width="300"> </div>
                           <div class="col-9">
@@ -59,9 +61,9 @@
                         </div>
                       </div>`;
 
-                      $('#main-rev').append(revdiv);
-
                   });
+
+                  $('#main-rev').append(revdiv);
 
                   $('#revDiv').show();
              }

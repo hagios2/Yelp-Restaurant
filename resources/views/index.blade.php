@@ -16,11 +16,6 @@
 
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/assets/css/chat.min.css">
 
-  <!-- PAGE settings -->
-  <link rel="icon" href="https://templates.pingendo.com/assets/Pingendo_favicon.ico">
-  <title>shintaul Restaurant</title>
-  <meta name="description" content="Free Bootstrap 4 Pingendo Aquamarine template for unique events.">
-  <meta name="keywords" content="Pingendo conference event aquamarine free template bootstrap 4">
   <!-- CSS dependencies -->
 
   <link href="{{ asset('css/aquamarine.css') }}" rel="stylesheet">
@@ -966,7 +961,7 @@ function getSearchItem(userInput)
                                         </div>
                                       </div>
                                       <!-- Button trigger modal -->
-                                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable"> Detailed Statistics </button>  <a id="revBut" class="btn btn-info" >See reviews</a> <a style="display:none" id="hideBut" class="btn btn-info" >Hide reviews</a>
+                                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable"> Detailed Statistics </button>  <a id="revBut" class="btn btn-info" >See reviews</a>
                                       <!-- Modal -->
                                       <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -1045,17 +1040,17 @@ function getSearchItem(userInput)
 
                       e.preventDefault();
 
-                      $('#revBut').hide();
+                   /*    $('#revBut').hide(); */
 
                       $('#speakers').hide();
 
-                      $('#hideBut').show();
+                   /*    $('#hideBut').show(); */
 
                       getBusinessReviews(data.id)
 
                     });
 
-
+/* 
                     $('#hideBut').click(function(e){
 
                           e.preventDefault();
@@ -1068,7 +1063,7 @@ function getSearchItem(userInput)
 
                           $('#speakers').hide();
                           
-                    });
+                    }); */
 
 
                     $('#show_delivery').click(function(e){
@@ -1124,7 +1119,6 @@ function getSearchItem(userInput)
             $('#speakers .mycontainer:gt(' + (limitPerPage - 1) + ')').hide(); // Hide all items over page limits (e.g., 5th item, 6th item, etc.)
             var totalPages = Math.round(numberOfItems / limitPerPage); // Get number of pages
             $(".pagination").append('<li class="page-item"><a class="page-link" href="javascript:void(0)">'+1+'</a></li>'); // Add first page marker
-
 
 
             // Loop to insert page number for each sets of items equal to page limit (e.g., limit of 4 with 20 total items = insert 5 pages)
