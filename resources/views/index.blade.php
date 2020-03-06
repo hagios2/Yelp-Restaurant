@@ -220,6 +220,11 @@
 
     {{-- insert pages here dynamically  --}}
 
+  </div>
+
+  <div class="py-5 bg-light col-md-12" id="delivery" style="transition: all 0.25s; display:none;" >
+
+    {{-- insert pages here dynamically  --}}
 
   </div>
   <!-- Schedule -->
@@ -644,12 +649,15 @@ function getSearchItem(userInput)
           });
 
         });
+
+        paginate();
   }
-/*  */
 
 
-    function getBusiness(businessId)
+        function getBusiness(businessId)
         {
+
+          let loader = ``
 
             let data = {
 
@@ -694,7 +702,7 @@ function getSearchItem(userInput)
                         
                         dyn_img += `<div class="carousel-item"><img style="max-height:400px;" class="d-block img-fluid w-100" src="`+pix+`">
                                   <div class="carousel-caption">
-                                    <h5 class="m-0">Carousel</h5>
+                                    <h5 class="m-0">Carousel</h5>             paginate();
                                     <p>with controls</p>
                                   </div>
                                 </div>`;
@@ -734,12 +742,8 @@ function getSearchItem(userInput)
                     
                     let rating = getRating(data.rating);
 
-         /*            let map = `  <div class="col-md-6"><iframe width="100%" height="400" src="https://maps.google.com/maps?q=`+restaurant.name+`&amp;z=14&amp;output=embed" scrolling="no" frameborder="0"></iframe></div>`; */
-
-
                     let map = `  <div class="col-md-6"><iframe width="100%" height="400" src="https://maps.google.com/maps?q=`+restaurant.name+`&amp;z=14&amp;output=embed" scrolling="no" frameborder="0"></iframe></div>`;
                     
-        
                     let claimed = (data.is_claimed) ? `<i class="fas fa-check-square"></i> claimed`:``;
 
                     let dom = 
@@ -750,7 +754,7 @@ function getSearchItem(userInput)
                                   <div class="row">
                                   </div>
                                   <h3 style="display:inline;" class="mb-0"><b>`+data.name+`</b></h3> &emsp; <small style="color:blue">`+ claimed+`</small>
-                                  <p class="text-muted">Quality is our Priority</p>
+                                  <p class="text-muted">Quality is our             paginate(); Priority</p>
                                   <div class="row">
                                     <div class="col-md-6">
                                       <div class="carousel slide" data-ride="carousel" id="carousel">
@@ -891,7 +895,7 @@ function getSearchItem(userInput)
                                         </div>
                                       </div>
                                       <!-- Button trigger modal -->
-                                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable"> Detailed Statistics </button>  <button id="revBut" type="button" class="btn btn-info" >See reviews</button> <button style="display:none" id="hideBut" type="button" class="btn btn-info" >Hide reviews</button>
+                                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable"> Detailed Statistics </button>  <a id="revBut" class="btn btn-info" >See reviews</a> <a style="display:none" id="hideBut" class="btn btn-info" >Hide reviews</a>
                                       <!-- Modal -->
                                       <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -964,8 +968,6 @@ function getSearchItem(userInput)
                           <div id="main-revDiv" class="row justify-content-center"></div>
 
                       </div>`;
-
-                      paginate();
 
                     $('#speakers').append(dom);
 

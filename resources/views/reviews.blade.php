@@ -127,6 +127,8 @@ function getBusinessReviews(businessId)
                   console.log(data);
                   
                   $.each(data, (i, delivery) => {
+
+                    let delivery_dom = ``;
                     
 
                   });
