@@ -34,10 +34,10 @@
 {{--   <script src="{{ asset('js/smooth-scroll.js') }}"></script> --}}
   <script src="{{ asset('js/animate.js') }}"></script>
 
-
   <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
 
   <script src="{{ asset('js/app.js') }}" ></script>
+
 
   <style>
     /* css for autocomplete */
@@ -115,7 +115,7 @@
       <div class="collapse navbar-collapse justify-content-center" id="navbar2SupportedContent">
         <ul class="navbar-nav">
           <li class="nav-item mx-2">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item mx-2">
             <a class="nav-link" href="#speakers">Restaurants</a>
@@ -178,7 +178,7 @@
         <!-- End -->
 
 
-        <div style="font-size:1rem;" class="d-flex justify-content-center"> <span><a href="#"><i id="rest-link" class="fas fa-utensils"></i> Restaurant<a> &emsp;| &emsp;<a id="breakfast" href="#"><i class="fas fa-coffee"></i> Breakfast and brunch</a> &emsp; | &emsp; <a id="loc_delivery" href="#"><i class="fas fa-shipping-fast"></i> Available delivery</a></span></div>
+        <div style="font-size:1rem;" class="d-flex justify-content-center"> <span><a href="javascript:void(0)"><i id="rest-link" class="fas fa-utensils"></i> Restaurant<a> &emsp;| &emsp;<a id="breakfast" href="javascript:void(0)"><i class="fas fa-coffee"></i> Breakfast and brunch</a> &emsp; | &emsp; <a id="loc_delivery" href="javascript:void(0)><i class="fas fa-shipping-fast"></i> Available delivery</a></span></div>
 
     </div> <br>
           <h1 class="display-4 d-block d-md-none">Conference Pingendo</h1>
@@ -202,7 +202,20 @@
       <div class="row justify-content-center">
       </div>
     </div> --}}
+
   </div>
+
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item">
+        <a id="previous-page" class="page-link" href="javascript:void(0)" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+          <span class="sr-only">Previous</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
   <div class="py-5 bg-light col-md-12" id="speakers" style="transition: all 0.25s; display:none;" >
 
     {{-- insert pages here dynamically  --}}
@@ -630,7 +643,7 @@ function getSearchItem(userInput)
 
                     $.each(data.categories, (i, cat) => {
 
-                            category += ` <li>`+cat.title+`</li>`
+                            category += ` <li  class="list-group-item">`+cat.title+`</li>`
 
                     });
                     
@@ -642,9 +655,7 @@ function getSearchItem(userInput)
                                     <p>with controls</p>
                                   </div>
                                 </div>`;
-                
-/* 
-                        dyn_img_li += `<li data-target="#carouselExampleIndicators" data-slide-to="'+carousel_num+'"></li>`; */
+ 
 
                                 carousel_num ++;
                     });
@@ -680,6 +691,9 @@ function getSearchItem(userInput)
                     
                     let rating = getRating(data.rating);
 
+         /*            let map = `  <div class="col-md-6"><iframe width="100%" height="400" src="https://maps.google.com/maps?q=`+restaurant.name+`&amp;z=14&amp;output=embed" scrolling="no" frameborder="0"></iframe></div>`; */
+
+
                     let map = `  <div class="col-md-6"><iframe width="100%" height="400" src="https://maps.google.com/maps?q=`+restaurant.name+`&amp;z=14&amp;output=embed" scrolling="no" frameborder="0"></iframe></div>`;
                     
         
@@ -687,247 +701,254 @@ function getSearchItem(userInput)
 
                     let dom = 
                     
-                    `<div class="container-fluid">
-                        <div class="row">
-                        </div>
-                        <h3 style="display:inline;" class="mb-0"><b>`+data.name+`</b></h3> &emsp; <small style="color:blue">`+ claimed+`</small>
+                    `<div class="mycontainer">
 
-                        <p class="text-muted">Quality is our riority</p>
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div class="carousel slide" data-ride="carousel" id="carousel">
-                              <div class="carousel-inner">
-                               `+dyn_img+`
-                                <div class="carousel-item active"> <img style="max-height:400px;" class="d-block img-fluid w-100" src="`+data.image_url+`">
-                                  <div class="carousel-caption">
-                                    <h5 class="m-0">Carousel</h5>
-                                    <p>with controls</p>
+                      <div class="container-fluid">
+                                  <div class="row">
                                   </div>
-                                </div>
-                                <div class="carousel-item active">
-                                  <div class="carousel-caption">
-                                    <h5 class="m-0">Carousel</h5>
-                                    <p>with controls</p>
-                                  </div>
-                                </div>
-                              </div> <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev" style=""> <span class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span> </a> <a class="carousel-control-next" href="#carousel" role="button" data-slide="next"> <span class="carousel-control-next-icon"></span> <span class="sr-only">Next</span> </a>
-                            </div>
-                          </div>
-                          `+map+`
-                        
-                        </div><br>
-                        <div class="row">
-                          <div class="col-md-12" style="">
-                            <div class="row">
-                              <div class="col-md-2" style=""><i class="fa fa-map-marker text-primary"></i> `+restaurant.address+`</div>
-                              <div class="col-md-2">
-                                 `+ transaction +`  
-                              </div>
-                              <div class="col-md-2" style="">
-                                <button id="placeOrder" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModalLong">
-                                  Place Order <i class="fa fa-shopping-cart fa-fw">
-                                </button>
+                                  <h3 style="display:inline;" class="mb-0"><b>`+data.name+`</b></h3> &emsp; <small style="color:blue">`+ claimed+`</small>
+                                  <p class="text-muted">Quality is our Priority</p>
+                                  <div class="row">
+                                    <div class="col-md-6">
+                                      <div class="carousel slide" data-ride="carousel" id="carousel">
+                                        <div class="carousel-inner">
+                                        `+dyn_img+`
+                                          <div class="carousel-item active"> <img style="max-height:400px;" class="d-block img-fluid w-100" src="`+data.image_url+`">
+                                            <div class="carousel-caption">
+                                              <h5 class="m-0">Carousel</h5>
+                                              <p>with controls</p>
+                                            </div>
+                                          </div>
+                                          <div class="carousel-item active">
+                                            <div class="carousel-caption">
+                                              <h5 class="m-0">Carousel</h5>
+                                              <p>with controls</p>
+                                            </div>
+                                          </div>
+                                        </div> <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev" style=""> <span class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span> </a> <a class="carousel-control-next" href="#carousel" role="button" data-slide="next"> <span class="carousel-control-next-icon"></span> <span class="sr-only">Next</span> </a>
+                                      </div>
+                                    </div>
+                                    `+map+`
+                                  
+                                  </div><br>
 
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                                  <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                      <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                          <span aria-hidden="true">&times;</span>
-                                        </button>
+                                  <div class="row">
+                                  <div class="col-md-12" style="">
+                                    <div class="row">
+                                      <div class="col-md-2" style=""><i class="fa fa-map-marker text-primary"></i>`+restaurant.address+`</div>
+                                      <div class="col-md-2">
+                                        `+ transaction +`  
                                       </div>
-                                      <div class="modal-body">
-                                        ...
+                                      <div class="col-md-2" style="">
+                                        <!-- Button trigger modal -->
+                                      <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModalLong">
+                                        Place Order <i class="fa fa-shopping-cart fa-fw"></i>
+                                      </button>
+
+                                      <!-- Modal -->
+                                      <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                              </button>
+                                            </div>
+                                            <div class="modal-body">
+                                              put form here
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                              <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>    
+
+                                    <span class="font12 block spacing1 font400 text-center">Min: `+data.price+`</span></div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-md-4" style="">
+                                        <div class="col-md-12 col-6 p-4 "> <i class="d-block fa fa-circle-o fa-3x mb-2 text-muted"></i>
+                                          <h4> <b>Categories</b></h4>
+                                          <ul class="list-group">
+                                            `+ category +`
+                                          </ul>
+                                        </div>
                                       </div>
-                                      <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                      <div class="col-md-4" style="">
+                                        <div class="col-md-10 col-6 p-4" style=""> <i class="d-block fa fa-circle-o fa-3x mb-2 text-muted"></i>
+                                          <h4> <b>Contact</b> </h4>
+                                          <p text-center>
+                                            <i class="fa fa-map-marker text-dark ">`+data.location.address1+`</i>
+                                            <i class="fa fa-envelope">www.shintaul@bog_gov.co.uk</i>
+                                            <i class="fa fa-phone"></i> `+data.phone+` , `+data.display_phone+`
+                                            <br>
+                                          </p>
+                                        </div>
+                                      </div>
+                                      <div class="col-md-4" style="">
+                                        <div class="col-md-10 col-6 p-4" style=""> <i class="d-block fa fa-circle-o fa-3x mb-2 text-muted"></i>
+                                          <h4> <b>Contact</b> </h4>
+                                          <p text-center>
+                                            <i class="fa fa-map-marker text-dark "></i>&nbsp;`+data.location.address1+`<br>
+                                            <i class="fa fa-envelope">&nbsp;www.shintaul@bog_gov.co.uk</i> <br>
+                                            <i class="fa fa-phone"></i>&nbsp;Tel: `+data.phone+` , `+data.display_phone+`
+                                            <br>
+                                          </p>
+                                        </div>
                                       </div>
                                     </div>
                                   </div>
                                 </div>
-
-                                <span class="font12 block spacing1 font400 text-center">Min: `+data.price+`</span></div>
+                              </div>
+                      
+                          
+                            <div class="py-5">
+                              <div class="container">
+                                <div class="row">
+                                  <div class="col-md-12">
+                                    <div class="w3-content" style="padding: 30px; border: 3px solid rgb(241, 241, 241);">
+                                      <span class="heading">User Rating</span>
+                                      `+rating+`
+                                      <p>`+data.rating+`  average based on `+data.review_count+` reviews.</p>
+                                      <hr style="border:3px solid #f1f1f1">
+                                      <div class="row">
+                                        <div class="side">
+                                          <div>5 star</div>
+                                        </div>
+                                        <div class="middle">
+                                          <div class="bar-container">
+                                            <div class="bar-5"></div>
+                                          </div>
+                                        </div>
+                                        <div class="side right">
+                                          <div>150</div>
+                                        </div>
+                                        <div class="side">
+                                          <div>4 star</div>
+                                        </div>
+                                        <div class="middle">
+                                          <div class="bar-container">
+                                            <div class="bar-4"></div>
+                                          </div>
+                                        </div>
+                                        <div class="side right">
+                                          <div>63</div>
+                                        </div>
+                                        <div class="side">
+                                          <div>3 star</div>
+                                        </div>
+                                        <div class="middle">
+                                          <div class="bar-container">
+                                            <div class="bar-3"></div>
+                                          </div>
+                                        </div>
+                                        <div class="side right">
+                                          <div>15</div>
+                                        </div>
+                                        <div class="side">
+                                          <div>2 star</div>
+                                        </div>
+                                        <div class="middle">
+                                          <div class="bar-container">
+                                            <div class="bar-2"></div>
+                                          </div>
+                                        </div>
+                                        <div class="side right">
+                                          <div>6</div>
+                                        </div>
+                                        <div class="side">
+                                          <div>1 star</div>
+                                        </div>
+                                        <div class="middle">
+                                          <div class="bar-container">
+                                            <div class="bar-1"></div>
+                                          </div>
+                                        </div>
+                                        <div class="side right">
+                                          <div>20</div>
+                                        </div>
+                                      </div>
+                                      <!-- Button trigger modal -->
+                                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable"> Detailed Statistics </button>  <button id="revBut" type="button" class="btn btn-info" >See reviews</button> <button style="display:none" id="hideBut" type="button" class="btn btn-info" >Hide reviews</button>
+                                      <!-- Modal -->
+                                      <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                              </button>
+                                            </div>
+                                            <div class="modal-body">
+                                              <div id="graph-wrapper">
+                                                <div class="graph-info">
+                                                  <a href="javascript:void(0)" class="visitors">Visitors</a>
+                                                  <a href="javascript:void(0)" class="returning">Returning Visitors</a>
+                                                  <a href="#" id="bars"><span></span></a>
+                                                  <a href="#" id="lines" class="active"><span></span></a>
+                                                </div>
+                                                <div class="graph-container">
+                                                  <div id="graph-lines"></div>
+                                                  <div id="graph-bars"></div>
+                                                </div>
+                                              </div>
+                                              <!-- end Graph HTML -->
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                              <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
-                            <div class="row">
-                              <div class="col-md-4" style="">
-                                <div class="col-md-12 col-6 p-4 "> <i class="d-block fa fa-circle-o fa-3x mb-2 text-muted"></i>
-                                  <h4> <b>Categories</b></h4>
-                                  <ol>
-                                     `+category+`
-                                  </ol>
+                            <div class="py-5 section-parallax" style="background-image: url(&quot;assets/conference/schedule.jpg&quot;); transition: all 0.25s;" id="schedule">
+                            <div class="container section-aquamarine">
+                              <div class="row">
+                                <div class="col-md-12" style="">
+                                  <h1 class="text-white mt-4">Our Schedules</h1>
                                 </div>
                               </div>
-                              <div class="col-md-4" style="">
-                                <div class="col-md-10 col-6 p-4" style=""> <i class="d-block fa fa-circle-o fa-3x mb-2 text-muted"></i>
-                                  <h4> <b>Contact</b> </h4>
-                                  <p>
-                                    <i class="fa fa-map-marker text-dark "></i>&nbsp;&nbsp;`+data.location.address1+`<br>
-                                    <i class="fa fa-envelope">&nbsp;&nbsp;www.shintaul@bog_gov.co.uk</i> <br>
-                                    <i class="fa fa-phone"></i>&nbsp;&nbsp;Tel: `+data.phone+` , `+data.display_phone+`
-                                    <br>
-                                  </p>
+                              <div class="row">
+                                <div class="p-4 col-lg-8  offset-md-2" style="">
+                                  <div class="card text-dark">
+                                    <div class="card-block text-center p-2">
+                                      <h2>DAYS TO PLACE ORDERS&nbsp;</h2>
+                                      <p class="lead">`+hours.regular+`</p>
+                                      <p class="lead">`+hours.open_now+`</p>
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                          <li class="list-group-item"><br>Monday&nbsp;<br><i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;09:30-10:00</li>
+                                          <li class="list-group-item"><br>Tuesday&nbsp;<br><i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;10:00-12:00</li>
+                                          <li class="list-group-item"><br>Wednessday&nbsp;<br><i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;12:00-13:00</li>
+                                          <li class="list-group-item "><br>Thursday&nbsp;<br><i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;13:00-14:30</li>
+                                          <li class="list-group-item"><br>Friday&nbsp;<br><i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;14:30-16:00</li>
+                                          <li class="list-group-item"><br>Saturday&nbsp;<br><i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;16:00-18:00</li>
+                                          <li class="list-group-item"><b><span style="color:red;">Sunday- closed</span></b></li>
+                                      </ul>
+                                  </div>
                                 </div>
                               </div>
-                              <div class="col-md-4" style="">
-                                <div class="col-md-10 col-6 p-4" style=""> <i class="d-block fa fa-circle-o fa-3x mb-2 text-muted"></i>
-                                  <h4> <b>Contact</b> </h4>
-                                  <p>
-                                    <i class="fa fa-map-marker text-dark ">Ap #867-859 Sit Rd. Azusa New York 39531 (793) 151-6230</i>
-                                    <i class="fa fa-envelope">www.shintaul@bog_gov.co.uk</i>
-                                  </p>
-                                </div>
+                              <div class="row text-left text-dark">
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </div>
-              
 
-                      <div col-md-8 col-lg-8>
-                      <span class="heading">User Rating</span>
-                          `+rating+`
-                      <p>`+data.rating+` average based on `+data.review_count+` reviews.</p>
-                      <hr style="border:3px solid #f1f1f1">
-                      <div class="row">
-                        <div class="side">
-                          <div>5 star</div>
-                        </div>
-                        <div class="middle">
-                          <div class="bar-container">
-                            <div class="bar-5"></div>
-                          </div>
-                        </div>
-                        <div class="side right">
-                          <div>150</div>
-                        </div>
-                        <div class="side">
-                          <div>4 star</div>
-                        </div>
-                        <div class="middle">
-                          <div class="bar-container">
-                            <div class="bar-4"></div>
-                          </div>
-                        </div>
-                        <div class="side right">
-                          <div>63</div>
-                        </div>
-                        <div class="side">
-                          <div>3 star</div>
-                        </div>
-                        <div class="middle">
-                          <div class="bar-container">
-                            <div class="bar-3"></div>
-                          </div>
-                        </div>
-                        <div class="side right">
-                          <div>15</div>
-                        </div>
-                        <div class="side">
-                          <div>2 star</div>
-                        </div>
-                        <div class="middle">
-                          <div class="bar-container">
-                            <div class="bar-2"></div>
-                          </div>
-                        </div>
-                        <div class="side right">
-                          <div>6</div>
-                        </div>
-                        <div class="side">
-                          <div>1 star</div>
-                        </div>
-                        <div class="middle">
-                          <div class="bar-container">
-                            <div class="bar-1"></div>
-                          </div>
-                        </div>
-                        <div class="side right">
-                          <div>20</div>
-                        </div>
-                      </div>
-                      </div>
-                      <!-- Button trigger modal -->
-                    <button id="revBut" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-                      View Details
-                    </button> 
-                    <button id="hideBut" type="button" class="btn btn-info" style="display:none;">
-                      See reviews
-                    </button> 
+                          <div id="main-revDiv" class="row justify-content-center"></div>
 
+                      </div>`;
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                            ...
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                     
+                      paginate();
 
-            <div class="py-5 section-parallax" style="background-image: url(''); transition: all 0.25s;" id="schedule">
-                
-              <div class="container section-aquamarine">
-            <div class="row">
-        <div class="col-md-12" style="">
-          <h1 class="text-white mt-4">Schedule</h1>
-        </div>
-      </div>
-      <div class="row">
-        <div class="p-4 col-lg-8  offset-md-2" style="">
-          <div class="card text-dark">
-            <div class="card-block text-center p-2">
-              <h2>DAYS TO PLACE ORDERS&nbsp;</h2>
-              <p class="lead">`+hours.regular+`</p>
-              <p class="lead">`+hours.open_now+`</p>
-            </div>
-      
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item"><br>Monday&nbsp;<br><i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;09:30-10:00</li>
-              <li class="list-group-item"><br>Tuesday&nbsp;<br><i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;10:00-12:00</li>
-              <li class="list-group-item"><br>Wednessday&nbsp;<br><i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;12:00-13:00</li>
-              <li class="list-group-item "><br>Thursday&nbsp;<br><i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;13:00-14:30</li>
-              <li class="list-group-item"><br>Friday&nbsp;<br><i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;14:30-16:00</li>
-              <li class="list-group-item"><br>Saturday&nbsp;<br><i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;16:00-18:00</li>
-              <li class="list-group-item"><b><span style="color:red;">Sunday- closed</span></b></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="row text-left text-dark">
-      </div>
-    </div>
-  </div>   
-
-  <div id="main-revDiv" class="py-5" style="display:none">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <h1>what are people saying?</h1>
-        </div>
-      </div>
-      <div id="divreview" class="row justify-content-center">
-      </div>
-    </div>
-  </div>`;
- 
                     $('#speakers').append(dom);
-
 
                     $('#speakers').show();
 
@@ -941,7 +962,6 @@ function getSearchItem(userInput)
                       $(this).hide()
 
                       $('#hideBut').show();
-                      
 
                       getBusinessReviews(data.id)
 
@@ -958,12 +978,15 @@ function getSearchItem(userInput)
 
                           $('#main-revDiv').fadeOut(3000);
 
-                          $('#divreview').val('');
+                          $('#main-revDiv').hmtl('');
                           
                     });
-                }
+
+                  }
             });
         }
+
+
 
 
         function getRating(ratingVar)
@@ -991,13 +1014,94 @@ function getSearchItem(userInput)
 
         }
 
+
+        function paginate()
+        {
+
+            var numberOfItems = $('#speakers .mycontainer').length; // Get total number of the items that should be paginated
+            var limitPerPage = 2; // Limit of items per each page
+            $('#speakers .mycontainer:gt(' + (limitPerPage - 1) + ')').hide(); // Hide all items over page limits (e.g., 5th item, 6th item, etc.)
+            var totalPages = Math.round(numberOfItems / limitPerPage); // Get number of pages
+            $(".pagination").append('<li class="page-item"><a class="page-link" href="javascript:void(0)">'+1+'</a></li>'); // Add first page marker
+
+
+
+            // Loop to insert page number for each sets of items equal to page limit (e.g., limit of 4 with 20 total items = insert 5 pages)
+            for (var i = 2; i <= totalPages; i++) {
+              $(".pagination").append('<li class="page-item current-page"><a class="page-link" href="javascript:void(0)">'+i+'</a></li>'); // Insert page number into pagination tabs
+            }
+
+            // Add next button after all the page numbers  
+            $(".pagination").append('<li id="next-page" class="page-item"><a class="page-link" href="javascript:void(0)" aria-label="Next"><span aria-hidden="true">&raquo;</span><span class="sr-only">Next</span></a></li>');
+
+            // Function that displays new items based on page number that was clicked
+            $(".pagination li.current-page").on("click", function() {
+              // Check if page number that was clicked on is the current page that is being displayed
+              if ($(this).hasClass('active')) {
+                return false; // Return false (i.e., nothing to do, since user clicked on the page number that is already being displayed)
+              } else {
+                var currentPage = $(this).index(); // Get the current page number
+                $(".pagination li").removeClass('active'); // Remove the 'active' class status from the page that is currently being displayed
+                $(this).addClass('active'); // Add the 'active' class status to the page that was clicked on
+                $("#speakers .mycontainer").hide(); // Hide all items in loop, this case, all the list groups
+                var grandTotal = limitPerPage * currentPage; // Get the total number of items up to the page number that was clicked on
+
+                // Loop through total items, selecting a new set of items based on page number
+                for (var i = grandTotal - limitPerPage; i < grandTotal; i++) {
+                  $("#speakers .mycontainer:eq(" + i + ")").show(); // Show items from the new page that was selected
+                }
+              }
+
+            });
+
+            // Function to navigate to the next page when users click on the next-page id (next page button)
+            $("#next-page").on("click", function() {
+              var currentPage = $(".pagination li.active").index(); // Identify the current active page
+              // Check to make sure that navigating to the next page will not exceed the total number of pages
+              if (currentPage === totalPages) {
+                return false; // Return false (i.e., cannot navigate any further, since it would exceed the maximum number of pages)
+              } else {
+                currentPage++; // Increment the page by one
+                $(".pagination li").removeClass('active'); // Remove the 'active' class status from the current page
+                $("#speakers .mycontainer").hide(); // Hide all items in the pagination loop
+                var grandTotal = limitPerPage * currentPage; // Get the total number of items up to the page that was selected
+
+                // Loop through total items, selecting a new set of items based on page number
+                for (var i = grandTotal - limitPerPage; i < grandTotal; i++) {
+                  $("#speakers .mycontainer:eq(" + i + ")").show(); // Show items from the new page that was selected
+                }
+
+                $(".pagination li.current-page:eq(" + (currentPage - 1) + ")").addClass('active'); // Make new page number the 'active' page
+              }
+            });
+
+            // Function to navigate to the previous page when users click on the previous-page id (previous page button)
+            $("#previous-page").on("click", function() {
+              var currentPage = $(".pagination li.active").index(); // Identify the current active page
+              // Check to make sure that users is not on page 1 and attempting to navigating to a previous page
+              if (currentPage === 1) {
+                return false; // Return false (i.e., cannot navigate to a previous page because the current page is page 1)
+              } else {mycontainer
+                currentPage--; // Decrement page by one
+                $(".pagination li").removeClass('active'); // Remove the 'activate' status class from the previous active page number
+                $("#speakers .mycontainer").hide(); // Hide all items in the pagination loop
+                var grandTotal = limitPerPage * currentPage; // Get the total number of items up to the page that was selected
+
+                // Loop through total items, selecting a new set of items based on page number
+                for (var i = grandTotal - limitPerPage; i < grandTotal; i++) {
+                  $("#speakers .mycontainer:eq(" + i + ")").show(); // Show items from the new page that was selected
+                }
+
+                $(".pagination li.current-page:eq(" + (currentPage - 1) + ")").addClass('active'); // Make new page number the 'active' page
+              }
+            }); 
+
+        }
+
 @include('reviews')
 
         
 });
 </script>
 
-
-{{-- </html> --}}
-{{-- 
-https://s3-media1.fl.yelpcdn.com/bphoto/mjMHObH17E2NykWJufuVSg/o.jpg --}}
+<script src="{{ asset('js/paginate.js') }}"></script>

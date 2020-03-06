@@ -58,7 +58,7 @@ function getBusinessReviews(businessId)
                     </div>
                   </div>`;
 
-                  $('#divreview').append(revdiv);
+                  $('#main-revDiv').append(revdiv);
 
                   $('#main-revDiv').show();
 
