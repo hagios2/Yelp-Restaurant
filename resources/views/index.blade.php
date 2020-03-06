@@ -427,6 +427,49 @@
 
 $(document).ready(function(){
 
+
+  
+
+
+  getLocation();
+
+ function getLocation() {
+  if (navigator.geolocation) {
+    var location_timeout = setTimeout("geolocFail()", 10000);
+
+    navigator.geolocation.getCurrentPosition(function(position) {
+        clearTimeout(location_timeout);
+
+        var lat = position.coords.latitude;
+        var lng = position.coords.longitude;
+
+        console.log('lat is ' +lat +' and long is '+ lng);
+
+       /*  geocodeLatLng(lat, lng); */
+    }, function(error) {
+        clearTimeout(location_timeout);
+   /*      geolocFail(); */
+    });
+} else {
+    // Fallback for no geolocation
+/*     geolocFail(); */
+}
+}
+
+
+var loc = function showPosition(position) {
+
+    console.log(position);
+
+    var lat =  position.coords.latitude,
+        long = position.coords.longitude,
+        cords = lat + ',' + long;
+
+        console.log(cords);
+} 
+
+
+
 var businessId;
 
 let requests = {
@@ -740,31 +783,7 @@ function getSearchItem(userInput)
                                         `+ transaction +`  
                                       </div>
                                       <div class="col-md-2" style="">
-                                        <!-- Button trigger modal -->
-                                      <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModalLong">
-                                        Place Order <i class="fa fa-shopping-cart fa-fw"></i>
-                                      </button>
-
-                                      <!-- Modal -->
-                                      <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                          <div class="modal-content">
-                                            <div class="modal-header">
-                                              <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                              </button>
-                                            </div>
-                                            <div class="modal-body">
-                                              put form here
-                                            </div>
-                                            <div class="modal-footer">
-                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                              <button type="button" class="btn btn-primary">Save changes</button>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>    
+                                        <a href="javascript:void(0)" class="btn btn-outline-primary">Place Order<i class="fa fa-shopping-cart fa-fw"></i></a>
 
                                     <span class="font12 block spacing1 font400 text-center">Min: `+data.price+`</span></div>
                                     </div>
@@ -952,14 +971,11 @@ function getSearchItem(userInput)
 
                     $('#speakers').show();
 
-                    console.log(data);
-
-
                     $('#revBut').click(function(e){
 
                       e.preventDefault();
 
-                      $(this).hide()
+                      $('#revBut').hide()
 
                       $('#hideBut').show();
 
@@ -1019,7 +1035,7 @@ function getSearchItem(userInput)
         {
 
             var numberOfItems = $('#speakers .mycontainer').length; // Get total number of the items that should be paginated
-            var limitPerPage = 2; // Limit of items per each page
+            var limitPerPage = 5; // Limit of items per each page
             $('#speakers .mycontainer:gt(' + (limitPerPage - 1) + ')').hide(); // Hide all items over page limits (e.g., 5th item, 6th item, etc.)
             var totalPages = Math.round(numberOfItems / limitPerPage); // Get number of pages
             $(".pagination").append('<li class="page-item"><a class="page-link" href="javascript:void(0)">'+1+'</a></li>'); // Add first page marker
