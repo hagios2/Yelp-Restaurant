@@ -173,11 +173,11 @@
         <!-- End -->
 
 
-        <div style="font-size:1rem;" class="d-flex justify-content-center"> <span><a href="javascript:void(0)"><i id="rest-link" class="fas fa-utensils"></i> Restaurant<a> &emsp;| &emsp;<a id="breakfast" href="javascript:void(0)"><i class="fas fa-coffee"></i> Breakfast and brunch</a> &emsp; | &emsp; <a id="loc_delivery" href="javascript:void(0)>  <i class="fas fa-shipping-fast" aria-hidden="true"></i> Available delivery</a></span></div>
+        <div style="font-size:1rem;" class="d-flex justify-content-center"> <span><a href="javascript:void(0)"><i id="rest-link" class="fas fa-utensils"></i> Restaurant<a> &emsp;| &emsp;<a id="breakfast" href="javascript:void(0)"><i class="fas fa-coffee"></i> Breakfast and brunch</a> &emsp; | &emsp; <a id="loc_delivery" href="javascript:void(0)"><i class="fas fa-shipping-fast" aria-hidden="true"></i> Available delivery</a></span></div>
 
     </div> <br>
           <h1 class="display-4 d-block d-md-none">Conference Pingendo</h1>
-          <p class="">{{ now() }} </p>
+          <div class="digital-clock">00:00:00</div>
           <a href="#register" class="btn btn-lg mt-4 btn-outline-light">Register now</a><i class="d-block fa fa-angle-down pt-5 fa-3x"></i>
         </div>
       </div>
@@ -370,29 +370,7 @@
       </div>
     </div>
   </div>
-  
-  <!-- Sponsor logos -->
-  <div class="py-5 section bg-faded bg-light" style="transition: all 0.25s;">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h1 class="mb-4">Sponsors</h1>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-3 col-6">
-          <img class="center-block img-fluid d-block" src="assets/conference/logo_1.png"> </div>
-        <div class="col-md-3 col-6">
-          <img class="center-block img-fluid d-block" src="assets/conference/logo_4.png"> </div>
-        <div class="col-md-3 col-6">
-          <img class="center-block img-fluid d-block" src="assets/conference/logo_3.png"> </div>
-        <div class="col-md-3 col-6">
-          <img class="center-block img-fluid d-block" src="assets/conference/logo_2.png"> </div>
-      </div>
-    </div>
-  </div>
-  <div class="py-5">
-  </div>
+
   <!-- Call to action -->
   <div class="py-5 section-aquamarine" id="register" style="transition: all 0.25s;">
     <div class="container">
@@ -455,13 +433,9 @@
 
 $(document).ready(function(){
 
+/*   getLocation(); */
 
-  
-
-
-  getLocation();
-
- function getLocation() {
+/*  function getLocation() {
   if (navigator.geolocation) {
     var location_timeout = setTimeout("geolocFail()", 10000);
 
@@ -471,18 +445,18 @@ $(document).ready(function(){
         var lat = position.coords.latitude;
         var lng = position.coords.longitude;
 
-        console.log('lat is ' +lat +' and long is '+ lng);
+        console.log('lat is ' +lat +' and long is '+ lng); */
 
        /*  geocodeLatLng(lat, lng); */
-    }, function(error) {
-        clearTimeout(location_timeout);
+/*     }, function(error) {
+        clearTimeout(location_timeout); */
    /*      geolocFail(); */
-    });
-} else {
+/*     });
+} else { */
     // Fallback for no geolocation
 /*     geolocFail(); */
-}
-}
+/* }
+} */
 
 
 var loc = function showPosition(position) {
@@ -961,7 +935,7 @@ function getSearchItem(userInput)
                                         </div>
                                       </div>
                                       <!-- Button trigger modal -->
-                                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable"> Detailed Statistics </button>  <a id="revBut" class="btn btn-info" >See reviews</a>
+                                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable"> Detailed Statistics </button>  <a href="javascript:void(0)" class="revBut btn btn-info" >See reviews</a>
                                       <!-- Modal -->
                                       <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -1036,7 +1010,7 @@ function getSearchItem(userInput)
 
                     $('#speakers').show();
 
-                    $('#revBut').click(function(e){
+                    $('.revBut').click(function(e){
 
                       e.preventDefault();
 
@@ -1199,4 +1173,3 @@ function getSearchItem(userInput)
 });
 </script>
 
-<script src="{{ asset('js/paginate.js') }}"></script>

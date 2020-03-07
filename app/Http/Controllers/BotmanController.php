@@ -20,11 +20,7 @@ class BotmanController extends Controller
 
         $botman = app('botman');
 
-  
-
         $botman->hears('{message}', function($botman, $message) {
-
-  
 
             if ($message == 'hi') {
 
@@ -40,6 +36,11 @@ class BotmanController extends Controller
             }
 
   
+        });
+
+
+        $botman->fallback(function($bot) {
+            $bot->reply('Sorry, I did not understand these commands. Here is a list of commands I understand: ...');
         });
 
   
@@ -62,7 +63,24 @@ class BotmanController extends Controller
 
         $botman->ask('Hello! What is your Name?', function(Answer $answer) {
 
+            $name = $answer->getText();
+
   
+
+            $this->say('Nice to meet you '.$name);
+
+        });
+
+    }
+
+
+
+
+    public function askHome($botman)
+
+    {
+
+        $botman->ask('Hello! What is your Name?', function(Answer $answer) {
 
             $name = $answer->getText();
 
