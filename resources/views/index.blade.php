@@ -716,10 +716,10 @@ function getSearchItem(userInput)
 
                 if(!jQuery.isEmptyObject(data))
                 {
+                  console.log(data)
+                  // mycontainer = [...data];
 
-                  mycontainer = [...data];
-
-                  console.log(mycontainer);
+                  // console.log(mycontainer);
 /* 
                     let carousel_num = 1;
                     let dyn_img_li = ``;
