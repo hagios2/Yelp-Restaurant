@@ -457,7 +457,7 @@ $(document).ready(function(){
 /*     geolocFail(); */
 /* }
 } */
-
+let mycontainer = [];
 
 var loc = function showPosition(position) {
 
@@ -716,6 +716,11 @@ function getSearchItem(userInput)
 
                 if(!jQuery.isEmptyObject(data))
                 {
+
+                  mycontainer = [...data];
+
+                  console.log(mycontainer);
+/* 
                     let carousel_num = 1;
                     let dyn_img_li = ``;
                     let dyn_img = ``;
@@ -1008,39 +1013,21 @@ function getSearchItem(userInput)
 
                     $('#speakers').append(dom);
 
-                    $('#speakers').show();
-
                     $('.revBut').click(function(e){
 
-                      e.preventDefault();
+                      e.preventDefault(); */
 
                    /*    $('#revBut').hide(); */
 
-                      $('#speakers').hide();
+                     /*  $('#speakers').hide(); */
 
                    /*    $('#hideBut').show(); */
-
+/* 
                       getBusinessReviews(data.id)
 
-                    });
-
-/* 
-                    $('#hideBut').click(function(e){
-
-                          e.preventDefault();
-
-                          $(this).hide()
-
-                          $('#revBut').show();
-
-                          $('#revDiv').fadeOut(3000);
-
-                          $('#speakers').hide();
-                          
                     }); */
 
-
-                    $('#show_delivery').click(function(e){
+              /*       $('#show_delivery').click(function(e){
 
                       e.preventDefault();
 
@@ -1048,7 +1035,7 @@ function getSearchItem(userInput)
 
                       getYourLocationDeliverySearch();
 
-                    });
+                    }); */
 
                   }
             });

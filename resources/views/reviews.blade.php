@@ -263,7 +263,7 @@
                                                     </div>
                                                   </div>
                                                   <!-- Button trigger modal -->
-                                                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable"> Detailed Statistics </button>  <a id="deliveryrevBut" href="javascript:void(0);" class="btn btn-info" >See reviews</a> <a href="javascript:void(0);" style="display:none" id="hideBut" class="btn btn-info" >Hide reviews</a>
+                                                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable"> Detailed Statistics </button>  <a href="javascript:void(0);" class="btn btn-info deliveryrevBut" >See reviews</a>
                                                   <!-- Modal -->
                                                   <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -307,38 +307,19 @@
 
                           $('#delivery').show();
 
-                          //hide speakers div already shown
-
                           $('#speakers').hide();
 
                           $('#revDiv').hide();
 
-                          $('#deliveryrevBut').click(function(e){
+                          $('.deliveryrevBut').click(function(e){
 
                             e.preventDefault();
-
-                            $('#deliveryrevBut').hide()
 
                             $('#hideBut').show();
 
                             getBusinessReviews(delivery.id)
 
                           });
-
-
-                          $('#hideBut').click(function(e){
-
-                                e.preventDefault();
-
-                                $(this).hide()
-
-                                $('#deliveryrevBut').show();
-
-                                $('#revDiv').fadeOut(3000);
-
-                                $('#revDiv').hmtl('');
-                          });
-
                     
                       });
                   
