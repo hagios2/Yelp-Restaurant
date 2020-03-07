@@ -457,7 +457,6 @@ $(document).ready(function(){
 /*     geolocFail(); */
 /* }
 } */
-let mycontainer = [];
 
 var loc = function showPosition(position) {
 
@@ -675,6 +674,8 @@ function getSearchItem(userInput)
 
     }).done(function(data){
 
+      let mycontainer = [];
+
       $('#speakers .mycontainer').remove(); //remove mycontainer for new search data to be appended into it
 
         $.each(data, function(i ,businesses){
@@ -683,12 +684,14 @@ function getSearchItem(userInput)
 
               getBusiness(restaurant.id, i) 
 
+              
 
             });
 
           });
-          
+
       console.log(mycontainer)
+      console.log("hello")
 
       
 
