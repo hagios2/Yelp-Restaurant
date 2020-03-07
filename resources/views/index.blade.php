@@ -674,7 +674,7 @@ function getSearchItem(userInput)
 
     }).done(function(data){
 
-      let mycontainer = [];
+      mycontainer = [];
 
       $('#speakers .mycontainer').remove(); //remove mycontainer for new search data to be appended into it
 
@@ -688,10 +688,14 @@ function getSearchItem(userInput)
 
             });
 
+            console.log("hello")
+
+            console.log(mycontainer)
+          
+
           });
 
-      console.log(mycontainer)
-      console.log("hello")
+  
 
       
 
