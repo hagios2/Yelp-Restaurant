@@ -683,15 +683,18 @@ function getSearchItem(userInput)
 
               getBusiness(restaurant.id, i) 
 
+
             });
 
           });
+          
+      console.log(mycontainer)
 
       
 
         });
 
-        console.log(mycontainer)
+    
 
       /*   paginate(); */
   }
