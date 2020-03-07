@@ -508,7 +508,7 @@ $('#search').autocomplete({
 
             success: function(data){ 
 
-                console.log(data);
+             /*    console.log(data); */
 
                 $('#search').removeClass('ui-autocomplete-loading');
 
@@ -687,9 +687,13 @@ function getSearchItem(userInput)
 
           });
 
+      
+
         });
 
-        paginate();
+        console.log(mycontainer)
+
+      /*   paginate(); */
   }
 
 
@@ -716,9 +720,9 @@ function getSearchItem(userInput)
 
                 if(!jQuery.isEmptyObject(data))
                 {
-                  console.log(typeof data)
-                  console.log(data)
-                  mycontainer = [...data];
+                 
+                    mycontainer.push(data)
+           
 
                   // console.log(mycontainer);
 /* 
