@@ -716,8 +716,9 @@ function getSearchItem(userInput)
 
                 if(!jQuery.isEmptyObject(data))
                 {
+                  console.log(typeof data)
                   console.log(data)
-                  // mycontainer = [...data];
+                  mycontainer = [...data];
 
                   // console.log(mycontainer);
 /* 
