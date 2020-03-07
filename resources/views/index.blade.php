@@ -28,6 +28,7 @@
   <script src="{{ asset('js/navbar-ontop.js') }}"></script>
 {{--   <script src="{{ asset('js/smooth-scroll.js') }}"></script> --}}
   <script src="{{ asset('js/animate.js') }}"></script>
+  
 
   <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
 
@@ -673,37 +674,23 @@ function getSearchItem(userInput)
         data: data
 
     }).done(function(data){
-
-      mycontainer = [];
+    
 
       $('#speakers .mycontainer').remove(); //remove mycontainer for new search data to be appended into it
 
-        $.each(data, function(i ,businesses){
+        
 
-          $.each(businesses, function(i ,restaurant){                    
+          $.each(data.businesses, function(i ,restaurant){                    
 
               getBusiness(restaurant.id, i) 
 
-              
-
             });
-
-            console.log("hello")
-
-            console.log(mycontainer)
+            $("#speakers").show()
+            paginate();
           
-
-          });
-
-  
-
-      
-
         });
 
-    
-
-      /*   paginate(); */
+        
   }
 
 
@@ -730,21 +717,18 @@ function getSearchItem(userInput)
 
                 if(!jQuery.isEmptyObject(data))
                 {
-                 
-                    mycontainer.push(data)
-           
-
-                  // console.log(mycontainer);
-/* 
+                   // console.log(data)
+                   
+  
                     let carousel_num = 1;
                     let dyn_img_li = ``;
                     let dyn_img = ``;
 
                     let restaurant = {
                           
-                        address : data.location.address1.replace(` `, `%`),
+                        address : (data.location.address1).replace(` `, `%`),
 
-                        name : data.name.replace(` `, `%20`),
+                        name : (data.name).replace(` `, `%20`),
 
                         cords : data.coordinates.latitude +', '+ data.coordinates.longitude, 
 
@@ -1030,19 +1014,18 @@ function getSearchItem(userInput)
 
                     $('.revBut').click(function(e){
 
-                      e.preventDefault(); */
+                      e.preventDefault(); 
 
                    /*    $('#revBut').hide(); */
 
-                     /*  $('#speakers').hide(); */
+                      $('#speakers').hide();
 
-                   /*    $('#hideBut').show(); */
-/* 
+          
                       getBusinessReviews(data.id)
 
-                    }); */
+                    }); 
 
-              /*       $('#show_delivery').click(function(e){
+                    $('#show_delivery').click(function(e){
 
                       e.preventDefault();
 
@@ -1050,7 +1033,7 @@ function getSearchItem(userInput)
 
                       getYourLocationDeliverySearch();
 
-                    }); */
+                    }); 
 
                   }
             });
@@ -1090,7 +1073,7 @@ function getSearchItem(userInput)
 
           $('#pagination_nav').show();
 
-            var numberOfItems = $('#speakers .mycontainer').length; // Get total number of the items that should be paginated
+            var numberOfItems = $('#speakers').children.length; // Get total number of the items that should be paginated
             var limitPerPage = 5; // Limit of items per each page
             $('#speakers .mycontainer:gt(' + (limitPerPage - 1) + ')').hide(); // Hide all items over page limits (e.g., 5th item, 6th item, etc.)
             var totalPages = Math.round(numberOfItems / limitPerPage); // Get number of pages
@@ -1152,7 +1135,7 @@ function getSearchItem(userInput)
               // Check to make sure that users is not on page 1 and attempting to navigating to a previous page
               if (currentPage === 1) {
                 return false; // Return false (i.e., cannot navigate to a previous page because the current page is page 1)
-              } else {mycontainer
+              } else {
                 currentPage--; // Decrement page by one
                 $(".pagination li").removeClass('active'); // Remove the 'activate' status class from the previous active page number
                 $("#speakers .mycontainer").hide(); // Hide all items in the pagination loop
@@ -1174,4 +1157,5 @@ function getSearchItem(userInput)
         
 });
 </script>
+<script src="https://pagination.js.org/dist/2.1.5/pagination.js"></script>
 
