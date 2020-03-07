@@ -1073,7 +1073,7 @@ function getSearchItem(userInput)
 
           $('#pagination_nav').show();
 
-            var numberOfItems = $('#speakers'); // Get total number of the items that should be paginated
+            var numberOfItems = $('div.mycontainer').length // Get total number of the items that should be paginated
             console.log(numberOfItems)
             var limitPerPage = 5; // Limit of items per each page
             $('#speakers .mycontainer:gt(' + (limitPerPage - 1) + ')').hide(); // Hide all items over page limits (e.g., 5th item, 6th item, etc.)
