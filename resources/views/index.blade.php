@@ -166,13 +166,15 @@
                     <div class="input-group-prepend">
                         <button id="button-addon2" type="submit" class="btn btn-link text-warning"><i class="fas fa-search"></i></button>
                     </div>
-                    <input type="search" id="search" placeholder="Restaurant, meals, pizza" aria-describedby="button-addon2" class=" form-control border-0 bg-light">
+                    <input type="search" id="search" placeholder="Restaurant, meals, pizza" aria-describedby="button-addon2" class=" form-control border-0 bg-light">&emsp;
+                    <div class="spinner-border"  style="display: none; width:2rem; height:2rem;" role="status">
+                      <span class="sr-only">Loading...</span>
+                    </div>
                     </div>
                 </div>
             
              </form>
         <!-- End -->
-
 
         <div style="font-size:1rem;" class="d-flex justify-content-center"> <span><a href="javascript:void(0)"><i id="rest-link" class="fas fa-utensils"></i> Restaurant<a> &emsp;| &emsp;<a id="breakfast" href="javascript:void(0)"><i class="fas fa-coffee"></i> Breakfast and brunch</a> &emsp; | &emsp; <a id="loc_delivery" href="javascript:void(0)"><i class="fas fa-shipping-fast" aria-hidden="true"></i> Available delivery</a></span></div>
 
@@ -200,6 +202,12 @@
     </div> --}}
 
   </div>
+
+
+
+  <div class="spinner-grow" style="width: 3rem; height: 3rem; background-color:white;" role="status">
+    <span class="sr-only">Loading...</span>
+  </div> <br> <br>
 
   <nav aria-label="Page navigation example" id="pagination_nav" style="display:none;">
     <ul class="pagination">
@@ -321,7 +329,7 @@
           <div class="row">
             <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="https://s3-media2.fl.yelpcdn.com/photo/LnPAHxcbkuw6szNnofl9yw/o.jpg" width="300"> </div>
             <div class="col-9">
-              <p class="lead mb-1"> <b>#1</b> </p>
+              <p class="lead mb-1"> <b>#4</b> </p>
               <p class="mb-0">A wonderful serenity has taken possession of my entire soul.</p>
             </div>
             <div class="col-md-12" style="">
@@ -391,7 +399,7 @@
     <div class="container">
       <div class="row">
         <div class="my-3 col-lg-4 col-md-6">
-          <h3>Shuntaul Restaurant</h3>
+          <h3>Yelp Restaurant</h3>
           <p class="text-muted">March 4, 2020</p>
           <p class="my-3">
             <a href="https://goo.gl/maps/ayn28vkB5F92" target="blank" class="text-muted">Empire State building 350 5th Ave, <br>New York, NY 10118</a>
@@ -497,14 +505,19 @@ $('#search').autocomplete({
 
         var searchItem = jQuery('#search').val();
 
-        let data = {
+        $('.spinner-border').show();
+
+        setTimeout(function(){
+
+          let data = {
 
             text: searchItem, 
             latitude: '37.786882',
             longitude: '-122.399972'
-        }
+          
+          }
 
-        $.ajax({
+            $.ajax({
 
             url: requests.main_url + 'autocomplete',
             headers: requests.headers,
@@ -513,12 +526,17 @@ $('#search').autocomplete({
 
             success: function(data){ 
 
-             /*    console.log(data); */
+              if(data)
+              {
+                $('.spinner-border').hide(); // hide loader
+              }
+
+            /*    console.log(data); */
 
                 $('#search').removeClass('ui-autocomplete-loading');
 
                 //var obj = JSON.parse(data);
-            
+
                 response( $.map(data, function(item, i) { 
                 
                 // your operation on data
@@ -553,16 +571,19 @@ $('#search').autocomplete({
                     });
 
                 }));
-            
+
             },
-            
+
             error: function(data) {
 
                 $('#search').removeClass('ui-autocomplete-loading');  
-            
+
             }
-        
-        });
+
+            });
+
+
+        }, 3000);
 
     }
 
@@ -610,7 +631,7 @@ $('#button-addon2').click(function(e){
 
 });
 
-$('#close_delivery').click(function(){
+/* $('#close_delivery').click(function(){
 
     $('#delivery').hide();
 
@@ -623,9 +644,9 @@ $('#close_delivery').click(function(){
     }else{
       $('speakers').hide();
 
-    }
+    } 
 
-});
+});*/
 
 
 $('#close_speakers').click(function(){
@@ -635,7 +656,7 @@ $('#close_speakers').click(function(){
 });
 
 
-$('#close_review').click(function(){
+/* $('#close_review').click(function(){
 
     $('#revDiv').hide();
 
@@ -652,15 +673,20 @@ $('#close_review').click(function(){
 
        
 
-});
+}); */
 
 $( "#search" ).on( "autocompleteselect", function( event, ui ) { 
 
     /* both label and value are the same  */
 
     /* call search */
+    setTimeout(function(){
 
-    getSearchItem(ui.item.label)
+      $('.spinner-grow').show()
+
+      getSearchItem(ui.item.label)
+
+    }, 15000);
 
 } );
 
@@ -1148,8 +1174,15 @@ function getSearchItem(userInput)
 
                       $('#speakers').hide();
 
-          
                       getBusinessReviews(data.id)
+
+                      $('#close_review').click(function(){
+
+                          $('#revDiv').hide();
+
+                          $('#speakers').show();
+
+                      });
 
                     }); 
 
@@ -1160,6 +1193,14 @@ function getSearchItem(userInput)
                       $('#speakers').hide();
 
                       getYourLocationDeliverySearch();
+
+                      $('#close_delivery').click(function(){
+
+                          $('#delivery').hide();
+
+                          $('#speakers').show();
+
+                      });
 
                     }); 
 
@@ -1199,11 +1240,9 @@ function getSearchItem(userInput)
         function paginate()
         {
 
-          $('#pagination_nav').show();
-
-            var numberOfItems = $('#speakers > div') // Get toObjecttal number of the items that should be paginated
+            var numberOfItems = 18//$('#speakers > div') // Get toObjecttal number of the items that should be paginated
             console.log(numberOfItems)
-            var limitPerPage = 5; // Limit of items per each page
+            var limitPerPage = 3; // Limit of items per each page
             $('#speakers .mycontainer:gt(' + (limitPerPage - 1) + ')').hide(); // Hide all items over page limits (e.g., 5th item, 6th item, etc.)
             var totalPages = Math.round(numberOfItems / limitPerPage); // Get number of pages
             $(".pagination").append('<li class="page-item"><a class="page-link" href="javascript:void(0)">'+1+'</a></li>'); // Add first page marker
@@ -1277,7 +1316,11 @@ function getSearchItem(userInput)
 
                 $(".pagination li.current-page:eq(" + (currentPage - 1) + ")").addClass('active'); // Make new page number the 'active' page
               }
-            }); 
+
+            });
+
+              
+          $('#pagination_nav').show(); 
 
         }
 
@@ -1286,5 +1329,3 @@ function getSearchItem(userInput)
         
 });
 </script>
-<script src="https://pagination.js.org/dist/2.1.5/pagination.js"></script>
-
