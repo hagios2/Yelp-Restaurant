@@ -189,7 +189,7 @@
           <i style="color:grey;" class="fas fa-spinner fa-pulse"></i>
         </div>
 
-        <div class="startus" class="alert alert-info" style="width:50%; height:5rem;"></div>
+        <div class="startus alert alert-info" style="width:50%; height:5rem;"></div>
 
     </div> <br>
 
@@ -853,9 +853,7 @@ function getSearchItem(userInput)
                     
                     let claimed = (data.is_claimed) ? `<i class="fas fa-check-square"></i> claimed`:``;
 
-                    let dom = 
-                    
-                    `<div class="container-fluid">
+                    let dom = `<div class="container-fluid">
                               <div class="row">
                               </div>
                               <h3 style="display:inline;" class="mb-0"><b>`+data.name+`</b></h3> &emsp; <small style="color:blue">`+ claimed+`</small>
@@ -1259,8 +1257,7 @@ function getSearchItem(userInput)
                   rating +=  `<span class="fa fa-star"></span>`
               }
           }
-          $('#speakers').append(dom);
-
+        
               return rating;
 
         }
