@@ -87,6 +87,13 @@
   padding: 0;
   position: absolute;
   width: 1px;
+
+}
+
+.startus {
+
+  display:none;
+
 }
    
   </style>
@@ -182,7 +189,7 @@
           <i style="color:grey;" class="fas fa-spinner fa-pulse"></i>
         </div>
 
-        <div class="startus" style="display:none;"></div>
+        <div class="startus" class="alert alert-info" style="width:50%; height:5rem;"></div>
 
     </div> <br>
 
@@ -228,6 +235,8 @@
       <span aria-hidden="true">&times;</span>
     </button>
     {{-- insert pages here dynamically  --}}
+
+    <div class="mycontainer"></div>
 
   </div>
 
@@ -714,17 +723,18 @@ function getSearchItem(userInput)
 
       if(data)
       {
-        $('.fa-3x').hide();
+          $('.fa-3x').hide();
 
-/*         $('.startus').show(); */
+          
+         // $('.startus').attr('class', 'alert alert-info');
 
-        $('.startus').attr('class', 'alert alert-info');
+          $('.startus').text('Please scroll down');
 
-        $('.startus').text('Please scroll down');
+          $('.startus').css({'width': '50%', 'heighth': '5rem', 'margin': '0 auto', 'color': 'black' });
 
-        $('.startus').fadeIn('fast');
+          $('.startus').fadeIn();
 
-        $('.startus').fadeOut('slow');
+          $('.startus').fadeOut(4000);
 
 
       }
@@ -736,8 +746,12 @@ function getSearchItem(userInput)
               getBusiness(restaurant.id, i) 
 
             });
-            $("#speakers").show()
-            paginate();
+            $("#speakers").show();
+
+            console.log($('#speakers').children());
+
+
+            //paginate();
           
         });
 
@@ -841,349 +855,346 @@ function getSearchItem(userInput)
 
                     let dom = 
                     
-                    `<div class="mycontainer">
-
-                      <div class="container-fluid">
-                                  <div class="row">
+                    `<div class="container-fluid">
+                              <div class="row">
+                              </div>
+                              <h3 style="display:inline;" class="mb-0"><b>`+data.name+`</b></h3> &emsp; <small style="color:blue">`+ claimed+`</small>
+                              <p class="text-muted">Quality is our Priority</p>
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="carousel slide" data-ride="carousel" id="carousel">
+                                    <div class="carousel-inner">
+                                    `+dyn_img+`
+                                      <div class="carousel-item active"> <img style="max-height:400px;" class="d-block img-fluid w-100" src="`+data.image_url+`">
+                                        <div class="carousel-caption">
+                                          <h5 class="m-0">Carousel</h5>
+                                          <p>with controls</p>
+                                        </div>
+                                      </div>
+                                      <div class="carousel-item active">
+                                        <div class="carousel-caption">
+                                          <h5 class="m-0">Carousel</h5>
+                                          <p>with controls</p>
+                                        </div>
+                                      </div>
+                                    </div> <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev" style=""> <span class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span> </a> <a class="carousel-control-next" href="#carousel" role="button" data-slide="next"> <span class="carousel-control-next-icon"></span> <span class="sr-only">Next</span> </a>
                                   </div>
-                                  <h3 style="display:inline;" class="mb-0"><b>`+data.name+`</b></h3> &emsp; <small style="color:blue">`+ claimed+`</small>
-                                  <p class="text-muted">Quality is our Priority</p>
-                                  <div class="row">
-                                    <div class="col-md-6">
-                                      <div class="carousel slide" data-ride="carousel" id="carousel">
-                                        <div class="carousel-inner">
-                                        `+dyn_img+`
-                                          <div class="carousel-item active"> <img style="max-height:400px;" class="d-block img-fluid w-100" src="`+data.image_url+`">
-                                            <div class="carousel-caption">
-                                              <h5 class="m-0">Carousel</h5>
-                                              <p>with controls</p>
+                                </div>
+                                `+map+`
+                              </div><br>
+                              `+ transaction +`   <a href="javascript:void(0);" class="btn btn-primary show_delivery" >Available Delivery</a>
+                              <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModalLong">Place Order <i class="fa fa-shopping-cart fa-fw"></i></a> </button> <span class="font12 block spacing1 font400 text-center">Min: `+data.price+`</span>
+                              <div class="modal fade" aria-hidden="true" aria-labelledby="exampleModalLongTitle" id="exampleModalLong" role="dialog" tabindex="-1">
+                                <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h3 class=""><span class="badge badge-success
+                                      <button type=" aria-label="Close"> Ordering made easy</span></h3>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <div class="container-fluid">
+                                        <div class="row bg-danger">
+                                          <div id="cid_83" class="form-input-wide">
+                                            <div style="text-align:center">
+                                              <img alt="" class="form-image" style="border:0" src='http://getwallpapers.com/wallpaper/full/0/b/0/1443667-top-wallpaper-fruits-and-vegetables-1920x1200.jpg' height="310px" width="426px" data-component="image">
                                             </div>
                                           </div>
-                                          <div class="carousel-item active">
-                                            <div class="carousel-caption">
-                                              <h5 class="m-0">Carousel</h5>
-                                              <p>with controls</p>
+                                        </div>
+                                        <div class="form-header-group  header-default">
+                                          <div class="header-text httal htvam">
+                                            <h2 id="header_84" class="form-header" data-component="header"> Order Form </h2>
+                                          </div>
+                                        </div>
+                                        <div class="row bg-success">
+                                          <div class="container">
+                                            <div class="row">
+                                              <div class="col-md-12 p-4" style="">
+                                                <h1>Place your order now</h1>
+                                                <p>The Order Form allows customers to make an order and provides delivery, pickup, or catering .</p>
+                                              </div>
+                                            </div>
+                                            <div class="row">
+                                              <div class="col-md-12 p-4">
+                                                <div class="col-md-12" style="">
+                                                  <h5 class="">First Name&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Last Name</h5>
+                                                </div>
+                                                <form>
+                                                  <div class="form-row">
+                                                    <div class="form-group col-md-6"> <input type="text" class="form-control" id="form36" placeholder="First Name"> </div>
+                                                    <div class="form-group col-md-6"> <input type="text" class="form-control" id="form37" placeholder="Last Name"> </div>
+                                                  </div>
+                                                  <li class="form-line" data-type="control_dropdown" id="id_18">
+                                                    <label class="form-label form-label-top" id="label_18" for="input_18"> Restaurant Location </label>
+                                                    <div id="cid_18" class="form-input-wide">
+                                                      <select class="form-dropdown" id="input_18" name="q18_Restaurant Location" style="width:150px" data-component="dropdown" aria-labelledby="label_18">
+                                                        <option value=""> </option>
+                                                        <option value="Restaurant&nbsp;A,&nbsp;123&nbsp;Main&nbsp;St.&nbsp;Anytown"> Restaurant&nbsp;A,&nbsp;123&nbsp;Main&nbsp;St.&nbsp;Anytown </option>
+                                                        <option value="Restaurant&nbsp;B,&nbsp;321&nbsp;Springfield&nbsp;Ave.&nbsp;South&nbsp;Anytown"> Restaurant&nbsp;B,&nbsp;321&nbsp;Springfield&nbsp;Ave.&nbsp;South&nbsp;Anytown </option>
+                                                      </select>
+                                                    </div>
+                                                  </li>
+                                                  <h5 class="">Phone Number</h5>
+                                                  <div class="form-group"> <input type="text" class="form-control" id="form38" placeholder="Company"> </div>
+                                                  <li class="form-line form-line-column form-col-1 allowTime" data-type="control_datetime" id="id_20">
+                                                    <div id="cid_20" class="form-input-wide">
+                                                      <div data-wrapper-react="true" class="extended">
+                                                        <span class="form-sub-label-container " style="vertical-align:top">
+                                                          <input type="tel" class="form-textbox validate[limitDate]" id="month_20" name="q20_Date[month]" size="2" data-maxlength="2" value="03" autocomplete="off" aria-labelledby="label_20 sublabel_20_month">
+                                                          <span class="date-separate" aria-hidden="true"> &nbsp;- </span>
+                                                          <label class="form-sub-label" for="month_20" id="sublabel_20_month" style="min-height:13px" aria-hidden="false"> Month </label>
+                                                        </span>
+                                                        <span class="form-sub-label-container " style="vertical-align:top">
+                                                          <input type="tel" class="currentDate form-textbox validate[limitDate]" id="day_20" name="q20_Date[day]" size="2" data-maxlength="2" value="06" autocomplete="off" aria-labelledby="label_20 sublabel_20_day">
+                                                          <span class="date-separate" aria-hidden="true"> &nbsp;- </span>
+                                                          <label class="form-sub-label" for="day_20" id="sublabel_20_day" style="min-height:13px" aria-hidden="false"> Day </label>
+                                                        </span>
+                                                        <span class="form-sub-label-container " style="vertical-align:top">
+                                                          <input type="tel" class="form-textbox validate[limitDate]" id="year_20" name="q20_Date[year]" size="4" data-maxlength="4" value="2020" autocomplete="off" aria-labelledby="label_20 sublabel_20_year">
+                                                          <label class="form-sub-label" for="year_20" id="sublabel_20_year" style="min-height:13px" aria-hidden="false"> Year </label>
+                                                        </span>
+                                                        <h5 class="">&nbsp;</h5><span style="white-space:nowrap;display:inline-block" class="allowTime-container">
+                                                          <span class="form-sub-label-container " style="vertical-align:top">
+                                                            <select class="currentTime time-dropdown form-dropdown validate[limitDate]" id="hour_20" name="q20_Date[hour]" aria-labelledby="label_20 sublabel_20_hour">
+                                                              <option> </option>
+                                                              <option selected="" value="1"> 1 </option>
+                                                              <option value="2"> 2 </option>
+                                                              <option value="3"> 3 </option>
+                                                              <option value="4"> 4 </option>
+                                                              <option value="5"> 5 </option>
+                                                              <option value="6"> 6 </option>
+                                                              <option value="7"> 7 </option>
+                                                              <option value="8"> 8 </option>
+                                                              <option value="9"> 9 </option>
+                                                              <option value="10"> 10 </option>
+                                                              <option value="11"> 11 </option>
+                                                              <option value="12"> 12 </option>
+                                                            </select>
+                                                            <span class="date-separate" aria-hidden="true"> &nbsp;: </span>
+                                                            <label class="form-sub-label" for="hour_20" id="sublabel_20_hour" style="min-height:13px" aria-hidden="false"> Hour </label>
+                                                          </span>
+                                                          <span class="form-sub-label-container " style="vertical-align:top">
+                                                            <select class="time-dropdown form-dropdown validate[limitDate]" id="min_20" name="q20_Date[min]" aria-labelledby="label_20 sublabel_20_minutes">
+                                                              <option> </option>
+                                                              <option value="00"> 00 </option>
+                                                              <option value="10"> 10 </option>
+                                                              <option selected="" value="20"> 20 </option>
+                                                              <option value="30"> 30 </option>
+                                                              <option value="40"> 40 </option>
+                                                              <option value="50"> 50 </option>
+                                                            </select>
+                                                            <label class="form-sub-label" for="min_20" id="sublabel_20_minutes" style="min-height:13px" aria-hidden="false"> Minutes </label>
+                                                          </span>
+                                                          <span class="form-sub-label-container " style="vertical-align:top">
+                                                            <select class="time-dropdown form-dropdown validate[limitDate]" id="ampm_20" name="q20_Date[ampm]" aria-labelledby="label_20 sublabel_20_ampm">
+                                                              <option value="AM"> AM </option>
+                                                              <option selected="" value="PM"> PM </option>
+                                                            </select>
+                                                            <label class="form-sub-label" for="ampm_20" id="sublabel_20_ampm" style="border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;white-space:nowrap" aria-hidden="false"> AM/PM Option </label>
+                                                          </span>
+                                                        </span>
+                                                        <span class="form-sub-label-container " style="vertical-align:top">
+                                                          <label class="form-sub-label" for="input_20_pick" style="border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;white-space:nowrap" aria-hidden="true"> Date Picker Icon </label>
+                                                        </span>
+                                                      </div>
+                                                    </div>
+                                                  </li>
+                                                  <h5 class="">Type of order</h5>
+                                                  <input type="radio" id="male" name="gender" value="male">
+                                                  <label for="male">Pickup</label>&nbsp;&nbsp; <input type="radio" id="female" name="gender" value="female">
+                                                  <label for="female">Delivery</label>&nbsp;&nbsp; <input type="radio" id="other" name="gender" value="other">
+                                                  <label for="other">Restaurant Reservation</label>
+                                                </form>
+                                              </div>
                                             </div>
                                           </div>
-                                        </div> <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev" style=""> <span class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span> </a> <a class="carousel-control-next" href="#carousel" role="button" data-slide="next"> <span class="carousel-control-next-icon"></span> <span class="sr-only">Next</span> </a>
+                                        </div>
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary">Place Order Now</button>
                                       </div>
                                     </div>
-                                    `+map+`
-                                  </div><br>
-                                  `+ transaction +`   <a href="javascript:void(0);" class="btn btn-primary show_delivery" >Available Delivery</a>
-                                  <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModalLong">Place Order <i class="fa fa-shopping-cart fa-fw"></i></a> </button> <span class="font12 block spacing1 font400 text-center">Min: `+data.price+`</span>
-                                  <div class="modal fade" aria-hidden="true" aria-labelledby="exampleModalLongTitle" id="exampleModalLong" role="dialog" tabindex="-1">
-                                    <div class="modal-dialog" role="document">
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="row">
+                              <div class="col-md-12" style="">
+                                <div class="row">
+                                  <div class="col-md-4" style="">
+                                    <div class="col-md-12 col-6 p-4 "> <i class="d-block fa fa-circle-o fa-3x mb-2 text-muted"></i>
+                                      <h4> <b>Categories</b></h4>
+                                        `+ category +`
+                                    </div>
+                                  </div>
+                                  <div class="col-md-4" style="">
+                                    <div class="col-md-10 col-6 p-4" style=""> <i class="d-block fa fa-circle-o fa-3x mb-2 text-muted"></i>
+                                      <h4> <b>Contact</b> </h4>
+                                      <p text-center>
+                                        <i class="fa fa-map-marker text-dark ">`+data.location.address1+`</i>
+                                        <i class="fa fa-envelope">www.shintaul@bog_gov.co.uk</i>
+                                        <i class="fa fa-phone"></i> `+data.phone+` , `+data.display_phone+`
+                                        <br>
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-4" style="">
+                                    <div class="col-md-10 col-6 p-4" style=""> <i class="d-block fa fa-circle-o fa-3x mb-2 text-muted"></i>
+                                      <h4> <b>Contact</b> </h4>
+                                      <p text-center>
+                                        <i class="fa fa-map-marker text-dark "></i>&nbsp;`+data.location.address1+`<br>
+                                        <i class="fa fa-envelope">&nbsp;www.shintaul@bog_gov.co.uk</i> <br>
+                                        <i class="fa fa-phone"></i>&nbsp;Tel: `+data.phone+` , `+data.display_phone+`
+                                        <br>
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                  
+                      
+                        <div class="py-5">
+                          <div class="container">
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="w3-content" style="padding: 30px; border: 3px solid rgb(241, 241, 241);">
+                                  <span class="heading">User Rating</span>
+                                  `+rating+`
+                                  <p>`+data.rating+`  average based on `+data.review_count+` reviews.</p>
+                                  <hr style="border:3px solid #f1f1f1">
+                                  <div class="row">
+                                    <div class="side">
+                                      <div>5 star</div>
+                                    </div>
+                                    <div class="middle">
+                                      <div class="bar-container">
+                                        <div class="bar-5"></div>
+                                      </div>
+                                    </div>
+                                    <div class="side right">
+                                      <div>150</div>
+                                    </div>
+                                    <div class="side">
+                                      <div>4 star</div>
+                                    </div>
+                                    <div class="middle">
+                                      <div class="bar-container">
+                                        <div class="bar-4"></div>
+                                      </div>
+                                    </div>
+                                    <div class="side right">
+                                      <div>63</div>
+                                    </div>
+                                    <div class="side">
+                                      <div>3 star</div>
+                                    </div>
+                                    <div class="middle">
+                                      <div class="bar-container">
+                                        <div class="bar-3"></div>
+                                      </div>
+                                    </div>
+                                    <div class="side right">
+                                      <div>15</div>
+                                    </div>
+                                    <div class="side">
+                                      <div>2 star</div>
+                                    </div>
+                                    <div class="middle">
+                                      <div class="bar-container">
+                                        <div class="bar-2"></div>
+                                      </div>
+                                    </div>
+                                    <div class="side right">
+                                      <div>6</div>
+                                    </div>
+                                    <div class="side">
+                                      <div>1 star</div>
+                                    </div>
+                                    <div class="middle">
+                                      <div class="bar-container">
+                                        <div class="bar-1"></div>
+                                      </div>
+                                    </div>
+                                    <div class="side right">
+                                      <div>20</div>
+                                    </div>
+                                  </div>
+                                  <!-- Button trigger modal -->
+                                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable"> Detailed Statistics </button><a href="javascript:void(0)" class="revBut btn btn-info" >See reviews</a>
+                                  <!-- Modal -->
+                                  <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-scrollable" role="document">
                                       <div class="modal-content">
                                         <div class="modal-header">
-                                          <h3 class=""><span class="badge badge-success
-                                          <button type=" aria-label="Close"> Ordering made easy</span></h3>
+                                          <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
                                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">×</span>
                                           </button>
                                         </div>
                                         <div class="modal-body">
-                                          <div class="container-fluid">
-                                            <div class="row bg-danger">
-                                              <div id="cid_83" class="form-input-wide">
-                                                <div style="text-align:center">
-                                                  <img alt="" class="form-image" style="border:0" src='http://getwallpapers.com/wallpaper/full/0/b/0/1443667-top-wallpaper-fruits-and-vegetables-1920x1200.jpg' height="310px" width="426px" data-component="image">
-                                                </div>
-                                              </div>
+                                          <div id="graph-wrapper">
+                                            <div class="graph-info">
+                                              <a href="javascript:void(0)" class="visitors">Visitors</a>
+                                              <a href="javascript:void(0)" class="returning">Returning Visitors</a>
+                                              <a href="#" id="bars"><span></span></a>
+                                              <a href="#" id="lines" class="active"><span></span></a>
                                             </div>
-                                            <div class="form-header-group  header-default">
-                                              <div class="header-text httal htvam">
-                                                <h2 id="header_84" class="form-header" data-component="header"> Order Form </h2>
-                                              </div>
-                                            </div>
-                                            <div class="row bg-success">
-                                              <div class="container">
-                                                <div class="row">
-                                                  <div class="col-md-12 p-4" style="">
-                                                    <h1>Place your order now</h1>
-                                                    <p>The Order Form allows customers to make an order and provides delivery, pickup, or catering .</p>
-                                                  </div>
-                                                </div>
-                                                <div class="row">
-                                                  <div class="col-md-12 p-4">
-                                                    <div class="col-md-12" style="">
-                                                      <h5 class="">First Name&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Last Name</h5>
-                                                    </div>
-                                                    <form>
-                                                      <div class="form-row">
-                                                        <div class="form-group col-md-6"> <input type="text" class="form-control" id="form36" placeholder="First Name"> </div>
-                                                        <div class="form-group col-md-6"> <input type="text" class="form-control" id="form37" placeholder="Last Name"> </div>
-                                                      </div>
-                                                      <li class="form-line" data-type="control_dropdown" id="id_18">
-                                                        <label class="form-label form-label-top" id="label_18" for="input_18"> Restaurant Location </label>
-                                                        <div id="cid_18" class="form-input-wide">
-                                                          <select class="form-dropdown" id="input_18" name="q18_Restaurant Location" style="width:150px" data-component="dropdown" aria-labelledby="label_18">
-                                                            <option value=""> </option>
-                                                            <option value="Restaurant&nbsp;A,&nbsp;123&nbsp;Main&nbsp;St.&nbsp;Anytown"> Restaurant&nbsp;A,&nbsp;123&nbsp;Main&nbsp;St.&nbsp;Anytown </option>
-                                                            <option value="Restaurant&nbsp;B,&nbsp;321&nbsp;Springfield&nbsp;Ave.&nbsp;South&nbsp;Anytown"> Restaurant&nbsp;B,&nbsp;321&nbsp;Springfield&nbsp;Ave.&nbsp;South&nbsp;Anytown </option>
-                                                          </select>
-                                                        </div>
-                                                      </li>
-                                                      <h5 class="">Phone Number</h5>
-                                                      <div class="form-group"> <input type="text" class="form-control" id="form38" placeholder="Company"> </div>
-                                                      <li class="form-line form-line-column form-col-1 allowTime" data-type="control_datetime" id="id_20">
-                                                        <div id="cid_20" class="form-input-wide">
-                                                          <div data-wrapper-react="true" class="extended">
-                                                            <span class="form-sub-label-container " style="vertical-align:top">
-                                                              <input type="tel" class="form-textbox validate[limitDate]" id="month_20" name="q20_Date[month]" size="2" data-maxlength="2" value="03" autocomplete="off" aria-labelledby="label_20 sublabel_20_month">
-                                                              <span class="date-separate" aria-hidden="true"> &nbsp;- </span>
-                                                              <label class="form-sub-label" for="month_20" id="sublabel_20_month" style="min-height:13px" aria-hidden="false"> Month </label>
-                                                            </span>
-                                                            <span class="form-sub-label-container " style="vertical-align:top">
-                                                              <input type="tel" class="currentDate form-textbox validate[limitDate]" id="day_20" name="q20_Date[day]" size="2" data-maxlength="2" value="06" autocomplete="off" aria-labelledby="label_20 sublabel_20_day">
-                                                              <span class="date-separate" aria-hidden="true"> &nbsp;- </span>
-                                                              <label class="form-sub-label" for="day_20" id="sublabel_20_day" style="min-height:13px" aria-hidden="false"> Day </label>
-                                                            </span>
-                                                            <span class="form-sub-label-container " style="vertical-align:top">
-                                                              <input type="tel" class="form-textbox validate[limitDate]" id="year_20" name="q20_Date[year]" size="4" data-maxlength="4" value="2020" autocomplete="off" aria-labelledby="label_20 sublabel_20_year">
-                                                              <label class="form-sub-label" for="year_20" id="sublabel_20_year" style="min-height:13px" aria-hidden="false"> Year </label>
-                                                            </span>
-                                                            <h5 class="">&nbsp;</h5><span style="white-space:nowrap;display:inline-block" class="allowTime-container">
-                                                              <span class="form-sub-label-container " style="vertical-align:top">
-                                                                <select class="currentTime time-dropdown form-dropdown validate[limitDate]" id="hour_20" name="q20_Date[hour]" aria-labelledby="label_20 sublabel_20_hour">
-                                                                  <option> </option>
-                                                                  <option selected="" value="1"> 1 </option>
-                                                                  <option value="2"> 2 </option>
-                                                                  <option value="3"> 3 </option>
-                                                                  <option value="4"> 4 </option>
-                                                                  <option value="5"> 5 </option>
-                                                                  <option value="6"> 6 </option>
-                                                                  <option value="7"> 7 </option>
-                                                                  <option value="8"> 8 </option>
-                                                                  <option value="9"> 9 </option>
-                                                                  <option value="10"> 10 </option>
-                                                                  <option value="11"> 11 </option>
-                                                                  <option value="12"> 12 </option>
-                                                                </select>
-                                                                <span class="date-separate" aria-hidden="true"> &nbsp;: </span>
-                                                                <label class="form-sub-label" for="hour_20" id="sublabel_20_hour" style="min-height:13px" aria-hidden="false"> Hour </label>
-                                                              </span>
-                                                              <span class="form-sub-label-container " style="vertical-align:top">
-                                                                <select class="time-dropdown form-dropdown validate[limitDate]" id="min_20" name="q20_Date[min]" aria-labelledby="label_20 sublabel_20_minutes">
-                                                                  <option> </option>
-                                                                  <option value="00"> 00 </option>
-                                                                  <option value="10"> 10 </option>
-                                                                  <option selected="" value="20"> 20 </option>
-                                                                  <option value="30"> 30 </option>
-                                                                  <option value="40"> 40 </option>
-                                                                  <option value="50"> 50 </option>
-                                                                </select>
-                                                                <label class="form-sub-label" for="min_20" id="sublabel_20_minutes" style="min-height:13px" aria-hidden="false"> Minutes </label>
-                                                              </span>
-                                                              <span class="form-sub-label-container " style="vertical-align:top">
-                                                                <select class="time-dropdown form-dropdown validate[limitDate]" id="ampm_20" name="q20_Date[ampm]" aria-labelledby="label_20 sublabel_20_ampm">
-                                                                  <option value="AM"> AM </option>
-                                                                  <option selected="" value="PM"> PM </option>
-                                                                </select>
-                                                                <label class="form-sub-label" for="ampm_20" id="sublabel_20_ampm" style="border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;white-space:nowrap" aria-hidden="false"> AM/PM Option </label>
-                                                              </span>
-                                                            </span>
-                                                            <span class="form-sub-label-container " style="vertical-align:top">
-                                                              <label class="form-sub-label" for="input_20_pick" style="border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;white-space:nowrap" aria-hidden="true"> Date Picker Icon </label>
-                                                            </span>
-                                                          </div>
-                                                        </div>
-                                                      </li>
-                                                      <h5 class="">Type of order</h5>
-                                                      <input type="radio" id="male" name="gender" value="male">
-                                                      <label for="male">Pickup</label>&nbsp;&nbsp; <input type="radio" id="female" name="gender" value="female">
-                                                      <label for="female">Delivery</label>&nbsp;&nbsp; <input type="radio" id="other" name="gender" value="other">
-                                                      <label for="other">Restaurant Reservation</label>
-                                                    </form>
-                                                  </div>
-                                                </div>
-                                              </div>
+                                            <div class="graph-container">
+                                              <div id="graph-lines"></div>
+                                              <div id="graph-bars"></div>
                                             </div>
                                           </div>
-                                          <div class="modal-footer">
-                                            <button type="submit" class="btn btn-primary">Place Order Now</button>
-                                          </div>
+                                          <!-- end Graph HTML -->
                                         </div>
-                                      </div>
-                                    </div>
-                                  </div>
-
-                                  <div class="row">
-                                  <div class="col-md-12" style="">
-                                    <div class="row">
-                                      <div class="col-md-4" style="">
-                                        <div class="col-md-12 col-6 p-4 "> <i class="d-block fa fa-circle-o fa-3x mb-2 text-muted"></i>
-                                          <h4> <b>Categories</b></h4>
-                                            `+ category +`
-                                        </div>
-                                      </div>
-                                      <div class="col-md-4" style="">
-                                        <div class="col-md-10 col-6 p-4" style=""> <i class="d-block fa fa-circle-o fa-3x mb-2 text-muted"></i>
-                                          <h4> <b>Contact</b> </h4>
-                                          <p text-center>
-                                            <i class="fa fa-map-marker text-dark ">`+data.location.address1+`</i>
-                                            <i class="fa fa-envelope">www.shintaul@bog_gov.co.uk</i>
-                                            <i class="fa fa-phone"></i> `+data.phone+` , `+data.display_phone+`
-                                            <br>
-                                          </p>
-                                        </div>
-                                      </div>
-                                      <div class="col-md-4" style="">
-                                        <div class="col-md-10 col-6 p-4" style=""> <i class="d-block fa fa-circle-o fa-3x mb-2 text-muted"></i>
-                                          <h4> <b>Contact</b> </h4>
-                                          <p text-center>
-                                            <i class="fa fa-map-marker text-dark "></i>&nbsp;`+data.location.address1+`<br>
-                                            <i class="fa fa-envelope">&nbsp;www.shintaul@bog_gov.co.uk</i> <br>
-                                            <i class="fa fa-phone"></i>&nbsp;Tel: `+data.phone+` , `+data.display_phone+`
-                                            <br>
-                                          </p>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                          <button type="button" class="btn btn-primary">Save changes</button>
                                         </div>
                                       </div>
                                     </div>
                                   </div>
                                 </div>
-                              </div>
-                      
-                          
-                            <div class="py-5">
-                              <div class="container">
-                                <div class="row">
-                                  <div class="col-md-12">
-                                    <div class="w3-content" style="padding: 30px; border: 3px solid rgb(241, 241, 241);">
-                                      <span class="heading">User Rating</span>
-                                      `+rating+`
-                                      <p>`+data.rating+`  average based on `+data.review_count+` reviews.</p>
-                                      <hr style="border:3px solid #f1f1f1">
-                                      <div class="row">
-                                        <div class="side">
-                                          <div>5 star</div>
-                                        </div>
-                                        <div class="middle">
-                                          <div class="bar-container">
-                                            <div class="bar-5"></div>
-                                          </div>
-                                        </div>
-                                        <div class="side right">
-                                          <div>150</div>
-                                        </div>
-                                        <div class="side">
-                                          <div>4 star</div>
-                                        </div>
-                                        <div class="middle">
-                                          <div class="bar-container">
-                                            <div class="bar-4"></div>
-                                          </div>
-                                        </div>
-                                        <div class="side right">
-                                          <div>63</div>
-                                        </div>
-                                        <div class="side">
-                                          <div>3 star</div>
-                                        </div>
-                                        <div class="middle">
-                                          <div class="bar-container">
-                                            <div class="bar-3"></div>
-                                          </div>
-                                        </div>
-                                        <div class="side right">
-                                          <div>15</div>
-                                        </div>
-                                        <div class="side">
-                                          <div>2 star</div>
-                                        </div>
-                                        <div class="middle">
-                                          <div class="bar-container">
-                                            <div class="bar-2"></div>
-                                          </div>
-                                        </div>
-                                        <div class="side right">
-                                          <div>6</div>
-                                        </div>
-                                        <div class="side">
-                                          <div>1 star</div>
-                                        </div>
-                                        <div class="middle">
-                                          <div class="bar-container">
-                                            <div class="bar-1"></div>
-                                          </div>
-                                        </div>
-                                        <div class="side right">
-                                          <div>20</div>
-                                        </div>
-                                      </div>
-                                      <!-- Button trigger modal -->
-                                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable"> Detailed Statistics </button><a href="javascript:void(0)" class="revBut btn btn-info" >See reviews</a>
-                                      <!-- Modal -->
-                                      <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-scrollable" role="document">
-                                          <div class="modal-content">
-                                            <div class="modal-header">
-                                              <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
-                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">×</span>
-                                              </button>
-                                            </div>
-                                            <div class="modal-body">
-                                              <div id="graph-wrapper">
-                                                <div class="graph-info">
-                                                  <a href="javascript:void(0)" class="visitors">Visitors</a>
-                                                  <a href="javascript:void(0)" class="returning">Returning Visitors</a>
-                                                  <a href="#" id="bars"><span></span></a>
-                                                  <a href="#" id="lines" class="active"><span></span></a>
-                                                </div>
-                                                <div class="graph-container">
-                                                  <div id="graph-lines"></div>
-                                                  <div id="graph-bars"></div>
-                                                </div>
-                                              </div>
-                                              <!-- end Graph HTML -->
-                                            </div>
-                                            <div class="modal-footer">
-                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                              <button type="button" class="btn btn-primary">Save changes</button>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="py-5 section-parallax" style="background-image: url('https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80'); transition: all 0.25s;" id="schedule">
-                            <div class="container section-aquamarine">
-                              <div class="row">
-                                <div class="col-md-12" style="">
-                                  <h1 class="text-white mt-4">Our Schedules</h1>
-                                </div>
-                              </div>
-                              <div class="row">
-                                <div class="p-4 col-lg-8  offset-md-2" style="">
-                                  <div class="card text-dark">
-                                    <div class="card-block text-center p-2">
-                                      <h2>DAYS TO PLACE ORDERS&nbsp;</h2>
-                                      <p class="lead">`+hours.regular+`</p>
-                                      <p class="lead"  style="color:blue">`+hours.open_now+`</p>
-                                    </div>
-                                    <ul class="list-group list-group-flush">
-                                          <li class="list-group-item"><b>Monday</b>-<i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;09:30-10:00</li>
-                                          <li class="list-group-item"><b>Tuesday</b>-<i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;10:00-12:00</li>
-                                          <li class="list-group-item"><b>Wednessday</b>-<i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;12:00-13:00</li>
-                                          <li class="list-group-item "><b>Thursday</b>-<i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;13:00-14:30</li>
-                                          <li class="list-group-item"><b>Friday</b>-<i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;14:30-16:00</li>
-                                          <li class="list-group-item"><b>Saturday</b>-<i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;16:00-18:00</li>
-                                          <li class="list-group-item"><b><span style="color:red;">Sunday- closed</span></b></li>
-                                      </ul>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="row text-left text-dark">
                               </div>
                             </div>
                           </div>
+                        </div>
+                        <div class="py-5 section-parallax" style="background-image: url('https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80'); transition: all 0.25s;" id="schedule">
+                        <div class="container section-aquamarine">
+                          <div class="row">
+                            <div class="col-md-12" style="">
+                              <h1 class="text-white mt-4">Our Schedules</h1>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="p-4 col-lg-8  offset-md-2" style="">
+                              <div class="card text-dark">
+                                <div class="card-block text-center p-2">
+                                  <h2>DAYS TO PLACE ORDERS&nbsp;</h2>
+                                  <p class="lead">`+hours.regular+`</p>
+                                  <p class="lead"  style="color:blue">`+hours.open_now+`</p>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                      <li class="list-group-item"><b>Monday</b>-<i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;09:30-10:00</li>
+                                      <li class="list-group-item"><b>Tuesday</b>-<i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;10:00-12:00</li>
+                                      <li class="list-group-item"><b>Wednessday</b>-<i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;12:00-13:00</li>
+                                      <li class="list-group-item "><b>Thursday</b>-<i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;13:00-14:30</li>
+                                      <li class="list-group-item"><b>Friday</b>-<i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;14:30-16:00</li>
+                                      <li class="list-group-item"><b>Saturday</b>-<i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;16:00-18:00</li>
+                                      <li class="list-group-item"><b><span style="color:red;">Sunday- closed</span></b></li>
+                                  </ul>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row text-left text-dark">
+                          </div>
+                        </div>
                       </div>`;
 
-                    $('#speakers').append(dom);
+                    $('#speakers .mycontainer').append(dom);
 
                     $('.revBut').click(function(e){
 
@@ -1248,6 +1259,7 @@ function getSearchItem(userInput)
                   rating +=  `<span class="fa fa-star"></span>`
               }
           }
+          $('#speakers').append(dom);
 
               return rating;
 
@@ -1256,6 +1268,8 @@ function getSearchItem(userInput)
 
         function paginate()
         {
+
+            console.log($('#speakers').children('.mycontainer'))
 
             var numberOfItems = 18//$('#speakers > div') // Get toObjecttal number of the items that should be paginated
             console.log(numberOfItems)
