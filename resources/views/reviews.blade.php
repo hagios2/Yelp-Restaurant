@@ -297,92 +297,84 @@
                             <div class="row">
                               <div class="col-md-12" style="">
                                 <div class="row">
-                                  <!-- Button trigger modal -->
-                                  <!-- Modal -->
-                                  <div class="py-5">
-                                    <div class="container">
-                                      <div class="row">
-                                        <div class="p-4 col-lg-4 col-md-1" style="">
-                                          <h4><b>Categories</b></h4>  
-                                          `+ category +`
-                                        </div>
-                                        <div class="p-4 col-lg-4 col-md-6" style="">
-                                          <h4><b>Contact</b></h4>
-                                          <p text-center>
-                                            <i class="fa fa-map-marker text-dark "> &nbsp;`+delivery.location.address1+`</i><br>
-                                            <i class="fa fa-envelope">&nbsp;www.shintaul@bog_gov.co.uk</i><br>
-                                            <i class="fa fa-phone"></i> &nbsp;`+delivery.phone+` , `+delivery.display_phone+`
-                                            <br>
-                                          </p>
-                                        </div>
-                                        <div class="p-4 col-lg-4" style="">
-                                          <span class="heading">User Rating</span>
-                                          `+rating+`
-                                          <p>`+delivery.rating+`  average based on `+ data.review_count + ` reviews</p>
+                        
+                                  <div class="p-4 col-lg-4 col-md-1" style="">
+                                    <h4><b>Categories</b></h4>  
+                                    `+ category +`
+                                  </div>
+                                  <div class="p-4 col-lg-4 col-md-6" style="">
+                                    <h4><b>Contact</b></h4>
+                                    <p text-center>
+                                      <i class="fa fa-map-marker text-dark "> &nbsp;`+delivery.location.address1+`</i><br>
+                                      <i class="fa fa-envelope">&nbsp;www.shintaul@bog_gov.co.uk</i><br>
+                                      <i class="fa fa-phone"></i> &nbsp;`+delivery.phone+` , `+delivery.display_phone+`
+                                      <br>
+                                    </p>
+                                  </div>
+                                  <div class="p-4 col-lg-4" style="">
+                                    <span class="heading">User Rating</span>
+                                    `+rating+`
+                                    <p>`+delivery.rating+`  average based on `+ data.review_count + ` reviews</p>
 
-                                          <hr style="border:3px solid #f1f1f1">
-                                          <div class="row">
-                                            <div class="side">
-                                              <div>5 star</div>
-                                            </div>
-                                            <div class="middle">
-                                              <div class="bar-container">
-                                                <div class="bar-5"></div>
-                                              </div>
-                                            </div>
-                                            <div class="side right">
-                                              <div>150</div>
-                                            </div>
-                                            <div class="side">
-                                              <div>4 star</div>
-                                            </div>
-                                            <div class="middle">
-                                              <div class="bar-container">
-                                                <div class="bar-4"></div>
-                                              </div>
-                                            </div>
-                                            <div class="side right">
-                                              <div>63</div>
-                                            </div>
-                                            <div class="side">
-                                              <div>3 star</div>
-                                            </div>
-                                            <div class="middle">
-                                              <div class="bar-container">
-                                                <div class="bar-3"></div>
-                                              </div>
-                                            </div>
-                                            <div class="side right">
-                                              <div>15</div>
-                                            </div>
-                                            <div class="side">
-                                              <div>2 star</div>
-                                            </div>
-                                            <div class="middle">
-                                              <div class="bar-container">
-                                                <div class="bar-2"></div>
-                                              </div>
-                                            </div>
-                                            <div class="side right">
-                                              <div>6</div>
-                                            </div>
-                                            <div class="side">
-                                              <div>1 star</div>
-                                            </div>
-                                            <div class="middle">
-                                              <div class="bar-container">
-                                                <div class="bar-1"></div>
-                                              </div>
-                                            </div>
-                                            <div class="side right">
-                                              <div>20</div>
-                                            </div>
-                                          </div>
+                                    <hr style="border:3px solid #f1f1f1">
+                                    <div class="row">
+                                      <div class="side">
+                                        <div>5 star</div>
+                                      </div>
+                                      <div class="middle">
+                                        <div class="bar-container">
+                                          <div class="bar-5"></div>
                                         </div>
+                                      </div>
+                                      <div class="side right">
+                                        <div>150</div>
+                                      </div>
+                                      <div class="side">
+                                        <div>4 star</div>
+                                      </div>
+                                      <div class="middle">
+                                        <div class="bar-container">
+                                          <div class="bar-4"></div>
+                                        </div>
+                                      </div>
+                                      <div class="side right">
+                                        <div>63</div>
+                                      </div>
+                                      <div class="side">
+                                        <div>3 star</div>
+                                      </div>
+                                      <div class="middle">
+                                        <div class="bar-container">
+                                          <div class="bar-3"></div>
+                                        </div>
+                                      </div>
+                                      <div class="side right">
+                                        <div>15</div>
+                                      </div>
+                                      <div class="side">
+                                        <div>2 star</div>
+                                      </div>
+                                      <div class="middle">
+                                        <div class="bar-container">
+                                          <div class="bar-2"></div>
+                                        </div>
+                                      </div>
+                                      <div class="side right">
+                                        <div>6</div>
+                                      </div>
+                                      <div class="side">
+                                        <div>1 star</div>
+                                      </div>
+                                      <div class="middle">
+                                        <div class="bar-container">
+                                          <div class="bar-1"></div>
+                                        </div>
+                                      </div>
+                                      <div class="side right">
+                                        <div>20</div>
                                       </div>
                                     </div>
                                   </div>
-                                </div>
                               </div>
                             </div>
                             <div class="row">

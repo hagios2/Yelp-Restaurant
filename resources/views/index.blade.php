@@ -716,7 +716,7 @@ function getSearchItem(userInput)
       {
         $('.fa-3x').hide();
 
-        $('.startus').show();
+/*         $('.startus').show(); */
 
         $('.startus').attr('class', 'alert alert-info');
 
