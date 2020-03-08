@@ -136,7 +136,7 @@
 
                           $.each(delivery.categories, (i, cat) => {
 
-                                  category += ` <li  class="list-group-item">`+cat.title+`</li>`
+                                  category += `<p>`+cat.title+`</p>`
 
                           });
 
@@ -148,7 +148,7 @@
                                                   <div class="row">
                                                   </div>
                                                   <h3 style="display:inline;" class="mb-0"><b>`+delivery.name+`</b></h3> &emsp; <small style="color:blue">`+ available+`</small>
-                                                  <p class="text-muted">Quality is </p>
+                                                  <p class="text-muted">Quality is our Priority</p>
                                                   <div class="row">
                                                     <div class="col-md-6">
                                                       <div class="card">
@@ -159,148 +159,140 @@
                                                   
                                                   </div><br>
 
-                                                <div class="row">
-                                                <div class="col-md-12" style="">
-                                                  <div class="row">
-                                                    <div class="col-md-2" style=""><i class="fa fa-map-marker text-primary"></i>`+delivery_company.address+`</div>
-                                                    <div class="col-md-2">
-                                                      `+ transaction +`  
-                                                    </div>
-                                                    <div class="col-md-2" style="">
-                                                      <a href="javascript:void(0)" class="btn btn-outline-primary">Place Order<i class="fa fa-shopping-cart fa-fw"></i></a>
 
-                                                  <span class="font12 block spacing1 font400 text-center">Min: `+delivery.price+`</span></div>
-                                                  </div>
+                                                  {{-- new  --}}
+
                                                   <div class="row">
-                                                    <div class="col-md-4" style="">
-                                                      <div class="col-md-12 col-6 p-4 "> <i class="d-block fa fa-circle-o fa-3x mb-2 text-muted"></i>
-                                                        <h4> <b>Categories</b></h4>
-                                                        <ul class="list-group">
-                                                          `+ category +`
-                                                        </ul>
-                                                      </div>
-                                                    </div>
-                                                    <div class="col-md-4" style="">
-                                                    <div class="col-md-10 col-6 p-4" style=""> <i class="d-block fa fa-circle-o fa-3x mb-2 text-muted"></i>
-                                                      <h4> <b>Contact</b> </h4>
-                                                      <p text-center>
-                                                        <i class="fa fa-map-marker text-dark "> &nbsp;`+delivery.location.address1+`</i>
-                                                        <i class="fa fa-envelope">&nbsp;www.shintaul@bog_gov.co.uk</i>
-                                                        <i class="fa fa-phone"></i> &nbsp;`+delivery.phone+` , `+delivery.display_phone+`
-                                                        <br>
-                                                      </p>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                      
-                                        <div class="py-5">
-                                          <div class="container">
-                                            <div class="row">
-                                              <div class="col-md-12">
-                                                <div class="w3-content" style="padding: 30px; border: 3px solid rgb(241, 241, 241);">
-                                                  <span class="heading">User Rating</span>
-                                                  `+rating+`
-                                                  <p>`+delivery.rating+`  average based on `+data.review_count+` reviews.</p>
-                                                  <hr style="border:3px solid #f1f1f1">
-                                                  <div class="row">
-                                                    <div class="side">
-                                                      <div>5 star</div>
-                                                    </div>
-                                                    <div class="middle">
-                                                      <div class="bar-container">
-                                                        <div class="bar-5"></div>
-                                                      </div>
-                                                    </div>
-                                                    <div class="side right">
-                                                      <div>150</div>
-                                                    </div>
-                                                    <div class="side">
-                                                      <div>4 star</div>
-                                                    </div>
-                                                    <div class="middle">
-                                                      <div class="bar-container">
-                                                        <div class="bar-4"></div>
-                                                      </div>
-                                                    </div>
-                                                    <div class="side right">
-                                                      <div>63</div>
-                                                    </div>
-                                                    <div class="side">
-                                                      <div>3 star</div>
-                                                    </div>
-                                                    <div class="middle">
-                                                      <div class="bar-container">
-                                                        <div class="bar-3"></div>
-                                                      </div>
-                                                    </div>
-                                                    <div class="side right">
-                                                      <div>15</div>
-                                                    </div>
-                                                    <div class="side">
-                                                      <div>2 star</div>
-                                                    </div>
-                                                    <div class="middle">
-                                                      <div class="bar-container">
-                                                        <div class="bar-2"></div>
-                                                      </div>
-                                                    </div>
-                                                    <div class="side right">
-                                                      <div>6</div>
-                                                    </div>
-                                                    <div class="side">
-                                                      <div>1 star</div>
-                                                    </div>
-                                                    <div class="middle">
-                                                      <div class="bar-container">
-                                                        <div class="bar-1"></div>
-                                                      </div>
-                                                    </div>
-                                                    <div class="side right">
-                                                      <div>20</div>
-                                                    </div>
-                                                  </div>
-                                                  <!-- Button trigger modal -->
-                                                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable"> Detailed Statistics </button>  <a href="javascript:void(0);" class="btn btn-info deliveryrevBut" >See reviews</a>
-                                                  <!-- Modal -->
-                                                  <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-scrollable" role="document">
-                                                      <div class="modal-content">
-                                                        <div class="modal-header">
-                                                          <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
-                                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">×</span>
-                                                          </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                          <div id="graph-wrapper">
-                                                            <div class="graph-info">
-                                                              <a href="javascript:void(0)" class="visitors">Visitors</a>
-                                                              <a href="javascript:void(0)" class="returning">Returning Visitors</a>
-                                                              <a href="#" id="bars"><span></span></a>
-                                                              <a href="#" id="lines" class="active"><span></span></a>
+                                                    <div class="col-md-12" style="">
+                                                      <div class="row">
+                                                        <!-- Button trigger modal -->
+                                                        <!-- Modal -->
+                                                        <div class="py-5">
+                                                          <div class="container">
+                                                            <div class="row">
+                                                              <div class="p-4 col-lg-4 col-md-1" style="">
+                                                                <h4><b>Categories</b></h4>  
+                                                                `+ category +`
+                                                              </div>
+                                                              <div class="p-4 col-lg-4 col-md-6" style="">
+                                                                <h4><b>Contact</b></h4>
+                                                                <p text-center>
+                                                                  <i class="fa fa-map-marker text-dark "> &nbsp;`+delivery.location.address1+`</i><br>
+                                                                  <i class="fa fa-envelope">&nbsp;www.shintaul@bog_gov.co.uk</i><br>
+                                                                  <i class="fa fa-phone"></i> &nbsp;`+delivery.phone+` , `+delivery.display_phone+`
+                                                                  <br>
+                                                                </p>
+                                                              {{--   <p>
+                                                                  <a href="#">Link</a>
+                                                                </p> --}}
+                                                              </div>
+                                                              <div class="p-4 col-lg-4" style="">
+                                                                <span class="heading">Rating</span>
+                                                                `+rating+`
+                                                                <p>`+delivery.rating+`  average based on `+data.review_count+` reviews.</p>
+                                                                <hr style="border:3px solid #f1f1f1">
+                                                                <div class="row">
+                                                                  <div class="side">
+                                                                    <div>5 star</div>
+                                                                  </div>
+                                                                  <div class="middle">
+                                                                    <div class="bar-container">
+                                                                      <div class="bar-5"></div>
+                                                                    </div>
+                                                                  </div>
+                                                                  <div class="side right">
+                                                                    <div>150</div>
+                                                                  </div>
+                                                                  <div class="side">
+                                                                    <div>4 star</div>
+                                                                  </div>
+                                                                  <div class="middle">
+                                                                    <div class="bar-container">
+                                                                      <div class="bar-4"></div>
+                                                                    </div>
+                                                                  </div>
+                                                                  <div class="side right">
+                                                                    <div>63</div>
+                                                                  </div>
+                                                                  <div class="side">
+                                                                    <div>3 star</div>
+                                                                  </div>
+                                                                  <div class="middle">
+                                                                    <div class="bar-container">
+                                                                      <div class="bar-3"></div>
+                                                                    </div>
+                                                                  </div>
+                                                                  <div class="side right">
+                                                                    <div>15</div>
+                                                                  </div>
+                                                                  <div class="side">
+                                                                    <div>2 star</div>
+                                                                  </div>
+                                                                  <div class="middle">
+                                                                    <div class="bar-container">
+                                                                      <div class="bar-2"></div>
+                                                                    </div>
+                                                                  </div>
+                                                                  <div class="side right">
+                                                                    <div>6</div>
+                                                                  </div>
+                                                                  <div class="side">
+                                                                    <div>1 star</div>
+                                                                  </div>
+                                                                  <div class="middle">
+                                                                    <div class="bar-container">
+                                                                      <div class="bar-1"></div>
+                                                                    </div>
+                                                                  </div>
+                                                                  <div class="side right">
+                                                                    <div>20</div>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
                                                             </div>
-                                                            <div class="graph-container">
-                                                              <div id="graph-lines"></div>
-                                                              <div id="graph-bars"></div>
+                                                         </div>
+                                                        </div>
+                                                      </div>
+                                                        <!-- Button trigger modal -->
+                                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable"> Detailed Statistics </button>  <a href="javascript:void(0);" class="btn btn-info deliveryrevBut" >See reviews</a>
+                                                        <!-- Modal -->
+                                                        <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                                                          <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                            <div class="modal-content">
+                                                              <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                  <span aria-hidden="true">×</span>
+                                                                </button>
+                                                              </div>
+                                                              <div class="modal-body">
+                                                                <div id="graph-wrapper">
+                                                                  <div class="graph-info">
+                                                                    <a href="javascript:void(0)" class="visitors">Visitors</a>
+                                                                    <a href="javascript:void(0)" class="returning">Returning Visitors</a>
+                                                                    <a href="#" id="bars"><span></span></a>
+                                                                    <a href="#" id="lines" class="active"><span></span></a>
+                                                                  </div>
+                                                                  <div class="graph-container">
+                                                                    <div id="graph-lines"></div>
+                                                                    <div id="graph-bars"></div>
+                                                                  </div>
+                                                                </div>
+                                                                <!-- end Graph HTML -->
+                                                              </div>
+                                                              <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                                              </div>
                                                             </div>
                                                           </div>
-                                                          <!-- end Graph HTML -->
                                                         </div>
-                                                        <div class="modal-footer">
-                                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                          <button type="button" class="btn btn-primary">Save changes</button>
-                                                        </div>
-                                                      </div>
                                                     </div>
                                                   </div>
-                                                </div>
-                                              </div>
-                                            </div>
+
+                                                  {{-- new --}}
                                           </div>
-                                        </div>`;
+                                        `;
                           
 
                           $('#delivery').append(delivery_dom);
@@ -315,7 +307,7 @@
 
                             e.preventDefault();
 
-                            $('#hideBut').show();
+                            $('speakers').hide();
 
                             getBusinessReviews(delivery.id)
 

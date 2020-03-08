@@ -221,9 +221,8 @@
   </div>
 
   <div class="py-5 bg-light col-md-12" id="delivery" style="transition: all 0.25s; display:none;" >
-
     <button id="close_delivery" type="button" class="close" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
+      << Back
     </button>
     {{-- insert pages here dynamically  --}}
 
@@ -231,7 +230,7 @@
 
 
   <div class="py-5 bg-light col-md-12" id="revDiv" style="transition: all 0.25s; display:none;" >
-    <button id="close_review" type="button" class="btn btn-primary">
+    <button id="close_review" type="button" class="close" aria-label="Close">
      << Back
     </button>
 
@@ -239,7 +238,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center">
-            <h1>what are people saying?</h1>
+            <h1>What are people saying?</h1>
           </div>
         </div>
         <div id="main-rev" class="row justify-content-center">
@@ -251,18 +250,22 @@
     </div>
 
   </div>
+
   <!-- Schedule -->
-  <div class="py-5" style="">
+  <div class="py-5" style="background-color:white;">
     <div class="container">
+
+        {{-- most popular restaurants --}}
+
       <div class="row">
         <div class="col-md-12 text-center">
-          <h1>what are people saying?</h1>
+          <h1>Yelp Quick Reviews</h1>
         </div>
       </div>
       <div class="row justify-content-center">
         <div class="col-lg-4 col-md-6 p-4">
           <div class="row">
-            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="" width="300"> </div>
+            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="https://s3-media1.fl.yelpcdn.com/photo/jdldXCaiRfhufUO4trNVfw/o.jpg" width="300"> </div>
             <div class="col-9">
               <p class="lead mb-1"> <b>#1</b> </p>
               <p class="mb-0">A wonderful serenity has taken possession of my entire soul.</p>
@@ -280,7 +283,7 @@
         </div>
         <div class="col-lg-4 col-md-6 p-4">
           <div class="row">
-            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="https://s3-media0.fl.yelpcdn.com/photo/dHdLAxZzQWb8zZ4svfm_7g/60s.jpg" width="300"> </div>
+            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="https://s3-media4.fl.yelpcdn.com/photo/SnR0CfsXA8Fq99xmFMrh9w/o.jpg" width="300"> </div>
             <div class="col-9">
               <p class="lead mb-1"> <b>#2</b> </p>
               <p class="mb-0">I am alone, and feel the charm of existence in this spot.</p>
@@ -298,7 +301,7 @@
         </div>
         <div class="col-lg-4 col-md-6 p-4">
           <div class="row">
-            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="https://s3-media0.fl.yelpcdn.com/photo/dHdLAxZzQWb8zZ4svfm_7g/60s.jpg" width="300"> </div>
+            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="https://s3-media2.fl.yelpcdn.com/photo/KoXGTiU2BqROpH0gihkypw/o.jpg" width="300"> </div>
             <div class="col-9">
               <p class="lead mb-1"> <b>#3</b> </p>
               <p class="mb-0">I should be incapable of drawing a single stroke.</p>
@@ -316,7 +319,7 @@
         </div>
         <div class="col-lg-4 col-md-6 p-4">
           <div class="row">
-            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="https://s3-media0.fl.yelpcdn.com/photo/eh8sf-HdpcjE8r-xCMOlsQ/ls.jpg" width="300"> </div>
+            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="https://s3-media2.fl.yelpcdn.com/photo/LnPAHxcbkuw6szNnofl9yw/o.jpg" width="300"> </div>
             <div class="col-9">
               <p class="lead mb-1"> <b>#1</b> </p>
               <p class="mb-0">A wonderful serenity has taken possession of my entire soul.</p>
@@ -334,7 +337,7 @@
         </div>
         <div class="col-lg-4 col-md-6 p-4">
           <div class="row">
-            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="https://s3-media0.fl.yelpcdn.com/photo/dHdLAxZzQWb8zZ4svfm_7g/60s.jpg" width="300"> </div>
+            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="https://s3-media3.fl.yelpcdn.com/photo/6XARUYf3wL79YFmLSd_zVQ/o.jpg" width="300"> </div>
             <div class="col-9">
               <p class="lead mb-1"> <b>#5</b> </p>
               <p class="mb-0">I lie close to the earth, a thousand unknown plants.</p>
@@ -352,7 +355,7 @@
         </div>
         <div class="col-lg-4 col-md-6 p-4">
           <div class="row">
-            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="https://s3-media0.fl.yelpcdn.com/photo/dHdLAxZzQWb8zZ4svfm_7g/60s.jpg" width="300"> </div>
+            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="https://s3-media1.fl.yelpcdn.com/photo/MT_TgiowKGHvCn4d5R6wjQ/o.jpg" width="300"> </div>
             <div class="col-9">
               <p class="lead mb-1"> <b>#6</b> </p>
               <p class="mb-0">When I hear the buzz of the little world among the stalks.</p>
@@ -394,6 +397,8 @@
             <a href="https://goo.gl/maps/ayn28vkB5F92" target="blank" class="text-muted">Empire State building 350 5th Ave, <br>New York, NY 10118</a>
           </p>
         </div>
+
+
         <div class="my-3 col-lg-4 col-md-6">
           <h3>Contact us</h3>
           <form>
@@ -611,6 +616,9 @@ $('#close_delivery').click(function(){
 
     if($('#speakers .mycontainer').length) 
     {
+
+      console.log($('#speaker .mycontainer').length);
+
         $('speakers').show();
     }else{
       $('speakers').hide();
@@ -737,8 +745,7 @@ function getSearchItem(userInput)
 
                     $.each(data.categories, (i, cat) => {
 
-                            category += ` <li  class="list-group-item">`+cat.title+`</li>`
-
+                            category += `<p>`+cat.title+`</p>`
                     });
                     
                     $.each(data.photos, (i, pix) => {
@@ -749,9 +756,9 @@ function getSearchItem(userInput)
                                     <p>with controls</p>
                                   </div>
                                 </div>`;
+                        
+                          carousel_num ++;
  
-
-                                carousel_num ++;
                     });
 
                     let hours = {
@@ -819,29 +826,152 @@ function getSearchItem(userInput)
                                       </div>
                                     </div>
                                     `+map+`
-                                  
                                   </div><br>
+                                  `+ transaction +`   <a href="javascript:void(0);" class="btn btn-primary show_delivery" >Available Delivery</a>
+                                  <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModalLong">Place Order <i class="fa fa-shopping-cart fa-fw"></i></a> </button> <span class="font12 block spacing1 font400 text-center">Min: `+data.price+`</span>
+                                  <div class="modal fade" aria-hidden="true" aria-labelledby="exampleModalLongTitle" id="exampleModalLong" role="dialog" tabindex="-1">
+                                    <div class="modal-dialog" role="document">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h3 class=""><span class="badge badge-success
+                                          <button type=" aria-label="Close"> Ordering made easy</span></h3>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                          <div class="container-fluid">
+                                            <div class="row bg-danger">
+                                              <div id="cid_83" class="form-input-wide">
+                                                <div style="text-align:center">
+                                                  <img alt="" class="form-image" style="border:0" src='http://getwallpapers.com/wallpaper/full/0/b/0/1443667-top-wallpaper-fruits-and-vegetables-1920x1200.jpg' height="310px" width="426px" data-component="image">
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="form-header-group  header-default">
+                                              <div class="header-text httal htvam">
+                                                <h2 id="header_84" class="form-header" data-component="header"> Order Form </h2>
+                                              </div>
+                                            </div>
+                                            <div class="row bg-success">
+                                              <div class="container">
+                                                <div class="row">
+                                                  <div class="col-md-12 p-4" style="">
+                                                    <h1>Place your order now</h1>
+                                                    <p>The Order Form allows customers to make an order and provides delivery, pickup, or catering .</p>
+                                                  </div>
+                                                </div>
+                                                <div class="row">
+                                                  <div class="col-md-12 p-4">
+                                                    <div class="col-md-12" style="">
+                                                      <h5 class="">First Name&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Last Name</h5>
+                                                    </div>
+                                                    <form>
+                                                      <div class="form-row">
+                                                        <div class="form-group col-md-6"> <input type="text" class="form-control" id="form36" placeholder="First Name"> </div>
+                                                        <div class="form-group col-md-6"> <input type="text" class="form-control" id="form37" placeholder="Last Name"> </div>
+                                                      </div>
+                                                      <li class="form-line" data-type="control_dropdown" id="id_18">
+                                                        <label class="form-label form-label-top" id="label_18" for="input_18"> Restaurant Location </label>
+                                                        <div id="cid_18" class="form-input-wide">
+                                                          <select class="form-dropdown" id="input_18" name="q18_Restaurant Location" style="width:150px" data-component="dropdown" aria-labelledby="label_18">
+                                                            <option value=""> </option>
+                                                            <option value="Restaurant&nbsp;A,&nbsp;123&nbsp;Main&nbsp;St.&nbsp;Anytown"> Restaurant&nbsp;A,&nbsp;123&nbsp;Main&nbsp;St.&nbsp;Anytown </option>
+                                                            <option value="Restaurant&nbsp;B,&nbsp;321&nbsp;Springfield&nbsp;Ave.&nbsp;South&nbsp;Anytown"> Restaurant&nbsp;B,&nbsp;321&nbsp;Springfield&nbsp;Ave.&nbsp;South&nbsp;Anytown </option>
+                                                          </select>
+                                                        </div>
+                                                      </li>
+                                                      <h5 class="">Phone Number</h5>
+                                                      <div class="form-group"> <input type="text" class="form-control" id="form38" placeholder="Company"> </div>
+                                                      <li class="form-line form-line-column form-col-1 allowTime" data-type="control_datetime" id="id_20">
+                                                        <div id="cid_20" class="form-input-wide">
+                                                          <div data-wrapper-react="true" class="extended">
+                                                            <span class="form-sub-label-container " style="vertical-align:top">
+                                                              <input type="tel" class="form-textbox validate[limitDate]" id="month_20" name="q20_Date[month]" size="2" data-maxlength="2" value="03" autocomplete="off" aria-labelledby="label_20 sublabel_20_month">
+                                                              <span class="date-separate" aria-hidden="true"> &nbsp;- </span>
+                                                              <label class="form-sub-label" for="month_20" id="sublabel_20_month" style="min-height:13px" aria-hidden="false"> Month </label>
+                                                            </span>
+                                                            <span class="form-sub-label-container " style="vertical-align:top">
+                                                              <input type="tel" class="currentDate form-textbox validate[limitDate]" id="day_20" name="q20_Date[day]" size="2" data-maxlength="2" value="06" autocomplete="off" aria-labelledby="label_20 sublabel_20_day">
+                                                              <span class="date-separate" aria-hidden="true"> &nbsp;- </span>
+                                                              <label class="form-sub-label" for="day_20" id="sublabel_20_day" style="min-height:13px" aria-hidden="false"> Day </label>
+                                                            </span>
+                                                            <span class="form-sub-label-container " style="vertical-align:top">
+                                                              <input type="tel" class="form-textbox validate[limitDate]" id="year_20" name="q20_Date[year]" size="4" data-maxlength="4" value="2020" autocomplete="off" aria-labelledby="label_20 sublabel_20_year">
+                                                              <label class="form-sub-label" for="year_20" id="sublabel_20_year" style="min-height:13px" aria-hidden="false"> Year </label>
+                                                            </span>
+                                                            <h5 class="">&nbsp;</h5><span style="white-space:nowrap;display:inline-block" class="allowTime-container">
+                                                              <span class="form-sub-label-container " style="vertical-align:top">
+                                                                <select class="currentTime time-dropdown form-dropdown validate[limitDate]" id="hour_20" name="q20_Date[hour]" aria-labelledby="label_20 sublabel_20_hour">
+                                                                  <option> </option>
+                                                                  <option selected="" value="1"> 1 </option>
+                                                                  <option value="2"> 2 </option>
+                                                                  <option value="3"> 3 </option>
+                                                                  <option value="4"> 4 </option>
+                                                                  <option value="5"> 5 </option>
+                                                                  <option value="6"> 6 </option>
+                                                                  <option value="7"> 7 </option>
+                                                                  <option value="8"> 8 </option>
+                                                                  <option value="9"> 9 </option>
+                                                                  <option value="10"> 10 </option>
+                                                                  <option value="11"> 11 </option>
+                                                                  <option value="12"> 12 </option>
+                                                                </select>
+                                                                <span class="date-separate" aria-hidden="true"> &nbsp;: </span>
+                                                                <label class="form-sub-label" for="hour_20" id="sublabel_20_hour" style="min-height:13px" aria-hidden="false"> Hour </label>
+                                                              </span>
+                                                              <span class="form-sub-label-container " style="vertical-align:top">
+                                                                <select class="time-dropdown form-dropdown validate[limitDate]" id="min_20" name="q20_Date[min]" aria-labelledby="label_20 sublabel_20_minutes">
+                                                                  <option> </option>
+                                                                  <option value="00"> 00 </option>
+                                                                  <option value="10"> 10 </option>
+                                                                  <option selected="" value="20"> 20 </option>
+                                                                  <option value="30"> 30 </option>
+                                                                  <option value="40"> 40 </option>
+                                                                  <option value="50"> 50 </option>
+                                                                </select>
+                                                                <label class="form-sub-label" for="min_20" id="sublabel_20_minutes" style="min-height:13px" aria-hidden="false"> Minutes </label>
+                                                              </span>
+                                                              <span class="form-sub-label-container " style="vertical-align:top">
+                                                                <select class="time-dropdown form-dropdown validate[limitDate]" id="ampm_20" name="q20_Date[ampm]" aria-labelledby="label_20 sublabel_20_ampm">
+                                                                  <option value="AM"> AM </option>
+                                                                  <option selected="" value="PM"> PM </option>
+                                                                </select>
+                                                                <label class="form-sub-label" for="ampm_20" id="sublabel_20_ampm" style="border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;white-space:nowrap" aria-hidden="false"> AM/PM Option </label>
+                                                              </span>
+                                                            </span>
+                                                            <span class="form-sub-label-container " style="vertical-align:top">
+                                                              <label class="form-sub-label" for="input_20_pick" style="border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;white-space:nowrap" aria-hidden="true"> Date Picker Icon </label>
+                                                            </span>
+                                                          </div>
+                                                        </div>
+                                                      </li>
+                                                      <h5 class="">Type of order</h5>
+                                                      <input type="radio" id="male" name="gender" value="male">
+                                                      <label for="male">Pickup</label>&nbsp;&nbsp; <input type="radio" id="female" name="gender" value="female">
+                                                      <label for="female">Delivery</label>&nbsp;&nbsp; <input type="radio" id="other" name="gender" value="other">
+                                                      <label for="other">Restaurant Reservation</label>
+                                                    </form>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="modal-footer">
+                                            <button type="submit" class="btn btn-primary">Place Order Now</button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
 
                                   <div class="row">
                                   <div class="col-md-12" style="">
                                     <div class="row">
-                                      <div class="col-md-2" style=""><i class="fa fa-map-marker text-primary"></i>`+restaurant.address+`</div>
-                                      <div class="col-md-2">
-                                        `+ transaction +`  
-                                      </div>
-                                      <div class="col-md-2" style="">
-                                        <a href="javascript:void(0)" class="btn btn-outline-primary">Place Order<i class="fa fa-shopping-cart fa-fw"></i></a>
-
-                                    <span class="font12 block spacing1 font400 text-center">Min: `+data.price+`</span></div>
-                                    </div>
-                                    <div class="row">
                                       <div class="col-md-4" style="">
                                         <div class="col-md-12 col-6 p-4 "> <i class="d-block fa fa-circle-o fa-3x mb-2 text-muted"></i>
                                           <h4> <b>Categories</b></h4>
-                                          <ul class="list-group">
                                             `+ category +`
-                                          </ul>
-                                          <a href="javascript:void(0);" class="btn btn-primary" id="show_delivery">Available Delivery</a>
                                         </div>
                                       </div>
                                       <div class="col-md-4" style="">
@@ -939,7 +1069,7 @@ function getSearchItem(userInput)
                                         </div>
                                       </div>
                                       <!-- Button trigger modal -->
-                                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable"> Detailed Statistics </button>  <a href="javascript:void(0)" class="revBut btn btn-info" >See reviews</a>
+                                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable"> Detailed Statistics </button><a href="javascript:void(0)" class="revBut btn btn-info" >See reviews</a>
                                       <!-- Modal -->
                                       <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -977,7 +1107,7 @@ function getSearchItem(userInput)
                                 </div>
                               </div>
                             </div>
-                            <div class="py-5 section-parallax" style="background-image: url(&quot;assets/conference/schedule.jpg&quot;); transition: all 0.25s;" id="schedule">
+                            <div class="py-5 section-parallax" style="background-image: url('https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80'); transition: all 0.25s;" id="schedule">
                             <div class="container section-aquamarine">
                               <div class="row">
                                 <div class="col-md-12" style="">
@@ -990,15 +1120,15 @@ function getSearchItem(userInput)
                                     <div class="card-block text-center p-2">
                                       <h2>DAYS TO PLACE ORDERS&nbsp;</h2>
                                       <p class="lead">`+hours.regular+`</p>
-                                      <p class="lead">`+hours.open_now+`</p>
+                                      <p class="lead"  style="color:blue">`+hours.open_now+`</p>
                                     </div>
                                     <ul class="list-group list-group-flush">
-                                          <li class="list-group-item"><br>Monday&nbsp;<br><i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;09:30-10:00</li>
-                                          <li class="list-group-item"><br>Tuesday&nbsp;<br><i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;10:00-12:00</li>
-                                          <li class="list-group-item"><br>Wednessday&nbsp;<br><i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;12:00-13:00</li>
-                                          <li class="list-group-item "><br>Thursday&nbsp;<br><i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;13:00-14:30</li>
-                                          <li class="list-group-item"><br>Friday&nbsp;<br><i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;14:30-16:00</li>
-                                          <li class="list-group-item"><br>Saturday&nbsp;<br><i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;16:00-18:00</li>
+                                          <li class="list-group-item"><b>Monday</b>-<i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;09:30-10:00</li>
+                                          <li class="list-group-item"><b>Tuesday</b>-<i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;10:00-12:00</li>
+                                          <li class="list-group-item"><b>Wednessday</b>-<i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;12:00-13:00</li>
+                                          <li class="list-group-item "><b>Thursday</b>-<i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;13:00-14:30</li>
+                                          <li class="list-group-item"><b>Friday</b>-<i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;14:30-16:00</li>
+                                          <li class="list-group-item"><b>Saturday</b>-<i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;16:00-18:00</li>
                                           <li class="list-group-item"><b><span style="color:red;">Sunday- closed</span></b></li>
                                       </ul>
                                   </div>
@@ -1016,8 +1146,6 @@ function getSearchItem(userInput)
 
                       e.preventDefault(); 
 
-                   /*    $('#revBut').hide(); */
-
                       $('#speakers').hide();
 
           
@@ -1025,7 +1153,7 @@ function getSearchItem(userInput)
 
                     }); 
 
-                    $('#show_delivery').click(function(e){
+                    $('.show_delivery').click(function(e){
 
                       e.preventDefault();
 
@@ -1073,8 +1201,8 @@ function getSearchItem(userInput)
 
           $('#pagination_nav').show();
 
-            var numberOfItems = $('#speakers') // Get toObjecttal number of the items that should be paginated
-            console.log(numberOfItems.children("div.mycontainer").length)
+            var numberOfItems = $('#speakers > div') // Get toObjecttal number of the items that should be paginated
+            console.log(numberOfItems)
             var limitPerPage = 5; // Limit of items per each page
             $('#speakers .mycontainer:gt(' + (limitPerPage - 1) + ')').hide(); // Hide all items over page limits (e.g., 5th item, 6th item, etc.)
             var totalPages = Math.round(numberOfItems / limitPerPage); // Get number of pages
