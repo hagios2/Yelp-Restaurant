@@ -389,8 +389,7 @@
                               <div class="col-md-12" style="transition: all 0.25s;">
                               </div>
                             </div>
-                          </div>`;
-                          
+                          </div>`;  
 
                           $('#delivery').append(delivery_dom);
 

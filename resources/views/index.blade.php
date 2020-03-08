@@ -176,9 +176,18 @@
              </form>
         <!-- End -->
 
-        <div style="font-size:1rem;" class="d-flex justify-content-center"> <span><a href="javascript:void(0)"><i id="rest-link" class="fas fa-utensils"></i> Restaurant<a> &emsp;| &emsp;<a id="breakfast" href="javascript:void(0)"><i class="fas fa-coffee"></i> Breakfast and brunch</a> &emsp; | &emsp; <a id="loc_delivery" href="javascript:void(0)"><i class="fas fa-shipping-fast" aria-hidden="true"></i> Available delivery</a></span></div>
+        <div style="font-size:1rem;" class="d-flex justify-content-center"> <span><a href="javascript:void(0)"><i id="rest-link" class="fas fa-utensils"></i> Restaurant<a> &emsp;| &emsp;<a id="breakfast" href="javascript:void(0)"><i class="fas fa-coffee"></i> Breakfast and brunch</a> &emsp; | &emsp; <a id="loc_delivery" href="javascript:void(0)"><i class="fas fa-shipping-fast" aria-hidden="true"></i> Available delivery</a></span></div> <br> <br>
+
+        <div class="fa-3x" style="display:none;">
+          <i style="color:grey;" class="fas fa-spinner fa-pulse"></i>
+        </div>
+
+        <div class="startus" style="display:none;"></div>
 
     </div> <br>
+
+        
+
           <h1 class="display-4 d-block d-md-none">Conference Pingendo</h1>
           <div class="digital-clock">00:00:00</div>
           <a href="#register" class="btn btn-lg mt-4 btn-outline-light">Register now</a><i class="d-block fa fa-angle-down pt-5 fa-3x"></i>
@@ -202,12 +211,6 @@
     </div> --}}
 
   </div>
-
-
-
-  <div class="spinner-grow" style="width: 3rem; height: 3rem; background-color:white;" role="status">
-    <span class="sr-only">Loading...</span>
-  </div> <br> <br>
 
   <nav aria-label="Page navigation example" id="pagination_nav" style="display:none;">
     <ul class="pagination">
@@ -680,13 +683,13 @@ $( "#search" ).on( "autocompleteselect", function( event, ui ) {
     /* both label and value are the same  */
 
     /* call search */
-    setTimeout(function(){
+    $('.fa-3x').show()
 
-      $('.spinner-grow').show()
+    setTimeout(function(){
 
       getSearchItem(ui.item.label)
 
-    }, 15000);
+    }, 2000);
 
 } );
 
@@ -708,11 +711,25 @@ function getSearchItem(userInput)
         data: data
 
     }).done(function(data){
-    
+
+      if(data)
+      {
+        $('.fa-3x').hide();
+
+        $('.startus').show();
+
+        $('.startus').attr('class', 'alert alert-info');
+
+        $('.startus').text('Please scroll down');
+
+        $('.startus').fadeIn('fast');
+
+        $('.startus').fadeOut('slow');
+
+
+      }
 
       $('#speakers .mycontainer').remove(); //remove mycontainer for new search data to be appended into it
-
-        
 
           $.each(data.businesses, function(i ,restaurant){                    
 
