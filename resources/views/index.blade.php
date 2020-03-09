@@ -275,11 +275,9 @@
 
   {{-- sliders --}}
 
-  <div class="py-5 section-parallax" style="background-image: url('http://nextrestaurants.com/wp-content/uploads/2018/08/restaurant-marketing-5star-dining.png'); transition: all 0.25s;" id="schedule">
+{{--   <div class="py-5 section-parallax" style="background-image: url('http://nextrestaurants.com/wp-content/uploads/2018/08/restaurant-marketing-5star-dining.png'); transition: all 0.25s;" id="schedule"> --}}
 
-   {{--  <div class="container-fluid" style="backgroud-color:white;"> --}}
-
-  
+ <div class="container-fluid" style="background-color:#e5f9f9;"> 
 
 
   <div class="container my-4">
@@ -292,136 +290,137 @@
       <!--Carousel Wrapper-->
     </strong>
     <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel"><strong>
-        <div id="carousel-example-multi" class="carousel slide carousel-multi-item v-2" data-ride="carousel">
-          <!--Controls-->
-          <div class="controls-top">
-            <a class="btn-floating" href="#carousel-example-multi" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
-            <a class="btn-floating" href="#carousel-example-multi" data-slide="next"><i class="fas fa-chevron-right"></i></a>
-          </div><br><br>
-          <!--/.Controls-->
-          <!--Indicators-->
-          <ol class="carousel-indicators">
-            <li data-target="#carousel-example-multi" data-slide-to="0" class=""></li>
-            <li data-target="#carousel-example-multi" data-slide-to="1"></li>
-            <li data-target="#carousel-example-multi" data-slide-to="2" class="active"></li>
-            <li data-target="#carousel-example-multi" data-slide-to="3"></li>
-            <li data-target="#carousel-example-multi" data-slide-to="4"></li>
-            <li data-target="#carousel-example-multi" data-slide-to="5"></li>
-          </ol>
-          <!--/.Indicators-->
-          <!--Slides-->
-          <div class="carousel-inner" role="listbox">
-            <!--First slide-->
-            <div class="carousel-item">
-              <div class="row">
-                <div class="col-md-4">
-                  <div class="card mb-2">
-                    <img class="card-img-top" style="max-height:400px;" src="https://cdn.tasteatlas.com/Images/Dishes/91e1f0236e414f9dbaefe548f5384a20.jpg?w=600&h=450" alt="Card image cap">
-                    <div class="card-body">
-                      <h4 class="card-title">Card title</h4>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="javascript:void(0)" class="btn btn-outline-primary">View</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4 clearfix d-none d-md-block">
-                  <div class="card mb-2">
-                    <img class="card-img-top" style="max-height:400px;" src="https://www.greece10best.com/wp-content/uploads/2016/12/Moussaka-696x475.jpg" alt="Card image cap">
-                    <div class="card-body">
-                      <h4 class="card-title">Card title</h4>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="javascript:void(0)" class="btn btn-outline-primary">View</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4 clearfix d-none d-md-block">
-                  <div class="card mb-2">
-                    <img class="card-img-top" src="https://cdn.cnn.com/cnnnext/dam/assets/151215114237-40-thai-food-23-pla-neung-manao-1.jpg" alt="Card image cap">
-                    <div class="card-body">
-                      <h4 class="card-title">Card title</h4>122
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="javascript:void(0)" class="btn btn-outline-primary">View</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!--/.First slide-->
-            <!--Second slide-->
-            <div class="carousel-item">
-              <div class="row">
-                <div class="col-md-4">
-                  <div class="card mb-2">
-                    <img class="card-img-top" src="https://thumbor.thedailymeal.com/b7ZLaODQZg9sj0u23RmhbsGNAfE=/870x565/filters:focal(2722x1815:2723x1816)/https://www.thedailymeal.com/sites/default/files/story/2017/shutterstock_212193184.jpg" alt="Card image cap">
-                    <div class="card-body">
-                      <h4 class="card-title">Card title</h4>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="javascript:void(0)" class="btn btn-outline-primary">view</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4 clearfix d-none d-md-block">
-                  <div class="card mb-2">
-                    <img class="card-img-top" src="https://www.allsaying.com/wp-content/uploads/2016/03/Dumplings.jpg" alt="Card image cap">
-                    <div class="card-body">
-                      <h4 class="card-title">Card title</h4> 
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="javascript:void(0)" class="btn btn-outline-primary">View</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4 clearfix d-none d-md-block">
-                  <div class="card mb-2">
-                    <img class="card-img-top" src="https://cdn.cnn.com/cnnnext/dam/assets/151215114237-40-thai-food-23-pla-neung-manao-1.jpg" alt="Card image cap">
-                    <div class="card-body">
-                      <h4 class="card-title">Card title</h4>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="javascript:void(0)" class="btn btn-outline-primary">View</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!--/.Second slide-->
-            <!--Third slide-->
-            <div class="carousel-item active">
-              <div class="row">
-                <div class="col-md-4">
-                  <div class="card mb-2">
-                    <img class="card-img-top" style="max-height:200px;" src="https://i.ndtvimg.com/i/2016-06/chinese-625_625x350_81466064119.jpg" alt="Card image cap">
-                    <div class="card-body">
-                      <h4 class="card-title">Card title</h4>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="javascript:void(0)" class="btn btn-outline-primary">View</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4 clearfix d-none d-md-block">
-                  <div class="card mb-2">
-                    <img class="card-img-top" src="https://images.chinahighlights.com/allpicture/2019/11/7b3afb974d7946bbbe397f7c_894x670.webp" alt="Card image cap">
-                    <div class="card-body">
-                      <h4 class="card-title">Card title</h4>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="javascript:void(0)" class="btn btn-outline-primary">View</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4 clearfix d-none d-md-block">
-                  <div class="card mb-2">
-                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(51).jpg" alt="Card image cap">
-                    <div class="card-body">
-                      <h4 class="card-title">Card title</h4>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="javascript:void(0)" class="btn btn-outline-primary">View</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!--/.Third slide-->
-          </div>
-          <!--/.Slides-->
+      <div id="carousel-example-multi" class="carousel slide carousel-multi-item v-2" data-ride="carousel">
+        <!--Controls-->
+        <div class="controls-top">
+          <a class="btn-floating" href="#carousel-example-multi" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
+          <a class="btn-floating" href="#carousel-example-multi" data-slide="next"><i class="fas fa-chevron-right"></i></a>
         </div>
+        <!--/.Controls-->
+        <!--Indicators-->
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-multi" data-slide-to="0" class=""></li>
+          <li data-target="#carousel-example-multi" data-slide-to="1"></li>
+          <li data-target="#carousel-example-multi" data-slide-to="2" class="active"></li>
+          <li data-target="#carousel-example-multi" data-slide-to="3"></li>
+          <li data-target="#carousel-example-multi" data-slide-to="4"></li>
+          <li data-target="#carousel-example-multi" data-slide-to="5"></li>
+        </ol>
+        <!--/.Indicators-->
+        <!--Slides-->
+        <div class="carousel-inner" role="listbox">
+          <!--First slide-->
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card mb-2">
+                  <img class="card-img-top" src="https://cdn.cnn.com/cnnnext/dam/assets/151215114237-40-thai-food-23-pla-neung-manao-1.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h4 class="card-title">Thai cuisine </h4>
+                    <p class="card-text">Thai cooking places emphasis on lightly prepared dishes with strong aromatic components and a spicy edge. Thai chef McDang characterises Thai food as demonstrating "intricacy; attention to detail; texture; color; taste; and the use of ingredients with medicinal benefits, as well as good flavor".</p>
+                    <a class="btn btn-primary">Button</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 clearfix d-none d-md-block">
+                <div class="card mb-2">
+                  <img class="card-img-top" src="https://thumbor.thedailymeal.com/b7ZLaODQZg9sj0u23RmhbsGNAfE=/870x565/filters:focal(2722x1815:2723x1816)/https://www.thedailymeal.com/sites/default/files/story/2017/shutterstock_212193184.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h4 class="card-title">Arab cuisine </h4>
+                    <p class="card-text">The cuisines are often centuries old and reflect the culture of great trading in spices, herbs, and foods. The three main regions, also known as the Maghreb, the Fertile Crescent, and the Arabian Peninsula, have many similarities, but also many unique traditions..</p>
+                    <a class="btn btn-primary">Button</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 clearfix d-none d-md-block">
+                <div class="card mb-2">
+                  <img class="card-img-top" src="https://www.greece10best.com/wp-content/uploads/2016/12/Moussaka-696x475.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h4 class="card-title">French Cuisine</h4>
+                    <p class="card-text">Starting with the Middle Ages that brought rich banquets to the French Revolution, where refined techniques were used, French Cuisine can be called in the 21st century “haute cuisine” one of the most amazing food to taste in the whole wide world.</p>
+                    <a class="btn btn-primary">Button</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--/.First slide-->
+          <!--Second slide-->
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card mb-2">
+                  <img class="card-img-top" src="https://cdn.tasteatlas.com/Images/Dishes/91e1f0236e414f9dbaefe548f5384a20.jpg?w=600&amp;h=450" alt="Card image cap">
+                  <div class="card-body">
+                    <h4 class="card-title">Spanish Cuisine</h4>
+                    <p class="card-text">For a lighter approach on food, we turn to the Spanish cuisine, containing a variety of meat and fish, as well as vegetables. It is also influenced by the seafood available from the surrounding waters.</p>
+                    <a class="btn btn-primary">Button</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 clearfix d-none d-md-block">
+                <div class="card mb-2">
+                  <img class="card-img-top" src="https://www.allsaying.com/wp-content/uploads/2016/03/Dumplings.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h4 class="card-title"><br>Italian cuisine<br></h4>
+                    <p class="card-text">has a great variety of different ingredients which are commonly used, ranging from fruits, vegetables, sauces, meats, etc. In the North of Italy,and different types of cheeses are the most common ingredients.</p>
+                    <a class="btn btn-primary">Button</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 clearfix d-none d-md-block">
+                <div class="card mb-2">
+                  <img class="card-img-top" src="https://res.cloudinary.com/swiggy/image/upload/f_auto,q_auto,fl_lossy/ix1f8ybuajauixmmadgz" alt="Card image cap">
+                  <div class="card-body">
+                    <h4 class="card-title">Ukrainian cuisine </h4>
+                    <p class="card-text">It is the collection of the various cooking traditions of the Ukrainian people accumulated over many years. </p>
+                    <a class="btn btn-primary">Button</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--/.Second slide-->
+          <!--Third slide-->
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card mb-2">
+                  <img class="card-img-top" src="https://cdn.cnn.com/cnnnext/dam/assets/170517150325-food-general.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h4 class="card-title">Singaporean cuisine </h4>
+                    <p class="card-text">It is diverse and contains elements derived from several ethnic groups, as a result of its history as a seaport with a large immigrant population. Influences include the cuisines of the native Malays,the largest ethnic group, .</p>
+                    <a class="btn btn-primary">Button</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 clearfix d-none d-md-block">
+                <div class="card mb-2">
+                  <img class="card-img-top" src="https://i.ndtvimg.com/i/2016-06/chinese-625_625x350_81466064119.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h4 class="card-title" style="">Mexico cuisine </h4>
+                    <p class="card-text">If you were only allowed to eat the food of one country the rest of your life, it would be smart to make it Mexico. The cuisine of the Mesoamerican country has a little bit of everything -- you'll never get bored. Amongst the enchiladas and the tacos and the helados and the quesadillas. </p>
+                    <a class="btn btn-primary">Button</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 clearfix d-none d-md-block">
+                <div class="card mb-2">
+                  <img class="card-img-top" src="https://images.chinahighlights.com/allpicture/2019/11/7b3afb974d7946bbbe397f7c_894x670.webp" alt="Card image cap">
+                  <div class="card-body">
+                    <h4 class="card-title">Lebanese Cuisine</h4>
+                    <p class="card-text">The Lebanese cuisine is the place where you can taste all the goodness the Middle East has to offer. Foods are generally Mediterranean, high on vegetables, little meat and full of flavors..</p>
+                    <a class="btn btn-primary">Button</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--/.Third slide-->
+        </div>
+        <!--/.Slides-->
+      </div>
+
         <!--/.Carousel Wrapper-->
       </strong>
     </div>
@@ -888,8 +887,11 @@ $('#rest-link').click(function(e){
 
     e.preventDefault();
 
-    getSearchItem('restaurant');
-   
+
+  $('.spinner-border').show();
+
+      getSearchItem('Restaurant');
+  
 
 });
 
@@ -897,7 +899,7 @@ $('#breakfast').click(function(e){
 
     e.preventDefault();
 
-    getSearchItem('breakfast and brunch');
+        getSearchItem('breakfast and brunch');
 
 });
 
@@ -1183,7 +1185,7 @@ function getSearchItem(userInput)
                                         <div class="row bg-danger">
                                           <div id="cid_83" class="form-input-wide">
                                             <div style="text-align:center">
-                                              <img alt="" class="form-image" style="border:0" src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS9Dlclnp8VyOPNcdcbl9fgZ9utQ2I6bNvhM-TfzIeFA0QpjP7r' height="310px" width="100%" data-component="image">
+                                              <img alt="" class="form-image" style="border:0" src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS9Dlclnp8VyOPNcdcbl9fgZ9utQ2I6bNvhM-TfzIeFA0QpjP7r' height="310px" style="width:100%;" data-component="image">
                                             </div>
                                           </div>
                                         </div>
@@ -1558,7 +1560,7 @@ function getSearchItem(userInput)
 
             console.log('The length is ' + $('.container-fluid').length)
 
-            var numberOfItems =  $('.container-fluid').length // Get toObjecttal number of the items that should be paginated
+            var numberOfItems =  18//$('.container-fluid').length // Get toObjecttal number of the items that should be paginated
            
             var limitPerPage = 3; // Limit of items per each page
             $('.container-fluid:gt(' + (limitPerPage - 1) + ')').hide(); // Hide all items over page limits (e.g., 5th item, 6th item, etc.)
