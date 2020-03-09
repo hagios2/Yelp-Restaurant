@@ -297,7 +297,7 @@
           <div class="controls-top">
             <a class="btn-floating" href="#carousel-example-multi" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
             <a class="btn-floating" href="#carousel-example-multi" data-slide="next"><i class="fas fa-chevron-right"></i></a>
-          </div>
+          </div><br><br>
           <!--/.Controls-->
           <!--Indicators-->
           <ol class="carousel-indicators">
@@ -316,7 +316,7 @@
               <div class="row">
                 <div class="col-md-4">
                   <div class="card mb-2">
-                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg" alt="Card image cap">
+                    <img class="card-img-top" style="max-height:400px;" src="https://cdn.tasteatlas.com/Images/Dishes/91e1f0236e414f9dbaefe548f5384a20.jpg?w=600&h=450" alt="Card image cap">
                     <div class="card-body">
                       <h4 class="card-title">Card title</h4>
                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -326,7 +326,7 @@
                 </div>
                 <div class="col-md-4 clearfix d-none d-md-block">
                   <div class="card mb-2">
-                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg" alt="Card image cap">
+                    <img class="card-img-top" style="max-height:400px;" src="https://www.greece10best.com/wp-content/uploads/2016/12/Moussaka-696x475.jpg" alt="Card image cap">
                     <div class="card-body">
                       <h4 class="card-title">Card title</h4>
                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -336,9 +336,9 @@
                 </div>
                 <div class="col-md-4 clearfix d-none d-md-block">
                   <div class="card mb-2">
-                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg" alt="Card image cap">
+                    <img class="card-img-top" src="https://cdn.cnn.com/cnnnext/dam/assets/151215114237-40-thai-food-23-pla-neung-manao-1.jpg" alt="Card image cap">
                     <div class="card-body">
-                      <h4 class="card-title">Card title</h4>
+                      <h4 class="card-title">Card title</h4>122
                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                       <a href="javascript:void(0)" class="btn btn-outline-primary">View</a>
                     </div>
@@ -352,7 +352,7 @@
               <div class="row">
                 <div class="col-md-4">
                   <div class="card mb-2">
-                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg" alt="Card image cap">
+                    <img class="card-img-top" src="https://thumbor.thedailymeal.com/b7ZLaODQZg9sj0u23RmhbsGNAfE=/870x565/filters:focal(2722x1815:2723x1816)/https://www.thedailymeal.com/sites/default/files/story/2017/shutterstock_212193184.jpg" alt="Card image cap">
                     <div class="card-body">
                       <h4 class="card-title">Card title</h4>
                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -362,9 +362,9 @@
                 </div>
                 <div class="col-md-4 clearfix d-none d-md-block">
                   <div class="card mb-2">
-                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(47).jpg" alt="Card image cap">
+                    <img class="card-img-top" src="https://www.allsaying.com/wp-content/uploads/2016/03/Dumplings.jpg" alt="Card image cap">
                     <div class="card-body">
-                      <h4 class="card-title">Card title</h4>
+                      <h4 class="card-title">Card title</h4> 
                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                       <a href="javascript:void(0)" class="btn btn-outline-primary">View</a>
                     </div>
@@ -372,7 +372,7 @@
                 </div>
                 <div class="col-md-4 clearfix d-none d-md-block">
                   <div class="card mb-2">
-                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(48).jpg" alt="Card image cap">
+                    <img class="card-img-top" src="https://cdn.cnn.com/cnnnext/dam/assets/151215114237-40-thai-food-23-pla-neung-manao-1.jpg" alt="Card image cap">
                     <div class="card-body">
                       <h4 class="card-title">Card title</h4>
                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -388,7 +388,7 @@
               <div class="row">
                 <div class="col-md-4">
                   <div class="card mb-2">
-                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(53).jpg" alt="Card image cap">
+                    <img class="card-img-top" style="max-height:200px;" src="https://i.ndtvimg.com/i/2016-06/chinese-625_625x350_81466064119.jpg" alt="Card image cap">
                     <div class="card-body">
                       <h4 class="card-title">Card title</h4>
                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -398,7 +398,7 @@
                 </div>
                 <div class="col-md-4 clearfix d-none d-md-block">
                   <div class="card mb-2">
-                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(45).jpg" alt="Card image cap">
+                    <img class="card-img-top" src="https://images.chinahighlights.com/allpicture/2019/11/7b3afb974d7946bbbe397f7c_894x670.webp" alt="Card image cap">
                     <div class="card-body">
                       <h4 class="card-title">Card title</h4>
                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
