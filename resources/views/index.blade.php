@@ -446,7 +446,7 @@
       <div class="row justify-content-center">
         <div class="col-lg-4 col-md-6 p-4">
           <div class="row">
-            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="https://s3-media1.fl.yelpcdn.com/photo/jdldXCaiRfhufUO4trNVfw/o.jpg" width="300"> </div>
+            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block"  src="https://s3-media1.fl.yelpcdn.com/photo/jdldXCaiRfhufUO4trNVfw/o.jpg" width="300" style="max-height:130px;"> </div>
             <div class="col-9">
               <p class="lead mb-1"> <b>#1</b> </p>
               <p class="mb-0">A wonderful serenity has taken possession of my entire soul.</p>
@@ -464,7 +464,7 @@
         </div>
         <div class="col-lg-4 col-md-6 p-4">
           <div class="row">
-            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="https://s3-media4.fl.yelpcdn.com/photo/SnR0CfsXA8Fq99xmFMrh9w/o.jpg" width="300"> </div>
+            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="https://s3-media4.fl.yelpcdn.com/photo/SnR0CfsXA8Fq99xmFMrh9w/o.jpg" width="300" style="max-height:130px;"> </div>
             <div class="col-9">
               <p class="lead mb-1"> <b>#2</b> </p>
               <p class="mb-0">I am alone, and feel the charm of existence in this spot.</p>
@@ -482,7 +482,7 @@
         </div>
         <div class="col-lg-4 col-md-6 p-4">
           <div class="row">
-            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="https://s3-media2.fl.yelpcdn.com/photo/KoXGTiU2BqROpH0gihkypw/o.jpg" width="300"> </div>
+            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="https://s3-media2.fl.yelpcdn.com/photo/KoXGTiU2BqROpH0gihkypw/o.jpg" width="300" style="max-height:130px;"> </div>
             <div class="col-9">
               <p class="lead mb-1"> <b>#3</b> </p>
               <p class="mb-0">I should be incapable of drawing a single stroke.</p>
@@ -500,7 +500,7 @@
         </div>
         <div class="col-lg-4 col-md-6 p-4">
           <div class="row">
-            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="https://s3-media2.fl.yelpcdn.com/photo/LnPAHxcbkuw6szNnofl9yw/o.jpg" width="300"> </div>
+            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="https://s3-media2.fl.yelpcdn.com/photo/LnPAHxcbkuw6szNnofl9yw/o.jpg" width="300" style="max-height:130px;"> </div>
             <div class="col-9">
               <p class="lead mb-1"> <b>#4</b> </p>
               <p class="mb-0">A wonderful serenity has taken possession of my entire soul.</p>
@@ -518,7 +518,7 @@
         </div>
         <div class="col-lg-4 col-md-6 p-4">
           <div class="row">
-            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="https://s3-media3.fl.yelpcdn.com/photo/6XARUYf3wL79YFmLSd_zVQ/o.jpg" width="300"> </div>
+            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="https://s3-media3.fl.yelpcdn.com/photo/6XARUYf3wL79YFmLSd_zVQ/o.jpg" width="300" style="max-height:130px;"> </div>
             <div class="col-9">
               <p class="lead mb-1"> <b>#5</b> </p>
               <p class="mb-0">I lie close to the earth, a thousand unknown plants.</p>
@@ -536,7 +536,7 @@
         </div>
         <div class="col-lg-4 col-md-6 p-4">
           <div class="row">
-            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="https://s3-media1.fl.yelpcdn.com/photo/MT_TgiowKGHvCn4d5R6wjQ/o.jpg" width="300"> </div>
+            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block" src="https://s3-media1.fl.yelpcdn.com/photo/MT_TgiowKGHvCn4d5R6wjQ/o.jpg" width="300" style="max-height:130px;"> </div>
             <div class="col-9">
               <p class="lead mb-1"> <b>#6</b> </p>
               <p class="mb-0">When I hear the buzz of the little world among the stalks.</p>
@@ -554,6 +554,85 @@
         </div>
       </div>
     </div>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPoll-1">Add Review</button>
+                <!-- Modal: modalPoll -->
+                <div class="modal fade right" id="modalPoll-1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" data-backdrop="false" aria-hidden="true" style="padding-right: 17px; padding-left: 17px;">
+                  <div class="modal-dialog modal-full-height modal-right modal-notify modal-info" role="document">
+                    <div class="modal-content">
+                      <!--Header-->
+                      <div class="modal-header">
+                        <p class="heading lead">&nbsp;REVIEW</p>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true" class="white-text">×</span>
+                        </button>
+                      </div>
+                      <!--Body-->
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <i class="far fa-file-alt fa-4x mb-3 animated rotateIn"></i>
+                          <p>
+                            <strong>Your opinion matters</strong>
+                          </p>
+                          <p>Have some ideas how to improve on our rendered services? <strong>Give us your feedback.</strong>
+                          </p>
+                        </div>
+                        <hr>
+                        <!-- Radio -->
+                        <p class="text-center">
+                          <strong>Your rating</strong>
+                        </p>
+                        <div class="form-check mb-4 text-left" align="center">
+                          <input class="form-check-input" name="group1" type="radio" id="radio-179" value="option1" checked="">
+                          <label class="form-check-label" for="radio-179">Very good</label>
+                        </div>
+                        <div class="form-check mb-4" align="left">
+                          <input class="form-check-input" name="group1" type="radio" id="radio-279" value="option2">
+                          <label class="form-check-label" for="radio-279">Good</label>
+                        </div>
+                        <div class="form-check mb-4" align="left">
+                          <input class="form-check-input" name="group1" type="radio" id="radio-379" value="option3">
+                          <label class="form-check-label" for="radio-379">Mediocre</label>
+                        </div>
+                        <div class="form-check mb-4" align="left">
+                          <input class="form-check-input" name="group1" type="radio" id="radio-479" value="option4">
+                          <label class="form-check-label" for="radio-479">Bad</label>
+                        </div>
+                        <div class="form-check mb-4" align="left">
+                          <input class="form-check-input" name="group1" type="radio" id="radio-579" value="option5">
+                          <label class="form-check-label" for="radio-579">Very bad</label>
+                        </div>
+                        <div class="rate" align="left"><span class="heading">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;User Rating</span>
+                          <input type="radio" id="star5" name="rate" value="5">
+                          <label for="star5" title="text">5 stars</label>
+                          <input type="radio" id="star4" name="rate" value="4">
+                          <label for="star4" title="text">4 stars</label>
+                          <input type="radio" id="star3" name="rate" value="3">
+                          <label for="star3" title="text">3 stars</label>
+                          <input type="radio" id="star2" name="rate" value="2">
+                          <label for="star2" title="text">2 stars</label>
+                          <input type="radio" id="star1" name="rate" value="1">
+                          <label for="star1" title="text">1 star</label>
+                        </div>
+                        <!-- Radio -->
+                        <p class="text-center">
+                          <strong>What could we improve?</strong>
+                        </p>
+                        <!--Basic textarea-->
+                        <div class="md-form">
+                          <textarea type="text" id="form79textarea" class="md-textarea form-control" rows="3"></textarea>
+                          <label for="form79textarea">Your message</label>
+                        </div>
+                      </div>
+                      <!--Footer-->
+                      <div class="modal-footer justify-content-center">
+                        <a type="button" href="javascript:void(0);" class="btn btn-primary waves-effect waves-light">Send <i class="fa fa-paper-plane ml-1"></i>
+                        </a>
+                        <a type="button" href="javascript:void(0);" class="btn btn-outline-primary waves-effect" data-dismiss="modal">Cancel</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Modal: modalPoll -->
   </div>
 
   <!-- Call to action -->

@@ -48,7 +48,7 @@
 
                   revdiv += `<div class="col-lg-4 col-md-6 p-4">
                         <div class="row">
-                          <div  class="col-3 p-0 d-flex align-items-center"><img class="img-fluid d-block" src="`+ user.img+`" width="300"> </div>
+                          <div  class="col-3 p-0 d-flex align-items-center"><img class="img-fluid d-block" style="max-height:130px;" src="`+ user.img+`" width="300"> </div>
                           <div class="col-9">
                             <p class="lead mb-1"> <b>#`+user.name +`</b> </p>
                             <p class="mb-0">`+user.text+`</p>
