@@ -295,7 +295,7 @@
         <div class="controls-top">
           <a class="btn-floating" href="#carousel-example-multi" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
           <a class="btn-floating" href="#carousel-example-multi" data-slide="next"><i class="fas fa-chevron-right"></i></a>
-        </div>
+        </div> <br><br>
         <!--/.Controls-->
         <!--Indicators-->
         <ol class="carousel-indicators">
@@ -318,7 +318,7 @@
                   <div class="card-body">
                     <h4 class="card-title">Thai cuisine </h4>
                     <p class="card-text">Thai cooking places emphasis on lightly prepared dishes with strong aromatic components and a spicy edge. Thai chef McDang characterises Thai food as demonstrating "intricacy; attention to detail; texture; color; taste; and the use of ingredients with medicinal benefits, as well as good flavor".</p>
-                    <a class="btn btn-primary">Button</a>
+                    <a href="javascript:void(0);" class="btn btn-outline-primary">View</a>
                   </div>
                 </div>
               </div>
@@ -328,7 +328,7 @@
                   <div class="card-body">
                     <h4 class="card-title">Arab cuisine </h4>
                     <p class="card-text">The cuisines are often centuries old and reflect the culture of great trading in spices, herbs, and foods. The three main regions, also known as the Maghreb, the Fertile Crescent, and the Arabian Peninsula, have many similarities, but also many unique traditions..</p>
-                    <a class="btn btn-primary">Button</a>
+                    <a href="javascript:void(0);" class="btn btn-outline-primary">View</a>
                   </div>
                 </div>
               </div>
@@ -338,7 +338,7 @@
                   <div class="card-body">
                     <h4 class="card-title">French Cuisine</h4>
                     <p class="card-text">Starting with the Middle Ages that brought rich banquets to the French Revolution, where refined techniques were used, French Cuisine can be called in the 21st century “haute cuisine” one of the most amazing food to taste in the whole wide world.</p>
-                    <a class="btn btn-primary">Button</a>
+                    <a href="javascript:void(0);" class="btn btn-outline-primary">View</a>
                   </div>
                 </div>
               </div>
@@ -354,7 +354,7 @@
                   <div class="card-body">
                     <h4 class="card-title">Spanish Cuisine</h4>
                     <p class="card-text">For a lighter approach on food, we turn to the Spanish cuisine, containing a variety of meat and fish, as well as vegetables. It is also influenced by the seafood available from the surrounding waters.</p>
-                    <a class="btn btn-primary">Button</a>
+                    <a href="javascript:void(0);" class="btn btn-outline-primary">View</a>
                   </div>
                 </div>
               </div>
@@ -364,7 +364,7 @@
                   <div class="card-body">
                     <h4 class="card-title"><br>Italian cuisine<br></h4>
                     <p class="card-text">has a great variety of different ingredients which are commonly used, ranging from fruits, vegetables, sauces, meats, etc. In the North of Italy,and different types of cheeses are the most common ingredients.</p>
-                    <a class="btn btn-primary">Button</a>
+                    <a href="javascript:void(0);" class="btn btn-outline-primary">View</a>
                   </div>
                 </div>
               </div>
@@ -374,7 +374,7 @@
                   <div class="card-body">
                     <h4 class="card-title">Ukrainian cuisine </h4>
                     <p class="card-text">It is the collection of the various cooking traditions of the Ukrainian people accumulated over many years. </p>
-                    <a class="btn btn-primary">Button</a>
+                    <a href="javascript:void(0);" class="btn btn-outline-primary">View</a>
                   </div>
                 </div>
               </div>
@@ -390,7 +390,7 @@
                   <div class="card-body">
                     <h4 class="card-title">Singaporean cuisine </h4>
                     <p class="card-text">It is diverse and contains elements derived from several ethnic groups, as a result of its history as a seaport with a large immigrant population. Influences include the cuisines of the native Malays,the largest ethnic group, .</p>
-                    <a class="btn btn-primary">Button</a>
+                    <a href="javascript:void(0);" class="btn btn-outline-primary">View</a>
                   </div>
                 </div>
               </div>
@@ -400,7 +400,7 @@
                   <div class="card-body">
                     <h4 class="card-title" style="">Mexico cuisine </h4>
                     <p class="card-text">If you were only allowed to eat the food of one country the rest of your life, it would be smart to make it Mexico. The cuisine of the Mesoamerican country has a little bit of everything -- you'll never get bored. Amongst the enchiladas and the tacos and the helados and the quesadillas. </p>
-                    <a class="btn btn-primary">Button</a>
+                    <a href="javascript:void(0);" class="btn btn-outline-primary">View</a>
                   </div>
                 </div>
               </div>
@@ -410,7 +410,7 @@
                   <div class="card-body">
                     <h4 class="card-title">Lebanese Cuisine</h4>
                     <p class="card-text">The Lebanese cuisine is the place where you can taste all the goodness the Middle East has to offer. Foods are generally Mediterranean, high on vegetables, little meat and full of flavors..</p>
-                    <a class="btn btn-primary">Button</a>
+                    <a href="javascript:void(0);" class="btn btn-outline-primary">View</a>
                   </div>
                 </div>
               </div>
