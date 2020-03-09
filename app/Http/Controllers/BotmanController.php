@@ -22,13 +22,13 @@ class BotmanController extends Controller
 
         $botman->hears('{message}', function($botman, $message) {
 
-            if ($message == 'hi') {
+            if ($message == 'hi' || 'hello') {
 
                 $this->askName($botman);
 
             }else if($message == ''){
 
-                $botman->reply("write 'hi' for testing...");
+                $botman->reply("I can be of help if you tell me what you want");
 
             } else if ($message == '')
             {
@@ -39,8 +39,43 @@ class BotmanController extends Controller
         });
 
 
-        $botman->fallback(function($bot) {
-            $bot->reply('Sorry, I did not understand these commands. Here is a list of commands I understand: ...');
+        $botman->hears('{message}', function($botman, $message) {
+
+            if ($message == 'Goodbye') {
+
+               $botman->reply('Alright, have a nice day');
+
+            }else if($message == ''){
+
+                $botman->reply("I can be of help if you tell me what you want");
+
+            } else if ($message == '')
+            {
+                $botman->reply("write 'hi' for testing...");
+            }
+
+  
+        });
+
+
+       
+
+
+        $botman->hears('I want {message}', function($botman, $message){
+
+            $botman->reply('Kindly scroll up to the top of the page and search for '. $message . 'in the search bar');
+
+        });
+/* 
+        $botman->hears('am here', function($botman){
+
+            $botman->reply('where exactly');
+        }); */
+
+
+        $botman->fallback(function($botman) {
+            
+            $botman->reply('Sorry, I did not understand these commands. Here is a list of commands I understand: ...');
         });
 
   
@@ -65,30 +100,12 @@ class BotmanController extends Controller
 
             $name = $answer->getText();
 
-  
-
             $this->say('Nice to meet you '.$name);
 
+   
         });
 
     }
 
 
-
-
-    public function askHome($botman)
-
-    {
-
-        $botman->ask('Hello! What is your Name?', function(Answer $answer) {
-
-            $name = $answer->getText();
-
-  
-
-            $this->say('Nice to meet you '.$name);
-
-        });
-
-    }
 }

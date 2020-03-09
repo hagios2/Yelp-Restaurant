@@ -153,7 +153,7 @@
                             <div class="row">
                               <div class="col-md-6">
                                 <div class="card">
-                                  <img class="card-img-top" style="max-height:400px;" src="`+ delivery.image_url+`" alt="Card image cap">
+                                  <img class="card-img-top" style="max-height:400px;" id="delsrc="`+ delivery.image_url+`" alt="Card image cap">
                                 </div>
                               </div>
                               `+map+`
@@ -391,6 +391,8 @@
 
                           $('#speakers').hide();
 
+                          $('.pagination').hide();
+
                           $('#revDiv').hide();
 
                           $('.deliveryrevBut').click(function(e){
@@ -398,6 +400,8 @@
                             e.preventDefault();
 
                             $('speakers').hide();
+
+                            $('.pagination').hide();
 
                             getBusinessReviews(delivery.id);
 

@@ -271,6 +271,167 @@
 
   </div>
 
+
+
+  {{-- sliders --}}
+
+  <div class="py-5 section-parallax" style="background-image: url('http://nextrestaurants.com/wp-content/uploads/2018/08/restaurant-marketing-5star-dining.png'); transition: all 0.25s;" id="schedule">
+
+   {{--  <div class="container-fluid" style="backgroud-color:white;"> --}}
+
+  
+
+
+  <div class="container my-4">
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="">Popular Cuisine</h3>
+      </div>
+    </div><strong>
+      <hr class="my-4">
+      <!--Carousel Wrapper-->
+    </strong>
+    <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel"><strong>
+        <div id="carousel-example-multi" class="carousel slide carousel-multi-item v-2" data-ride="carousel">
+          <!--Controls-->
+          <div class="controls-top">
+            <a class="btn-floating" href="#carousel-example-multi" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
+            <a class="btn-floating" href="#carousel-example-multi" data-slide="next"><i class="fas fa-chevron-right"></i></a>
+          </div>
+          <!--/.Controls-->
+          <!--Indicators-->
+          <ol class="carousel-indicators">
+            <li data-target="#carousel-example-multi" data-slide-to="0" class=""></li>
+            <li data-target="#carousel-example-multi" data-slide-to="1"></li>
+            <li data-target="#carousel-example-multi" data-slide-to="2" class="active"></li>
+            <li data-target="#carousel-example-multi" data-slide-to="3"></li>
+            <li data-target="#carousel-example-multi" data-slide-to="4"></li>
+            <li data-target="#carousel-example-multi" data-slide-to="5"></li>
+          </ol>
+          <!--/.Indicators-->
+          <!--Slides-->
+          <div class="carousel-inner" role="listbox">
+            <!--First slide-->
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="card mb-2">
+                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h4 class="card-title">Card title</h4>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="javascript:void(0)" class="btn btn-outline-primary">View</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 clearfix d-none d-md-block">
+                  <div class="card mb-2">
+                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h4 class="card-title">Card title</h4>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="javascript:void(0)" class="btn btn-outline-primary">View</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 clearfix d-none d-md-block">
+                  <div class="card mb-2">
+                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h4 class="card-title">Card title</h4>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="javascript:void(0)" class="btn btn-outline-primary">View</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--/.First slide-->
+            <!--Second slide-->
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="card mb-2">
+                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h4 class="card-title">Card title</h4>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="javascript:void(0)" class="btn btn-outline-primary">view</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 clearfix d-none d-md-block">
+                  <div class="card mb-2">
+                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(47).jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h4 class="card-title">Card title</h4>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="javascript:void(0)" class="btn btn-outline-primary">View</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 clearfix d-none d-md-block">
+                  <div class="card mb-2">
+                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(48).jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h4 class="card-title">Card title</h4>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="javascript:void(0)" class="btn btn-outline-primary">View</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--/.Second slide-->
+            <!--Third slide-->
+            <div class="carousel-item active">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="card mb-2">
+                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(53).jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h4 class="card-title">Card title</h4>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="javascript:void(0)" class="btn btn-outline-primary">View</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 clearfix d-none d-md-block">
+                  <div class="card mb-2">
+                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(45).jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h4 class="card-title">Card title</h4>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="javascript:void(0)" class="btn btn-outline-primary">View</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 clearfix d-none d-md-block">
+                  <div class="card mb-2">
+                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(51).jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h4 class="card-title">Card title</h4>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="javascript:void(0)" class="btn btn-outline-primary">View</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--/.Third slide-->
+          </div>
+          <!--/.Slides-->
+        </div>
+        <!--/.Carousel Wrapper-->
+      </strong>
+    </div>
+
+  </div>
+  </div>
+
+  </div>
+  {{-- sliders --}}
+
   <!-- Schedule -->
   <div class="py-5" style="background-color:white;">
     <div class="container">
@@ -459,31 +620,73 @@
 
 $(document).ready(function(){
 
-/*   getLocation(); */
+  clockUpdate();
+  setInterval(clockUpdate, 1000);
 
-/*  function getLocation() {
-  if (navigator.geolocation) {
-    var location_timeout = setTimeout("geolocFail()", 10000);
+  function clockUpdate() {
+  var date = new Date();
+  $('.digital-clock').css({'color': '#fff', 'text-shadow': '0 0 6px #ff0'});
+  function addZero(x) {
+    if (x < 10) {
+      return x = '0' + x;
+    } else {
+      return x;
+    }
+  }
 
-    navigator.geolocation.getCurrentPosition(function(position) {
+  function twelveHour(x) {
+    if (x > 12) {
+      return x = x - 12;
+    } else if (x == 0) {
+      return x = 12;
+    } else {
+      return x;
+    }
+  }
+
+  var h = addZero(twelveHour(date.getHours()));
+  var m = addZero(date.getMinutes());
+  var s = addZero(date.getSeconds());
+
+  $('.digital-clock').text(h + ':' + m + ':' + s)
+}
+
+
+
+  getLocation();
+
+ function getLocation() {
+  
+    if (navigator.geolocation) {
+    
+        var location_timeout = setTimeout("geolocFail()", 10000);
+
+        navigator.geolocation.getCurrentPosition(function(position) {
+          
         clearTimeout(location_timeout);
 
         var lat = position.coords.latitude;
         var lng = position.coords.longitude;
 
-        console.log('lat is ' +lat +' and long is '+ lng); */
+        console.log('lat is ' +lat +' and long is '+ lng); 
 
-       /*  geocodeLatLng(lat, lng); */
-/*     }, function(error) {
-        clearTimeout(location_timeout); */
-   /*      geolocFail(); */
-/*     });
-} else { */
-    // Fallback for no geolocation
-/*     geolocFail(); */
-/* }
-} */
+/*         geocodeLatLng(lat, lng); */
 
+      }, function(error) {
+
+          clearTimeout(location_timeout);
+
+          geolocFail();
+      });
+
+  } else {
+      // Fallback for no geolocation
+      geolocFail();
+
+      }
+
+}
+/* 
 var loc = function showPosition(position) {
 
     console.log(position);
@@ -495,7 +698,7 @@ var loc = function showPosition(position) {
         console.log(cords);
 } 
 
-
+ */
 
 var businessId;
 
@@ -627,6 +830,12 @@ $('#loc_delivery').click(function(e){
 
     getYourLocationDeliverySearch()
 
+    $('#close_delivery').click(function(){
+
+        $('#delivery').hide();
+
+    });
+
 });
 
 
@@ -654,21 +863,7 @@ $('#button-addon2').click(function(e){
 
         $('speakers').show();
     }else{
-      $('speakers').hide();
-
-    } 
-
-});*/
-
-
-$('#close_speakers').click(function(){
-
-    $('#speakers').hide();
-
-});
-
-
-/* $('#close_review').click(function(){
+      $('speakers').hide();/* $('#close_review').click(function(){
 
     $('#revDiv').hide();
 
@@ -686,6 +881,19 @@ $('#close_speakers').click(function(){
        
 
 }); */
+
+   // } 
+
+/* }); */
+
+
+$('#close_speakers').click(function(){
+
+    $('#speakers').hide();
+
+    $('.pagination').hide();
+
+});
 
 $( "#search" ).on( "autocompleteselect", function( event, ui ) { 
 
@@ -728,7 +936,7 @@ function getSearchItem(userInput)
           
          // $('.startus').attr('class', 'alert alert-info');
 
-          $('.startus').text('Please scroll down');
+          $('.startus').html('Please scroll down <i class="fas fa-hand-point-down"></i>');
 
           $('.startus').css({'width': '50%', 'heighth': '5rem', 'margin': '0 auto', 'color': 'black' });
 
@@ -739,7 +947,7 @@ function getSearchItem(userInput)
 
       }
 
-      $('#speakers .mycontainer').remove(); //remove mycontainer for new search data to be appended into it
+      /* $('#speakers .mycontainer').remove(); */ //remove mycontainer for new search data to be appended into it
 
           $.each(data.businesses, function(i ,restaurant){                    
 
@@ -748,10 +956,9 @@ function getSearchItem(userInput)
             });
             $("#speakers").show();
 
-            console.log($('#speakers').children());
+            console.log($('#speakers .mycontainer').children().length);
 
-
-            //paginate();
+            paginate();
           
         });
 
@@ -881,7 +1088,7 @@ function getSearchItem(userInput)
                                 `+map+`
                               </div><br>
                               `+ transaction +`   <a href="javascript:void(0);" class="btn btn-primary show_delivery" >Available Delivery</a>
-                              <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModalLong">Place Order <i class="fa fa-shopping-cart fa-fw"></i></a> </button> <span class="font12 block spacing1 font400 text-center">Min: `+data.price+`</span>
+                              <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModalLong">Place Order <i class="fa fa-shopping-cart fa-fw"></i></a> </button>
                               <div class="modal fade" aria-hidden="true" aria-labelledby="exampleModalLongTitle" id="exampleModalLong" role="dialog" tabindex="-1">
                                 <div class="modal-dialog" role="document">
                                   <div class="modal-content">
@@ -897,7 +1104,7 @@ function getSearchItem(userInput)
                                         <div class="row bg-danger">
                                           <div id="cid_83" class="form-input-wide">
                                             <div style="text-align:center">
-                                              <img alt="" class="form-image" style="border:0" src='http://getwallpapers.com/wallpaper/full/0/b/0/1443667-top-wallpaper-fruits-and-vegetables-1920x1200.jpg' height="310px" width="426px" data-component="image">
+                                              <img alt="" class="form-image" style="border:0" src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS9Dlclnp8VyOPNcdcbl9fgZ9utQ2I6bNvhM-TfzIeFA0QpjP7r' height="310px" width="100%" data-component="image">
                                             </div>
                                           </div>
                                         </div>
@@ -1200,6 +1407,8 @@ function getSearchItem(userInput)
 
                       $('#speakers').hide();
 
+                      $('.pagination').hide();
+
                       getBusinessReviews(data.id)
 
                       $('#close_review').click(function(){
@@ -1207,6 +1416,8 @@ function getSearchItem(userInput)
                           $('#revDiv').hide();
 
                           $('#speakers').show();
+
+                          $('.pagination').hide();
 
                       });
 
@@ -1266,12 +1477,12 @@ function getSearchItem(userInput)
         function paginate()
         {
 
-            console.log($('#speakers').children('.mycontainer'))
+            console.log('The length is ' + $('.container-fluid').length)
 
-            var numberOfItems = 18//$('#speakers > div') // Get toObjecttal number of the items that should be paginated
-            console.log(numberOfItems)
+            var numberOfItems =  $('.container-fluid').length // Get toObjecttal number of the items that should be paginated
+           
             var limitPerPage = 3; // Limit of items per each page
-            $('#speakers .mycontainer:gt(' + (limitPerPage - 1) + ')').hide(); // Hide all items over page limits (e.g., 5th item, 6th item, etc.)
+            $('.container-fluid:gt(' + (limitPerPage - 1) + ')').hide(); // Hide all items over page limits (e.g., 5th item, 6th item, etc.)
             var totalPages = Math.round(numberOfItems / limitPerPage); // Get number of pages
             $(".pagination").append('<li class="page-item"><a class="page-link" href="javascript:void(0)">'+1+'</a></li>'); // Add first page marker
 
@@ -1293,12 +1504,12 @@ function getSearchItem(userInput)
                 var currentPage = $(this).index(); // Get the current page number
                 $(".pagination li").removeClass('active'); // Remove the 'active' class status from the page that is currently being displayed
                 $(this).addClass('active'); // Add the 'active' class status to the page that was clicked on
-                $("#speakers .mycontainer").hide(); // Hide all items in loop, this case, all the list groups
+                $('.container-fluid').hide(); // Hide all items in loop, this case, all the list groups
                 var grandTotal = limitPerPage * currentPage; // Get the total number of items up to the page number that was clicked on
 
                 // Loop through total items, selecting a new set of items based on page number
                 for (var i = grandTotal - limitPerPage; i < grandTotal; i++) {
-                  $("#speakers .mycontainer:eq(" + i + ")").show(); // Show items from the new page that was selected
+                  $('.container-fluid').show(); // Show items from the new page that was selected
                 }
               }
 
@@ -1313,12 +1524,12 @@ function getSearchItem(userInput)
               } else {
                 currentPage++; // Increment the page by one
                 $(".pagination li").removeClass('active'); // Remove the 'active' class status from the current page
-                $("#speakers .mycontainer").hide(); // Hide all items in the pagination loop
+                $('.container-fluid').hide(); // Hide all items in the pagination loop
                 var grandTotal = limitPerPage * currentPage; // Get the total number of items up to the page that was selected
 
                 // Loop through total items, selecting a new set of items based on page number
                 for (var i = grandTotal - limitPerPage; i < grandTotal; i++) {
-                  $("#speakers .mycontainer:eq(" + i + ")").show(); // Show items from the new page that was selected
+                  $(".container-fluid:eq(" + i + ")").show(); // Show items from the new page that was selected
                 }
 
                 $(".pagination li.current-page:eq(" + (currentPage - 1) + ")").addClass('active'); // Make new page number the 'active' page
@@ -1334,12 +1545,12 @@ function getSearchItem(userInput)
               } else {
                 currentPage--; // Decrement page by one
                 $(".pagination li").removeClass('active'); // Remove the 'activate' status class from the previous active page number
-                $("#speakers .mycontainer").hide(); // Hide all items in the pagination loop
+                $(".container-fluid").hide(); // Hide all items in the pagination loop
                 var grandTotal = limitPerPage * currentPage; // Get the total number of items up to the page that was selected
 
                 // Loop through total items, selecting a new set of items based on page number
                 for (var i = grandTotal - limitPerPage; i < grandTotal; i++) {
-                  $("#speakers .mycontainer:eq(" + i + ")").show(); // Show items from the new page that was selected
+                  $(".container-fluid:eq(" + i + ")").show(); // Show items from the new page that was selected
                 }
 
                 $(".pagination li.current-page:eq(" + (currentPage - 1) + ")").addClass('active'); // Make new page number the 'active' page
